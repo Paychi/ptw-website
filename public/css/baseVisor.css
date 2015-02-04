@@ -1,0 +1,137 @@
+
+#sec
+{
+    margin-top:20px;   
+}
+a{
+ text-decoration: none;
+ }
+ 
+.header2,
+ .footer2{
+ width: 700px;
+ margin: 0 auto;
+ padding: 15px 30px;
+ }
+ 
+.header2 hgroup h1{
+ margin: 0;
+ padding: 5px 0;
+ color: rgb(220,220,220);
+ text-shadow: 0 0 2px rgb(0,0,0);
+ font-size: 40px;
+ border-bottom: double 1px rgb(220,220,220) ;
+ }
+ 
+.header2 hgroup h2{
+ margin:5px 0;
+ color: rgb(220,220,220);
+ text-shadow: 0 0 2px rgb(0,0,0);
+ font-size: 22px;
+ }
+ 
+.footer2{
+ text-align: center;
+ }
+ 
+.footer2 h5{
+ margin:5px 0;
+ color: rgb(220,220,220);
+ text-shadow: 0 0 2px rgb(0,0,0);
+ font-size: 15px;
+ }
+ 
+.section{
+ max-width: 700px;
+ margin: 0 auto;
+ padding: 15px 30px;
+ border-radius: 4px;
+ border: solid 1px rgba(250,250,250,0.8);
+ box-shadow: 0 0 15px rgba(15,15,15,0.5);
+ background: rgb(50,50,50);
+ }
+ .article{
+ display: inline-block;
+ max-width: 210px;
+ position: relative;
+ vertical-align: top;
+ padding: 0.5em;
+ }
+ 
+.article figure{
+ width: 99%;
+ }
+ 
+.article figure{padding: 0; margin: 0;}
+ 
+.article figure img{
+ width: 100%;
+ border: solid 5px rgba(250,250,250,0.8);
+ border-radius: 3px;
+ box-shadow: 0 0 2px rgba(0,0,0,0.5);
+ }
+ 
+.article figure figcaption{
+ padding: 5px;
+ color: rgba(200,200,200,1);
+ font-weight: bold;
+ }
+ 
+div.background img {
+ margin: 10% auto 0 ;
+ border: solid 5px #FFF ;
+ width: 500px;
+ height: 350px;
+ }
+ div.background {
+ display: none;
+ position: fixed;
+ top: 0;
+ left: 0;
+ right: 0;
+ bottom: 0;
+ height: 100%;
+ width: 100%;
+ text-align: center;
+ background: rgba(0,0,0,0.8);
+ }
+ div.background:target {
+ display: block;
+ }
+ /** IE no soporta :target, así que usaremos expresiones CSS **/
+ div.background {
+ display: expression((document.location.toString().split('#').slice(1) == this.
+ id)?'block':'none');
+ }
+ 
+div.background .close{
+ display: block;
+ width: 500px;
+ height: 0px;
+ padding:0 10px 0 0;
+ position: absolute;
+ color: #000;
+ font-size: 18px;
+ text-shadow: 0 0 4px #FFF;
+ margin: 0px auto 0px;
+ }
+ 
+ .cen{text-align: center;}
+ .der{text-align: right;}
+ .izq{text-align: left;}
+ 
+div.background .close:hover{
+ font-size: 19px;
+ display: expression((document.location.toString().split('#').slice(1) == this.id)?'block':'none');
+ }
+
+#txtM
+{
+	text-align:center;
+	margin-top: 10px;   
+}
+
+.colortexto_galeria
+{
+	color: rgba(200,200,200,1);
+}

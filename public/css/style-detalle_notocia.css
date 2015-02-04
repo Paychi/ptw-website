@@ -1,0 +1,9 @@
+.wp-post-image {
+    display: block;
+    width: 100%;
+	max-height: 400px;
+}
+
+.entry-header{
+	text-align:justify;
+}

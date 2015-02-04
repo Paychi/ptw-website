@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<!--[if IE 8]>         
+	<html class="no-js lt-ie9" lang="en"> 
+<![endif]-->
+<!--[if gt IE 8]><!--> 
+	<html class="no-js" lang="es"> 
+<!--<![endif]-->
+
+	<head>
+		<meta charset="utf-8" />
+	  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
+	  	<title>
+			Telemedicina | Administraci&oacute;n
+		</title>
+	  	<!-- FONT -->
+	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
+
+	  	<!-- CSS -->
+	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/bootstrap.min.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/bootstrap.css"/>		
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/app.css"/>	
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
+		
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_login.css"/>
+		@yield('css')
+	</head>
+	
+	<body>
+		<nav class="navbar navbar-inverse" role="navigation">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				  <span class="sr-only">Desplegar navegación</span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				  <span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="{{URL::to('/')}}"><img src="{{URL::to('/')}}/img/globe.svg" alt="img" width="10px" height="40px"/> Inicio</a>
+			</div>
+			<div class="collapse navbar-collapse navbar-ex1-collapse">
+				<ul class="nav navbar-nav">									
+					<li><a href='{{URL::to('/')}}/creditos'><span>Creditos</span></a> </li>
+				</ul>
+
+				<ul class="nav navbar-nav navbar-right">	
+					<li><a href='{{URL::to('/')}}/login'><span>Cerrar Sesion</span></a></li>
+				</ul>				
+			</div>				
+		</nav>
+	
+		<section class="container">
+			<div class="col-lg-2 st" id="content-left2">
+				<div>
+					<ul class="nav nav-pills nav-stacked">			
+						<li><a href='{{URL::to('/')}}/admon/noticias'><span>Noticia</span></a></li>
+						<li><a href='#'><span>Eventos</span></a></li>
+						<li><a href='#'><span>Usuarios</span></a></li>
+					</ul>
+				</div>
+			</div>
+			
+			<div class="col-lg-10">
+				@yield('content_admon')
+			</div>			
+		</section>
+			
+		<footer class = "alpie">
+			<section class="footer">
+				<div class="contenedor-footer">
+					<p class="texto-callado creditos">Proyecto de Telemedicina Waslala-Nicaragua</p>
+					{{HTML::image('img/logo_uni.png','logo_uni',array("style"=>"height:64px;width:114px;"))}} 					
+					{{HTML::image('img/logo_villanova.png','logo_villanova',array("style"=>"height:64px;width:254px;background:blue;"))}} 										
+				</div>
+			</section>
+		</footer>
+		
+		<script src="{{URL::to('/')}}/js/jquery.js"></script>
+		<script src="{{URL::to('/')}}/js/bootstrap.js"></script>
+		@yield('javascript')
+		
+	</body>
+</html> 
+

@@ -1,0 +1,184 @@
+
+* {
+	margin: 0; 
+	padding: 0;
+}
+
+body {
+	background: #f8f8f8;
+}
+
+a {
+    text-decoration: none;
+}
+
+div, figure, img, section {
+    margin: 0px;
+	padding: 0px;
+	border: 0px none;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+img, video {
+    max-width: 100%;
+    height: auto;
+}
+
+.contenedor_post{
+	position: relative;
+}
+
+.sticky {
+	position: fixed; 
+	top: 0;
+	z-index: 1030;
+}
+
+
+.footer {
+    width: 100%;
+    height: auto;
+    background-color: #f5f5f5;
+    border: 1px solid #d8d8d8;
+    border-top-width: 2px;
+    opacity: 0.5;  
+	background: #232525;
+}
+
+.contenedor-footer
+{
+  margin: auto;
+  text-align:center;
+}
+
+.contenedor-footer .creditos {
+  margin: 20px 0;
+}
+
+.texto-callado {
+    color: #999999;
+}
+
+.post {
+	margin:10px;
+	background:#fff;
+	border-bottom:#DDD 1px solid;
+	border-bottom:rgba(0,0,0,.13) 1px solid;
+	box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+.wp-post-image {
+    display: block;
+    width: 100%;
+	max-height: 200px;
+}
+
+.post .miniatura{
+	position:relative;
+	height:auto;
+}
+
+.post .extracto {
+	position:relative;
+    padding: 2.9%;
+    margin: 0px;
+	height: auto;
+}
+
+.entry-header{
+	clear:both;
+	float:none;
+	width:auto;
+}
+.entry-title{
+	font-size: 24px;
+	line-height: 1.62em;
+    font-family: "samba",sans-serif;
+    font-weight: 300;
+    letter-spacing: 1px;
+    overflow: hidden;
+}
+
+.entry-summary{
+	font-family: "gulim",sans-serif;
+	clear:both;
+	margin:0;
+	text-align:justify;
+}
+
+.ziseimgpost{
+    height: 200px;
+	width: 200px;
+}
+
+.extracto{
+	height:100px;
+	background:#dde8de;
+  	opacity:0.8;
+}
+
+.miniatura{
+	height:200px;
+}
+
+.st{
+	padding: 10px;
+	box-shadow:0 0 5px rgba(0,0,0,.1);
+	max-height:auto;
+}
+
+.img-header{
+	max-height:250px;
+	height: auto;
+	width:100%;
+}
+.container-img_header
+{
+	min-width:300px;
+}
+
+.fondoLV
+{
+	background:blue;
+}
+
+.img-colaborador{
+	min-height: 100px;
+}
+
+.post_colaboradores
+{
+	margin-bottom: 20px; 
+	background:#fff;
+	border-bottom:#DDD 1px solid;
+	border-bottom:rgba(0,0,0,.13) 1px solid;
+	box-shadow:0 0 20px rgba(0,0,0,.1);
+	padding:10px;
+}
+
+.banner
+{
+	position:relative;
+	height:auto;
+}
+
+.cont
+{
+    padding:10px;
+	border: 1px solid black;
+    border-radius: 10px;
+	background: #A0151D;
+    height: 122px;
+    width: 252px;
+}
+.alpie
+{
+    bottom: 0;
+    z-index: 1030;
+}
+
+.margin-content
+{
+	margin-right: 20px;
+}
