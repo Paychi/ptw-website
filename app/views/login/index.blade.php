@@ -11,7 +11,7 @@ Login
 		{{ Form::open(array('url' => '/login','method'=>'post')) }}
 			
 			@if (Session::has('error_login'))
-			  <span class="error">Usuario o contraseña incorrectos. {{Session::get('error_login')}}</span>
+			  <div class="error">Usuario o contrase&ntilde;a incorrectos! <!--{{Session::get('error_login')}}--></div>
 			@endif
 	 	 
 	        {{ Form::text('username', null, array('class' => 'form-control margin-campos', 'placeholder' => 'Nombre de Usuario', 'required', 'autofocus')) }}
@@ -27,11 +27,9 @@ Login
 	    {{ Form::close() }}
 
 	   
-	    @if(Session::has('mensaje'))
- 
-            <div id="flash_notice">{{ Session::get('mensaje') }}</div>
-                     
-         @endif
+	    @if(Session::has('mensaje')) 
+            <div class="flash_notice">{{ Session::get('mensaje') }}</div>                     
+        @endif
 
 	</div>
 

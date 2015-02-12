@@ -10,7 +10,7 @@
 		<meta charset="utf-8" />
 	  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	  	<title>
-			Telemedicina | @section('titulo')Administraci&oacute;n
+			Telemedicina | @section('titulo')Adis
 			@show
 		</title>
 	  	<!-- FONT -->
@@ -22,8 +22,6 @@
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/app.css"/>	
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
-		
-		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_login.css"/>
 		@yield('css')
 	</head>
 	
@@ -42,11 +40,11 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<!--<li><a href='{{URL::to('/')}}/es/creditos' target="_blank"><span>Creditos</span></a> </li>-->
-						<li><a href='{{URL::to('/')}}/admin' ><span>Administraci&oacute;n</span></a> </li>
+						<li><a href='{{URL::to('/')}}/adis' ><span>Adis</span></a> </li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">	
-						<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
+						<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
 					</ul>				
 				</div>				
 			</nav>
@@ -59,15 +57,13 @@
 			<div class="col-lg-2 st" id="content-left2">
 				<aside>
 					<ul class="nav nav-pills nav-stacked">			
-						<li><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
+						<li><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 					</ul>
 				</aside>
 			</div>
 			
 			<div class="col-lg-10">
-				@yield('content_admon')
+				@yield('content_adis')
 			</div>			
 		</section>
 			

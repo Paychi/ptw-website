@@ -11,10 +11,10 @@ class RootController extends BaseController {
 	| based routes. That's great! Here is an example controller method to
 	| get you started. To route to this controller, just add the route:
 	|
-	|	Route::get('/', 'RootController');
+	|	Route::get('/es', 'RootController');
 	|
 	*/
-	
+	public $restful = true;
 	protected $layout = 'layouts.home';
 
 	public function getIndex()
@@ -43,7 +43,7 @@ class RootController extends BaseController {
 		return $this->layout->content = View::make('site.search',compact("valores"));
 	}
 	
-	public function getLogin()
+	/*public function getLogin()
 	{
 		return $this->layout->content = View::make('login.index');
 	}
@@ -84,7 +84,7 @@ class RootController extends BaseController {
 		{			
 			return Redirect::to('admon');
 		}
-	}
+	}*/
 	public function getCreditos()
 	{
 		return $this->layout->content = View::make('site.creditos');

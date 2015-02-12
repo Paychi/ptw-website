@@ -182,3 +182,9 @@ img, video {
 {
 	margin-right: 20px;
 }
+
+.texto_header
+{
+	text-align: right;
+	margin: -20px 5px 20px 0px;
+}

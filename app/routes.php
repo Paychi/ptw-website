@@ -11,10 +11,47 @@
 |
 */
 
-/*Route::get('/', function()
+Route::controller('/es','RootController');
+Route::controller('/login','LoginController');
+Route::controller('/admin','AdmonController');
+Route::controller('/adis','AdisController');
+
+Route::get('/', function()
 {
-	return View::make('hello');
+	return Redirect::to('/es');
 });
-*/
-Route::controller('/','RootController');
-Route::controller('/admon','AdmonController');
+
+Event::listen('404', function()
+{
+	return Response::error('404');
+});
+
+Event::listen('500', function($exception)
+{
+	return Response::error('500');
+});
+
+Route::filter('csrf', function()
+{
+	if (Request::forged()) return Response::error('500');
+});
+
+Route::filter('auth', function()
+{
+	if (Auth::guest()) return Redirect::to('login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');;
+});
+
+/*Route::group(array('before' => 'auth'), function()
+{	
+	Route::controller('/admin','AdmonController');
+	
+	Route::get('/admin', function()
+	{
+		return View::make('admon.index_admon');
+	});
+	
+	Route::get('/admin/noticias', function()
+	{
+		return View::make('admon.noticias');
+	});
+});*/

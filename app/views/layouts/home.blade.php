@@ -45,15 +45,15 @@
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
-						<li><a href='{{URL::to('/')}}/waslala'><span> Waslala</span></a></li>
-						<li><a href='{{URL::to('/')}}/about'><span>Acerca de</span></a></li>
-						<li><a href='{{URL::to('/')}}/colaboradores'><span>Colaboradores</span></a> </li>	
-						<li><a href='{{URL::to('/')}}/creditos'><span>Creditos</span></a> </li>
+						<li><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
+						<li><a href='{{URL::to('/')}}/es/about'><span>Acerca de</span></a></li>
+						<li><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
+						<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>
 					</ul>
 					
 					
 					
-					{{ Form::open(array('url' => '/search','method'=>'post','class'=>'navbar-form navbar-right', 'role'=>'search')) }}						
+					{{ Form::open(array('url' => '/es/search','method'=>'post','class'=>'navbar-form navbar-right', 'role'=>'search')) }}						
 						<div class="form-group">
 							{{Form::text('itemsearch',null,array('class'=>'form-control','placeholder'=>'Noticia'))}}
 						</div>
@@ -64,12 +64,17 @@
 						<li><a href='{{URL::to('/')}}/login'><span>Login</span></a></li>
 					</ul>				
 				</div>				
-			</nav>			
+			</nav>	
+			<div class="texto_header">
+			  {{date("d-m-Y")}} | {{HTML::link("http://www.minsa.gob.ni/","Minsa Nicaragua")}} |
+			</div> 
 		</header>
 
 		<section class="container">
 			<div class="col-lg-2 st" id="content-left">
-				@yield('content-izq')
+				<aside>
+					@yield('content-izq')
+				</aside>
 			</div>
 			
 			<div class="col-lg-8" id="content-center">
@@ -77,9 +82,11 @@
 			</div>
 			
 			<div class="col-lg-2 st" id="content-right">
-				{{HTML::image('img/ptw.png','ptw',array("class"=>"","style"=>""))}}
-				<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
-				@yield('content-der')
+				<aside>
+					{{HTML::image('img/ptw.png','ptw',array("class"=>"","style"=>""))}}
+					<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
+					@yield('content-der')
+				</aside>
 			</div>		
 			
 		</section>

@@ -1,11 +1,11 @@
 @extends('layouts.layout_admon')
 
 @section('titulo')
-Ad-Noticias
+Ad-Eventos
 @stop
 
 @section('content_admon')
- <h1> formulario para administrar parametros de noticias. </h1>
+ <h1> formulario para administrar parametros de eventos. </h1>
  	
-@endsection
+@stop
 	

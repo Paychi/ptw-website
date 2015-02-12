@@ -23,12 +23,12 @@
 			<center>
 				<div class="post">	
 					<figure class="miniatura">
-						<a href="detalle/Titulo {{$i+1}}">{{HTML::image('img/test.png','noticia',array("class"=>"wp-post-image"))}}</a>
+						<a href="{{URL::to('/')}}/es/detalle/Titulo {{$i+1}}">{{HTML::image('img/test.png','noticia',array("class"=>"wp-post-image"))}}</a>
 					</figure>
 					<div class="extracto">
 						<header class="entry-header">
 							<h2 class="entry-title">
-								<a href="detalle/Titulo {{$i+1}}">Titulo {{$i+1}}</a>
+								<a href="{{URL::to('/')}}/es/detalle/Titulo {{$i+1}}">Titulo {{$i+1}}</a>
 							</h2>
 						</header>
 						<div class="entry-summary">
