@@ -26,17 +26,57 @@ class AdisController extends BaseController {
 	
 	public function getIndex()
 	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 2)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
 		return $this->layout->content = View::make('adis.index_adis');
 	}
 	
 	public function getLogout()
 	{
-		Auth::logout();
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 2)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		//Auth::logout();
+		Session::forget('usuario');
 		return Redirect::to('login')->with('mensaje','¡Has cerrado sesión correctamente!.');
 	}
 		
 	public function getEventos()
 	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 2)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
 		return $this->layout->content = View::make('adis.eventos');
 	}
 }

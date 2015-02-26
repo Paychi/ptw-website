@@ -141,10 +141,12 @@ img, video {
 .fondoLV
 {
 	background:blue;
+	padding:10px;
 }
 
 .img-colaborador{
 	min-height: 100px;
+	max-height: 200px;
 }
 
 .post_colaboradores
@@ -174,8 +176,12 @@ img, video {
 }
 .alpie
 {
-    bottom: 0;
-    z-index: 1030;
+	
+}
+
+.contenido
+{
+	
 }
 
 .margin-content
@@ -187,4 +193,20 @@ img, video {
 {
 	text-align: right;
 	margin: -20px 5px 20px 0px;
+}
+
+.fecha_post
+{
+	text-align: right;
+}
+
+.parrafos_noticias
+{
+	/*word-spacing:5em;*/
+}
+
+.search
+{
+	margin: 30px 0px;
+	padding: 0px;
 }

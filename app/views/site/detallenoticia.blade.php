@@ -1,7 +1,7 @@
 @extends('layouts.home')
 
 @section('titulo')
-{{$dato}}
+{{$datos->titulo}}
 @stop
 
 @section('imagenes')
@@ -19,23 +19,23 @@
 @stop
 
 @section('content')
-	<h1>Descripcion de: {{$dato}}</h1>
+	
 	<div class="contenedor_post">	
 		<section class = "col-lg-12">
 			<center>
 				<div class="post">	
 					<figure class="miniatura">
-						{{HTML::image('img/test.png','noticia',array("class"=>"wp-post-image"))}}
+						{{HTML::image("uploads/noticias/$datos->imagen",'noticia',array("class"=>"wp-post-image img-rounded"))}}
 					</figure>
 					<div class="extracto">
 						<header class="entry-header">
 							<h2 class="entry-title">
-								{{$dato}}
+								{{$datos->titulo}}
 							</h2>
 						</header>
 						<div class="entry-summary">
-							<p>
-								Esta es el contenido de la descripcion de la noticia: {{$dato}}
+							<p class="parrafos_noticias">
+								{{ nl2br($datos->descripcion)}}
 							</p>
 						</div>
 					</div>

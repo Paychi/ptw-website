@@ -1,11 +1,5 @@
 <!DOCTYPE html>
-<!--[if IE 8]>         
-	<html class="no-js lt-ie9" lang="en"> 
-<![endif]-->
-<!--[if gt IE 8]><!--> 
 	<html class="no-js" lang="es"> 
-<!--<![endif]-->
-
 	<head>
 		<meta charset="utf-8" />
 	  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -22,6 +16,7 @@
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/app.css"/>	
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_formulario.css"/>
 		
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_login.css"/>
 		@yield('css')
@@ -46,17 +41,21 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">	
-						<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
+						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
+							<ul class="dropdown-menu">
+								<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
+							</ul>
+						</li>
 					</ul>				
 				</div>				
 			</nav>
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("http://www.minsa.gob.ni/","Minsa Nicaragua")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
 			</div> 
 		</header>
 	
 		<section class="container">
-			<div class="col-lg-2 st" id="content-left2">
+			<div class="col-lg-2 st menu_perfil" id="content-left2">
 				<aside>
 					<ul class="nav nav-pills nav-stacked">			
 						<li><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
@@ -66,7 +65,7 @@
 				</aside>
 			</div>
 			
-			<div class="col-lg-10">
+			<div class="col-lg-10 contenido">
 				@yield('content_admon')
 			</div>			
 		</section>

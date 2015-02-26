@@ -1,0 +1,18 @@
+
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+/*form styles*/
+#msform {
+	max-width: 900px;
+	background: white;
+	border: 0 none;
+	border-radius: 3px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 20px 30px;
+	box-sizing: border-box;
+	margin-bottom: 20px;
+	overflow:hiden;
+}
+

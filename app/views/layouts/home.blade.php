@@ -46,9 +46,9 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<li><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
-						<li><a href='{{URL::to('/')}}/es/about'><span>Acerca de</span></a></li>
+						<li><a href='{{URL::to('/')}}/es/about'><span>Lo que somos</span></a></li>
 						<li><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
-						<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>
+						<!--<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>-->
 					</ul>
 					
 					
@@ -61,12 +61,27 @@
 					{{ Form::close() }}
 
 					<ul class="nav navbar-nav navbar-right">	
-						<li><a href='{{URL::to('/')}}/login'><span>Login</span></a></li>
+						@if(Session::has('usuario'))
+							<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
+								<ul class="dropdown-menu">									
+									@if($perfil == 1)
+										<li><a href='{{URL::to('/')}}/admin'><span>Administraci&oacute;n</span></a></li>
+									@endif
+									@if($perfil == 2)
+										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>
+									@endif
+									<li><a href='{{URL::to('/')}}/es/logout'><span>Cerrar Sesion</span></a></li>
+								</ul>
+							</li>
+						@endif
+						@if(!Session::has('usuario'))
+							<li><a href='{{URL::to('/')}}/login'><span>Login</span></a></li>
+						@endif
 					</ul>				
 				</div>				
 			</nav>	
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("http://www.minsa.gob.ni/","Minsa Nicaragua")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
 			</div> 
 		</header>
 
@@ -94,9 +109,9 @@
 		<footer>
 			<section class="footer">
 				<div class="contenedor-footer">
-					<p class="texto-callado creditos">Proyecto de Telemedicina Waslala-Nicaragua</p>
+					<p class="texto-callado creditos">Proyecto de Telemedicina Waslala-Nicaragua - Sitio Web Desarrollado por Alvin Baltodano y Fernando Montes</p>
 					{{HTML::image('img/logo_uni.png','logo_uni',array("style"=>"height:64px;width:114px;"))}} 					
-					{{HTML::image('img/logo_villanova.png','logo_villanova',array("style"=>"height:64px;width:254px;background:blue;"))}} 										
+					{{HTML::image('img/logo_villanova.png','logo_villanova',array("style"=>"height:64px;width:254px;background:blue;padding:10px;"))}}
 				</div>
 			</section>
 		</footer>

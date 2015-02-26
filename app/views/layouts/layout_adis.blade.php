@@ -1,10 +1,6 @@
 <!DOCTYPE html>
-<!--[if IE 8]>         
-	<html class="no-js lt-ie9" lang="en"> 
-<![endif]-->
-<!--[if gt IE 8]><!--> 
+
 	<html class="no-js" lang="es"> 
-<!--<![endif]-->
 
 	<head>
 		<meta charset="utf-8" />
@@ -44,17 +40,21 @@
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">	
-						<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
+						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
+							<ul class="dropdown-menu">
+								<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
+							</ul>
+						</li>
 					</ul>				
 				</div>				
 			</nav>
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("http://www.minsa.gob.ni/","Minsa Nicaragua")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
 			</div> 
 		</header>
 	
 		<section class="container">
-			<div class="col-lg-2 st" id="content-left2">
+			<div class="col-lg-2 st menu_perfil" id="content-left2">
 				<aside>
 					<ul class="nav nav-pills nav-stacked">			
 						<li><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>

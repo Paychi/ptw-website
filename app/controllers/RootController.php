@@ -19,28 +19,141 @@ class RootController extends BaseController {
 
 	public function getIndex()
 	{
-		return $this->layout->content = View::make('site.inicio');
+		try
+		{
+			$datos = Noticias::paginate(3);
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('site.inicio',compact("datos","perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function getWaslala()
 	{
-		return $this->layout->content = View::make('site.waslala');
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('site.waslala',compact("perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function getAbout()
 	{
-		return $this->layout->content = View::make('site.about');
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('site.about',compact("perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function getColaboradores()
 	{
-		return $this->layout->content = View::make('site.colaboradores');
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('site.colaboradores',compact("perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function postSearch()
 	{
-		$valores = Input::All();
-		return $this->layout->content = View::make('site.search',compact("valores"));
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			$valores = Input::All();
+			$noticiapost = $valores["itemsearch"];
+			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();
+			return $this->layout->content = View::make('site.search',compact("noticiapost","datos","perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	/*public function getLogin()
@@ -87,17 +200,89 @@ class RootController extends BaseController {
 	}*/
 	public function getCreditos()
 	{
-		return $this->layout->content = View::make('site.creditos');
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('site.creditos',compact("perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function getAdmon()
 	{
-		return $this->layout->content = View::make('admon.index_admon');
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			return $this->layout->content = View::make('admon.index_admon',compact("perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
 	
 	public function getDetalle($dato=null)
 	{
-		return $this->layout->content = View::make('site.detallenoticia',compact("dato"));
+		try
+		{
+			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+			$perfil = 0;
+			if (count($user_login)>0)
+			{
+				if($user_login[0]->perfil->id_perfil == 1)
+					$perfil = 1;
+					
+				if($user_login[0]->perfil->id_perfil == 2)
+					$perfil = 2;
+			}
+			else
+			{
+				$perfil = 0;
+			}
+			
+			$datos=Noticias::where('titulo','=',$dato)->firstOrFail();
+			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil"));
+		}
+		catch(Exception $e )
+		{
+			return Redirect::to('/error');
+		}
 	}
-	
+	public function getLogout()
+	{
+		//Auth::logout();
+		Session::forget('usuario');
+		return Redirect::to('/');
+	}
 }
