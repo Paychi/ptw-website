@@ -68,13 +68,13 @@
 		</section>
 			
 		<footer class = "alpie">
-			<section class="footer">
+			<!--<section class="footer">
 				<div class="contenedor-footer">
 					<p class="texto-callado creditos">Proyecto de Telemedicina Waslala-Nicaragua</p>
 					{{HTML::image('img/logo_uni.png','logo_uni',array("style"=>"height:64px;width:114px;"))}} 					
 					{{HTML::image('img/logo_villanova.png','logo_villanova',array("style"=>"height:64px;width:254px;background:blue;"))}} 										
 				</div>
-			</section>
+			</section>-->
 		</footer>
 		
 		<script src="{{URL::to('/')}}/js/jquery.js"></script>

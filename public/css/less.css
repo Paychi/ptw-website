@@ -16,6 +16,22 @@ px 68 160 252 344 436 528 620 712 804 896 */
 	}
 }
 
+@media only screen and (min-width: 10px) and (max-width: 1211px) {
+	.menu_perfil{
+		display:inline-block;
+		width:100%;
+		margin-bottom:20px;
+	}
+	
+	.menu_perfil ul{
+		display:inline-block;
+	}
+	
+	.menu_perfil li{
+		display:inline-table;
+	}
+}
+
 
 /* Tablet Layout: 768px.
 Gutters: 24px.

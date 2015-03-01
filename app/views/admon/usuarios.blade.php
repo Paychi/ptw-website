@@ -12,10 +12,11 @@ Ad-Usuarios
 		</div>
 	@endif
 
- <table class="table table-hover">
+	<table class="table table-hover">
 		<thead>
 			<th>Nombre Completo</th>
 			<th>Nombre de Usuario</th>
+			<th>Perfil de Usuario</th>
 			<th>Fecha Registro</th>
 			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class="btn btn-success">Nuevo</a></center></th>
 		</thead>
@@ -24,6 +25,7 @@ Ad-Usuarios
 				<tr>
 					<td>{{$item->nombres.' '.$item->apellidos}}</td>
 					<td>{{$item->nombre_usuario}}</td>
+					<td>{{$item->perfil->nombre}}</td>
 					<td>{{$item->created_at}}</td>
 					<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
 					<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
