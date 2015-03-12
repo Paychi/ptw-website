@@ -15,4 +15,9 @@ class Usuarios extends Eloquent
 	{
 		return $this->belongsTo('Perfiles', 'id_perfil');
 	}
+	
+	public function colaborador()
+	{
+		return $this->hasMany('Colaboradores', 'id_usuario');
+	}
 }

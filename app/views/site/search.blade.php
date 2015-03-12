@@ -6,7 +6,7 @@ Search
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/waslala.png','waslala',array("class"=>"img-header"))}}
+		{{HTML::image('img/Header_site/inicio.png','waslala',array("class"=>"img-header"))}}
 	</div>
 @stop
 

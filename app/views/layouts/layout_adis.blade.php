@@ -31,7 +31,7 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" target="_blank" href="{{URL::to('/')}}">{{HTML::image('img/globe.svg','img',array("width"=>"10px", "height"=>"40px"))}} Inicio</a>
+					<a class="navbar-brand" href="{{URL::to('/')}}">{{HTML::image('img/globe.svg','img',array("width"=>"10px", "height"=>"40px"))}} Inicio</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
@@ -42,6 +42,7 @@
 					<ul class="nav navbar-nav navbar-right">	
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
 							<ul class="dropdown-menu">
+								<li><a href='#'><span>Cambiar Contrase&ntilde;a</span></a></li>
 								<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
 						</li>

@@ -476,4 +476,223 @@ class AdmonController extends BaseController {
 		Session::flash('mensaje','Registro eliminado correctamente!!');
 		return Redirect::to('/admin/usuarios');	
 	}
+	
+/***   Vista Colaboradores de Administracion   ***/	
+	
+	public function getColaboradores()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		$datos = Colaboradores::paginate(10);
+		return $this->layout->content = View::make('admon.colaboradores',compact("datos"));
+	}
+	
+	public function getAddcolaborador()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		return $this->layout->content = View::make('admon.addcolaborador');
+	}
+	
+	public function postAddcolaborador()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		try
+		{
+			DB::beginTransaction();
+			$inputs = Input::All();
+			$validaciones = array
+			(
+				'nombre' => 'required|min:5',
+				'descripcion' => 'required|min:5',
+				'abreviatura' => 'required',
+				'fecha' => 'required|min:5'
+			);		
+			$mensajes = array
+			(
+				"required" => "Este campo no puede quedar vacio.",
+				"min" => "Debe tener como minimo 5 caracteres"
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+				
+			}else
+			{			
+				$path = 'uploads/logo_colaboradores';
+				$file = Input::file('logo');
+				$archivo = $file->getClientOriginalName();
+				
+				$upload = $file->move($path,$archivo);
+				
+				if($upload)
+				{
+					$id_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+					$c = new Colaboradores;
+					$c->id_usuario = $id_user[0]->id_usuario;
+					$c->nombre = $inputs["nombre"];
+					$c->abreviatura = $inputs["abreviatura"];
+					$c->descripcion = $inputs["descripcion"];
+					$c->logo = $archivo;
+					$c->sitio_web = $inputs["website"];
+					$c->fecha_colaborador = $inputs["fecha"];
+					$c->estado = 1;
+					$c->save();
+					Session::flash('mensaje','Registro ingresado correctamente!!');
+					DB::commit();
+					return Redirect::to('/admin/colaboradores');
+				}else
+				{
+					Session::flash('mensaje','No se pudo subir el archivo!!');
+					return Redirect::to('/admin/colaboradores');
+				}
+			}
+		}
+		catch(Exception $e)
+		{
+			DB::rollback();
+			
+			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/colaboradores');
+		}
+	}
+	
+	public function getEditcolaborador($id_colaborador = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		$datos = Colaboradores::find($id_colaborador);
+		return $this->layout->content = View::make('admon.editcolaborador',compact("datos"));
+	}
+	
+	public function postEditcolaborador()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+	
+		try
+		{
+			DB::beginTransaction();
+			$inputs = Input::All();
+			$validaciones = array
+			(
+				'nombre' => 'required|min:5',
+				'descripcion' => 'required|min:5',
+				'abreviatura' => 'required',
+				'fecha' => 'required|min:5'
+			);		
+			$mensajes = array
+			(
+				"required" => "Este campo no puede quedar vacio.",
+				"min" => "Debe tener como minimo 5 caracteres",
+				"unique" => "Usuario ya existe"
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+			}else
+			{				
+				$ec = Colaboradores::find($inputs["id"]);
+				$ec->nombre = $inputs["nombre"];
+				$ec->abreviatura = $inputs["abreviatura"];
+				$ec->descripcion = $inputs["descripcion"];
+				$ec->sitio_web = $inputs["website"];
+				$ec->fecha_colaborador = $inputs["fecha"];
+				$ec->estado = 1;
+				$ec->save();
+				Session::flash('mensaje','Registro editado correctamente!!');
+				DB::commit();
+				return Redirect::to('/admin/colaboradores');
+			}
+		}
+		catch(Exception $e)
+		{
+			DB::rollback();
+			
+			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/colaboradores');
+		}		
+	}
+	
+	public function getDelatecolaborador($id_colaborador = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		$dc = Colaboradores::find($id_colaborador);
+		$dc -> delete();
+		Session::flash('mensaje','Registro eliminado correctamente!!');
+		return Redirect::to('/admin/colaboradores');	
+	}
 }

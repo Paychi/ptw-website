@@ -10,7 +10,7 @@ About
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/about.png','waslala',array("class"=>"img-header"))}}
+		{{HTML::image('img/Header_site/about.png','waslala',array("class"=>"img-header"))}}
 	</div>
 @stop
 
@@ -534,7 +534,7 @@ About
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/34.jpg'>{{HTML::image('img/About/about_34.jpg','about_34')}}</a>
+					<a href='{{URL::to('/')}}/img/About/about_34.jpg'>{{HTML::image('img/About/about_34.jpg','about_34')}}</a>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">

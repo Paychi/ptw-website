@@ -103,6 +103,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
+			$datos = Colaboradores::all();
 			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
 			$perfil = 0;
 			if (count($user_login)>0)
@@ -118,7 +119,7 @@ class RootController extends BaseController {
 				$perfil = 0;
 			}
 			
-			return $this->layout->content = View::make('site.colaboradores',compact("perfil"));
+			return $this->layout->content = View::make('site.colaboradores',compact("perfil", "datos"));
 		}
 		catch(Exception $e )
 		{

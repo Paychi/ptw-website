@@ -2,7 +2,7 @@
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/inicio.png','inicio',array("class"=>"img-header"))}}
+		{{HTML::image('img/Header_site/inicio.png','inicio',array("class"=>"img-header"))}}
 	</div>
 @stop
 
@@ -10,7 +10,7 @@
 	<div>
 		<ul class="nav nav-pills nav-stacked">		
 			@foreach($datos as $dato)
-				<li><a href='#noticia{{$dato->id}}'><span>{{$dato->titulo}}</span></a></li>
+				<li><a href='#noticia{{$dato->id_noticia}}'><span>{{$dato->titulo}}</span></a></li>
 			@endforeach
 		</ul>
 	</div>
@@ -19,7 +19,7 @@
 @section('content')
 	@foreach($datos as $dato)
 		<div class="contenedor_post">	
-			<section id="noticia{{$dato->id}}" class = "col-lg-12">
+			<section id="noticia{{$dato->id_noticia}}" class = "col-lg-12">
 				<center>
 					<div class="post">	
 						<figure class="miniatura">

@@ -70,6 +70,7 @@
 									@if($perfil == 2)
 										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>
 									@endif
+									<li><a href='#'><span>Cambiar Contrase&ntilde;a</span></a></li>
 									<li><a href='{{URL::to('/')}}/es/logout'><span>Cerrar Sesion</span></a></li>
 								</ul>
 							</li>
@@ -98,7 +99,7 @@
 			
 			<div class="col-lg-2 st" id="content-right">
 				<aside>
-					{{HTML::image('img/ptw.png','ptw',array("class"=>"","style"=>""))}}
+					<!--{{HTML::image('img/ptw.png','ptw',array("class"=>"","style"=>""))}}-->
 					<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
 					@yield('content-der')
 				</aside>
