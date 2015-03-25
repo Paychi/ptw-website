@@ -31,9 +31,15 @@ Search
 	@endif
 	
 	@foreach($datos as $dato)
+		<?php
+			setlocale(LC_TIME,'spanish');
+			$fecha=strtotime($dato->fecha_noticia);
+			$mes=date("m",$fecha);
+			$fecha_noticia= date("d",$fecha) ." de ". strftime("%B",mktime(0,0,0,$mes,1,2000)) ." del ". date("Y",$fecha);
+		 ?>
 		<div class="post search" id="noticia{{$dato->id_noticia}}">
 			<div class="extracto">
-				<p class="fecha_post">{{$dato->fecha_noticia}}</p>
+				<p class="fecha_post">{{$fecha_noticia}}</p>
 				<header class="entry-header">
 					<h2 class="entry-title">
 						<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{$dato->titulo}}</a>

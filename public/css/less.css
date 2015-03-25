@@ -14,6 +14,10 @@ px 68 160 252 344 436 528 620 712 804 896 */
 	#content-left, #content-right{
 		display:none;
 	}
+	#div_promotor
+	{
+		display:block;
+	}
 }
 
 @media only screen and (min-width: 10px) and (max-width: 1211px) {
@@ -44,6 +48,10 @@ px 68 160 252 344 436 528 620 712 */
 	#content-left, #content-right{
 		display:none;
 	}
+	#div_promotor
+	{
+		display:block;
+	}
 }
 /* Mobile Layout: 320px.
 Gutters: 24px.
@@ -55,6 +63,10 @@ px 68 160 252 */
 @media only screen and (max-width: 767px) {
 	#content-left, #content-right{
 		display:none;
+	}
+	#div_promotor
+	{
+		display:block;
 	}
 }
 /* Wide Mobile Layout: 480px.
@@ -68,6 +80,10 @@ px 68 160 252 344 436 */
 	#content-left, #content-right{
 		display:none;
 	}
+	#div_promotor
+	{
+		display:block;
+	}
 }
 /* Retina media query.
 Overrides styles for devices with a
@@ -76,6 +92,10 @@ device-pixel-ratio of 2+, such as iPhone 4.
 @media only screen and (max-width: 480px) {
 	#content-left, #content-right{
 		display:none;
+	}
+	#div_promotor
+	{
+		display:block;
 	}
 }
 @media

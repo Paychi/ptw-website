@@ -13,6 +13,9 @@
 			Telemedicina | @section('titulo')Inicio
 			@show
 		</title>
+		
+		<!-- LOGO -->
+		<link rel="icon" href="{{URL::to('/')}}/img/nova.png" />
 
 	  	<!-- FONT -->
 	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
@@ -94,6 +97,20 @@
 			</div>
 			
 			<div class="col-lg-8" id="content-center">
+				<div id="div_promotor" class="text-center">
+					<label class="promotor_mes">Promotor del Mes: 
+						<b>
+							<dfn title="{{$defn}}" onClick="MostrarContPromotorHidden()">
+								Nombre Apellido
+							</dfn>
+						</b>
+					</label>
+					<div id="contDefPromotorHidden"> 
+						<p>
+							{{$defnhidden}}
+						</p>
+					</div>
+				</div>
 				@yield('content')
 			</div>
 			
@@ -101,6 +118,18 @@
 				<aside>
 					<!--{{HTML::image('img/ptw.png','ptw',array("class"=>"","style"=>""))}}-->
 					<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
+					<label class="promotor_mes">Promotor del Mes: 
+						<b>
+							<dfn title="{{$defn}}" onClick="MostrarContPromotor()">
+								Nombre Apellido
+							</dfn>
+						</b>
+					</label>
+					<div id="contDefPromotor"> 
+						<p>
+							{{$defnhidden}}
+						</p>
+					</div>
 					@yield('content-der')
 				</aside>
 			</div>		
@@ -118,9 +147,9 @@
 		</footer>
 		
 		<script src="{{URL::to('/')}}/js/jquery.js"></script>
+		<script src="{{URL::to('/')}}/js/app.js"></script>
 		<script src="{{URL::to('/')}}/js/bootstrap.js"></script>
 		@yield('javascript')
-		
 	</body>
 </html> 
 

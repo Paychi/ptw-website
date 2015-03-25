@@ -18,6 +18,12 @@
 
 @section('content')
 	@foreach($datos as $dato)
+		<?php
+			setlocale(LC_TIME,'spanish');
+			$fecha=strtotime($dato->fecha_noticia);
+			$mes=date("m",$fecha);
+			$fecha_noticia= date("d",$fecha) ." de ". strftime("%B",mktime(0,0,0,$mes,1,2000)) ." del ". date("Y",$fecha);
+		 ?>
 		<div class="contenedor_post">	
 			<section id="noticia{{$dato->id_noticia}}" class = "col-lg-12">
 				<center>
@@ -26,7 +32,7 @@
 							<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{HTML::image("uploads/noticias/$dato->imagen",'noticia',array("class"=>"wp-post-image img-rounded"))}}</a>
 						</figure>
 						<div class="extracto">
-							<p class="fecha_post">{{date($dato->fecha_noticia)}}</p>
+							<p class="fecha_post">{{$fecha_noticia}}</p>
 							<header class="entry-header">
 								<h2 class="entry-title">
 									<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{$dato->titulo}}</a>

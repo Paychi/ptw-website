@@ -222,3 +222,50 @@ img, video {
 {
 	color: #5cb85c;
 }
+
+.promotor_mes
+{
+	text-align:center;
+	font-weight: normal;
+}
+
+#div_promotor
+{
+	display:none;
+	margin: 0px 24px;
+	padding: 10px 5px;
+	background:#fff;
+	border-bottom:#DDD 1px solid;
+	border-bottom:rgba(0,0,0,.13) 1px solid;
+	box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+#contDefPromotor
+{
+	display: none;
+	padding: 5px;
+	background:#DDE8DE;
+	box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+#contDefPromotorHidden
+{
+	display: none;
+	padding: 5px;
+	background:#DDE8DE;
+	box-shadow:0 0 20px rgba(0,0,0,.1);
+}
+
+.promotor_mes dfn:hover
+{
+	cursor: pointer;
+}
+
+.text_bienvenida {
+    text-align:center;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-family:'Comic Sans MS'; 
+    text-shadow:20px 15px 2px #333;
+}

@@ -37,7 +37,10 @@ class RootController extends BaseController {
 				$perfil = 0;
 			}
 			
-			return $this->layout->content = View::make('site.inicio',compact("datos","perfil"));
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.inicio',compact("datos","perfil","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
@@ -64,7 +67,10 @@ class RootController extends BaseController {
 				$perfil = 0;
 			}
 			
-			return $this->layout->content = View::make('site.waslala',compact("perfil"));
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.waslala',compact("perfil","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
@@ -91,7 +97,10 @@ class RootController extends BaseController {
 				$perfil = 0;
 			}
 			
-			return $this->layout->content = View::make('site.about',compact("perfil"));
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.about',compact("perfil","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
@@ -119,7 +128,10 @@ class RootController extends BaseController {
 				$perfil = 0;
 			}
 			
-			return $this->layout->content = View::make('site.colaboradores',compact("perfil", "datos"));
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.colaboradores',compact("perfil", "datos","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
@@ -149,7 +161,11 @@ class RootController extends BaseController {
 			$valores = Input::All();
 			$noticiapost = $valores["itemsearch"];
 			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();
-			return $this->layout->content = View::make('site.search',compact("noticiapost","datos","perfil"));
+			
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.search',compact("noticiapost","datos","perfil","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
@@ -273,7 +289,11 @@ class RootController extends BaseController {
 			}
 			
 			$datos=Noticias::where('titulo','=',$dato)->firstOrFail();
-			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil"));
+			
+			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			
+			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil","defn","defnhidden"));
 		}
 		catch(Exception $e )
 		{
