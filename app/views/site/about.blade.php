@@ -10,7 +10,7 @@ About
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/Header_site/about.png','waslala',array("class"=>"img-header"))}}
+		{{HTML::image('uploads/header_site/banner_about.png','about',array("class"=>"img-header"))}}
 	</div>
 @stop
 
@@ -307,21 +307,24 @@ About
 		controles prenatales.</p>
 		
 		<p><strong>Estos  90  líderes han recibido del proyecto material básico para trabajo comunitario en salud como:</strong></p>
-		<pre>		1.	Teléfono celular
-		2.	Panel solar con todos sus accesorios para cargar teléfonos
-		3.	Equipo completo  para toma de  presión arterial
-		4.	Termómetro  digital
-		5.	Botas de hule
-		6.	Carpeta  
-		7.	Lápiz y cuaderno
-		8.	Foco con batería
-		9.	Pesa pediátrica
-		10.	Mochila
-		11.	Camiseta
-		12.	1 manual de  atención  a las enfermedades prevalentes de la infancia.
-		13.	Centímetro
-		14.	Pinza
-		15.	Tijera</pre>
+		<?php
+			$material = "1.	Teléfono celular
+			2.	Panel solar con todos sus accesorios para cargar teléfonos
+			3.	Equipo completo  para toma de  presión arterial
+			4.	Termómetro  digital
+			5.	Botas de hule
+			6.	Carpeta  
+			7.	Lápiz y cuaderno
+			8.	Foco con batería
+			9.	Pesa pediátrica
+			10.	Mochila
+			11.	Camiseta
+			12.	1 manual de  atención  a las enfermedades prevalentes de la infancia.
+			13.	Centímetro
+			14.	Pinza
+			15.	Tijera";
+		?>
+		<p style="padding-left: 40px;">	{{ nl2br($material)}}	</p>
 		
 		<p>El proyecto ha invertido en cada líder en estos materiales la cantidad de:C$ 5,612.92 córdobas, más los costos de capacitación.</p>
 	</div>

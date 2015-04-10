@@ -695,4 +695,99 @@ class AdmonController extends BaseController {
 		Session::flash('mensaje','Registro eliminado correctamente!!');
 		return Redirect::to('/admin/colaboradores');	
 	}
+	
+	/***   Vista Configuracion para los banners   ***/	
+	
+	public function getConfbanners()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		return $this->layout->content = View::make('admon.banners');
+	}
+	
+	public function postConfbanners()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+			
+		try
+		{		
+			$inputs = Input::All();		
+			$path = 'uploads/header_site';
+			$file = $inputs["imagen_banner"];
+			$nombre_file = $inputs["nombre_banner"];
+			
+			$extencion = $file->getClientOriginalExtension();
+			$tamano = $file->getSize();
+			$imagen_banner = $file->getClientOriginalName();
+			
+			//$imp= 'nada';
+			if($extencion == "png" || $extencion == "jpg" || $extencion == "PNG" || $extencion == "JPG")
+			{
+				$upload = $file->move($path,$nombre_file);
+				if($upload)
+				{
+					//$imp= '<br /> nombre: '.$imagen_banner.'<br /> tamano: '.$tamano.'<br /> extencion: '.$extencion;
+					Session::flash('mensaje','Registro actualizado correctamente!!<br /> sino se muestra la nueva imagen recarge la pagina. Gracias!');
+					return Redirect::to('/admin/confbanners');
+				}
+				else
+				{
+					Session::flash('mensaje','Error al subir el archivo');
+					return Redirect::to('/admin/confbanners');
+				}				
+			}
+			else
+			{
+				Session::flash('mensaje','Formato Invalido');
+				return Redirect::to('/admin/confbanners');
+			}				
+		}
+		catch(Exception $e)
+		{			
+			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/confbanners');
+		}
+	}
+	
+	public function getActbanner($id_banner = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		
+		
+		return $this->layout->content = View::make('admon.actbanner');
+	}
 }

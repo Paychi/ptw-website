@@ -59,6 +59,7 @@
 					{{ Form::open(array('url' => '/es/search','method'=>'post','class'=>'navbar-form navbar-right', 'role'=>'search')) }}						
 						<div class="form-group">
 							{{Form::text('itemsearch',null,array('class'=>'form-control','placeholder'=>'Noticia'))}}
+							<!--<input type="search" name="itemsearch" class = "form-control" placeholder = "Noticia" />-->
 						</div>
 						{{Form::submit('Buscar',['class' => 'btn btn-default'])}}    
 					{{ Form::close() }}
@@ -73,7 +74,7 @@
 									@if($perfil == 2)
 										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>
 									@endif
-									<li><a href='#'><span>Cambiar Contrase&ntilde;a</span></a></li>
+									<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 									<li><a href='{{URL::to('/')}}/es/logout'><span>Cerrar Sesion</span></a></li>
 								</ul>
 							</li>
@@ -105,7 +106,7 @@
 							</dfn>
 						</b>
 					</label>
-					<div id="contDefPromotorHidden"> 
+					<div id="contDefPromotorHidden" class="text-center"> 
 						<p>
 							{{$defnhidden}}
 						</p>
@@ -125,7 +126,7 @@
 							</dfn>
 						</b>
 					</label>
-					<div id="contDefPromotor"> 
+					<div id="contDefPromotor" class="text-center"> 
 						<p>
 							{{$defnhidden}}
 						</p>

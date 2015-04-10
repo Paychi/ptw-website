@@ -20,13 +20,14 @@ Login
 	        {{ Form::password('password', array('class' => 'form-control margin-campos', 'placeholder' => 'Contrase&ntilde;a', 'required')) }}
 			{{$errors->first("password")}}
 	 
-	        {{ Form::submit('Iniciar sesión', ['class' => 'btn btn-lg btn-primary btn-block margin-campos']) }}
-			
-			{{ HTML::link('#','¿Olvidó su contraseña?', array('class' => 'margin-campos')) }}
+	        {{ Form::submit('Iniciar sesión', ['class' => 'btn btn-lg btn-primary btn-block margin-campos']) }}		
  
 	    {{ Form::close() }}
 
-	   
+	    <div class="text-right">{{ HTML::link('/', 'P&aacute;gina Inicio') }}</div>
+	    
+	    {{ HTML::link('#','¿Olvidó su contraseña?', array('class' => 'margin-campos')) }}
+	    
 	    @if(Session::has('mensaje')) 
             <div class="flash_notice">{{ Session::get('mensaje') }}</div>                     
         @endif

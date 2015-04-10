@@ -42,7 +42,7 @@
 					<ul class="nav navbar-nav navbar-right">	
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
 							<ul class="dropdown-menu">
-								<li><a href='#'><span>Cambiar Contrase&ntilde;a</span></a></li>
+								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 								<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
 						</li>

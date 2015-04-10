@@ -6,7 +6,7 @@
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/Header_site/inicio.png','waslala',array("class"=>"img-header"))}}
+		{{HTML::image('uploads/header_site/banner_detalle.png','detalle',array("class"=>"img-header"))}}
 	</div>
 @stop
 

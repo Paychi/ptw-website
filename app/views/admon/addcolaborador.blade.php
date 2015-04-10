@@ -58,8 +58,19 @@ Ad-Noticias
 			<div class="col-lg-6">			
 				<label class="control-label col-md-12">Logo</label>					
 				<div class="col-md-12"> 
-					{{Form::file('logo')}}
-					{{$errors->first("logo")}}
+					<div class="row">						
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<span class="btn btn-primary btn-file">
+										+ {{Form::file('logo')}}										
+									</span>
+									{{$errors->first("logo")}}
+								</span>
+								<input type="text" class="form-control" readonly></input>						
+							</div>
+						</div>					
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">

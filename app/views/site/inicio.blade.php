@@ -2,7 +2,7 @@
 
 @section('imagenes')
 	<div class="container-img_header">
-		{{HTML::image('img/Header_site/inicio.png','inicio',array("class"=>"img-header"))}}
+		{{HTML::image('uploads/header_site/banner_inicio.png','inicio',array("class"=>"img-header"))}}
 	</div>
 @stop
 
@@ -29,7 +29,7 @@
 				<center>
 					<div class="post">	
 						<figure class="miniatura">
-							<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{HTML::image("uploads/noticias/$dato->imagen",'noticia',array("class"=>"wp-post-image img-rounded"))}}</a>
+							<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{HTML::image("uploads/noticias/$dato->imagen",'noticia',array("class"=>"wp-post-image img-thumbnail"))}}</a>
 						</figure>
 						<div class="extracto">
 							<p class="fecha_post">{{$fecha_noticia}}</p>

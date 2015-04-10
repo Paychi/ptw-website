@@ -44,9 +44,20 @@ Ad-Noticias
 		<div class="row">	
 			<div class="col-lg-6">			
 				<label class="control-label col-md-12">Imagen</label>					
-				<div class="col-md-12"> 
-					{{Form::file('archivo')}}
-					{{$errors->first("archivo")}}
+				<div class="col-md-12">
+					<div class="row">						
+						<div class="col-lg-12">
+							<div class="input-group">
+								<span class="input-group-btn">
+									<span class="btn btn-primary btn-file">
+										+ {{Form::file('archivo')}}										
+									</span>
+									{{$errors->first("archivo")}}
+								</span>
+								<input type="text" class="form-control" readonly></input>						
+							</div>
+						</div>					
+					</div>
 				</div>
 			</div>
 			<div class="col-lg-6">

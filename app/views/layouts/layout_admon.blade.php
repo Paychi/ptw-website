@@ -41,7 +41,7 @@
 					<ul class="nav navbar-nav navbar-right">	
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
 							<ul class="dropdown-menu">
-								<li><a href='#'><span>Cambiar Contrase&ntilde;a</span></a></li>
+								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 								<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
 						</li>
@@ -51,7 +51,7 @@
 			<div class="texto_header">
 			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
 			</div> 
-		</header>
+		</header>		
 	
 		<section class="container">
 			<div class="col-lg-2 st menu_perfil" id="content-left2">
@@ -61,6 +61,7 @@
 						<li><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
 						<li><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
+						<li><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
 					</ul>
 				</aside>
 			</div>
@@ -82,6 +83,7 @@
 		
 		<script src="{{URL::to('/')}}/js/jquery.js"></script>
 		<script src="{{URL::to('/')}}/js/bootstrap.js"></script>
+		<script src="{{URL::to('/')}}/js/app.js"></script>
 		@yield('javascript')
 		
 	</body>
