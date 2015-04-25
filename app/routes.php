@@ -26,6 +26,11 @@ Route::get('/error', function()
 	return View::make('error.404');
 });
 
+Route::get('/perfil', function()
+{
+	return View::make('error.perfildeshabilitado');
+});
+
 Event::listen('404', function()
 {
 	return Response::error('404');

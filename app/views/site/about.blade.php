@@ -333,7 +333,7 @@ About
 		<h1 class="text-center">Fotos del Proyecto de Telemedicina en Waslala-Nicaragua</h1>
 		
 		<section class="section" id="sec">
-			<center></c><h4 class="colortexto_galeria" >Primeros Líderes en capacitación, aprendiendo a escribir mensajes</h4></center>
+			<center><h4 class="colortexto_galeria" >Primeros Líderes en capacitación, aprendiendo a escribir mensajes</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_01.jpg'>{{HTML::image('img/About/about_01.jpg','about_01')}}</a>
@@ -352,7 +352,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>				
-			<center></c><h4 class="colortexto_galeria">50 primeros lideres capacitados con telesalud</h4></center>
+			<center><h4 class="colortexto_galeria">50 primeros lideres capacitados con telesalud</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_04.jpg'>{{HTML::image('img/About/about_04.jpg','about_04')}}</a>
@@ -366,7 +366,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Visitas de  Pali y estudiantes de Villanova  a las comunidades</h4></center>
+			<center><h4 class="colortexto_galeria">Visitas de  Pali y estudiantes de Villanova  a las comunidades</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_06.jpg'>{{HTML::image('img/About/about_06.jpg','about_06')}}</a>
@@ -400,7 +400,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Líderes tomando signos vitales  en sus comunidades</h4></center>
+			<center><h4 class="colortexto_galeria">Líderes tomando signos vitales  en sus comunidades</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_12.jpg'>{{HTML::image('img/About/about_12.jpg','about_12')}}</a>
@@ -424,7 +424,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">En visitas de supervisión y seguimiento</h4></center>
+			<center><h4 class="colortexto_galeria">En visitas de supervisión y seguimiento</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_16.jpg'>{{HTML::image('img/About/about_16.jpg','about_16')}}</a>
@@ -458,7 +458,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Líderes de Villa el Carmen</h4></center>
+			<center><h4 class="colortexto_galeria">Líderes de Villa el Carmen</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_22.jpg'>{{HTML::image('img/About/about_22.jpg','about_22')}}</a>
@@ -467,7 +467,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Lideres de Cua y Bocay</h4></center>
+			<center><h4 class="colortexto_galeria">Lideres de Cua y Bocay</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_23.jpg'>{{HTML::image('img/About/about_23.jpg','about_23')}}</a>
@@ -476,7 +476,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Lideres  practicando  y editando mensajes para  enviarlos al sistema</h4></center>
+			<center><h4 class="colortexto_galeria">Lideres  practicando  y editando mensajes para  enviarlos al sistema</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_24.jpg'>{{HTML::image('img/About/about_24.jpg','about_24')}}</a>
@@ -500,7 +500,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Líderes en pasantía en el Hospital Fidel Ventura</h4></center>
+			<center><h4 class="colortexto_galeria">Líderes en pasantía en el Hospital Fidel Ventura</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_28.jpg'>{{HTML::image('img/About/about_28.jpg','about_28')}}</a>
@@ -524,7 +524,7 @@ About
 			<p class="colortexto_galeria">
 				
 			<p>	
-			<center></c><h4 class="colortexto_galeria">Primeras visitas  de  Villanova  a Waslala</h4></center>
+			<center><h4 class="colortexto_galeria">Primeras visitas  de  Villanova  a Waslala</h4></center>
 			<article class="article">
 				<figure>
 					<a href='{{URL::to('/')}}/img/About/about_32.jpg'>{{HTML::image('img/About/about_32.jpg','about_32')}}</a>

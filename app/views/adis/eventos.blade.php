@@ -5,7 +5,11 @@ Adis-Eventos
 @stop
 
 @section('content_adis')
- <h1> formulario para administrar parametros de eventos en ADIS. </h1>
+<div class="text-center">
+	<h1>En Construcci&oacute;n...</h1>
+	<img src="{{ asset('/img/logo/logo_conf.svg') }}" alt="telemedicina">
+
+</div>
  	
 @stop
 	

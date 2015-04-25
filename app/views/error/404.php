@@ -71,13 +71,14 @@
 
 		.wrapper
 		{
-			width:760px;
+			max-width:760px;
 			margin:0 auto 5em auto;
 		}
 
 		.main
 		{
 			overflow:hidden;
+			margin-left: 10px;
 		}
 
 		.error-spacer

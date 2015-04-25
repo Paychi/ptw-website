@@ -8,7 +8,7 @@ Ad-Usuarios
 
 	@if(Session::has('mensaje'))
 		<div class="alert-box success">
-			<h2>{{Session::get('mensaje')}}</h2>
+			<label>{{Session::get('mensaje')}}</label>
 		</div>
 	@endif
 
@@ -22,11 +22,17 @@ Ad-Usuarios
 		</thead>
 		<tbody>
 			@foreach($datos as $item)
+				<?php
+					$fecha = $item->created_at;
+					$oldfecha = strtotime($fecha);
+					$newfecha = date("d/m/Y H:i:s",$oldfecha);
+				?>
+
 				<tr>
 					<td>{{$item->nombres.' '.$item->apellidos}}</td>
 					<td>{{$item->nombre_usuario}}</td>
 					<td>{{$item->perfil->nombre}}</td>
-					<td>{{$item->created_at}}</td>
+					<td>{{$newfecha}}</td>
 					<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
 					<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
 				</tr>

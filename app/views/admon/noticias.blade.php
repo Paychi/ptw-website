@@ -22,11 +22,20 @@ Ad-Noticias
 		</thead>
 		<tbody>
 			@foreach($datos as $item)
+				<?php 
+					$fecha = $item->fecha_noticia;
+					$oldfecha = strtotime($fecha);
+					$newfecha = date("d/m/Y",$oldfecha);
+
+					$fecha2 = $item->created_at;
+					$oldfecha2 = strtotime($fecha2);
+					$newfecha2 = date("d/m/Y H:i:s",$oldfecha2);
+				?>
 				<tr>
 					<td>{{$item->titulo}}</td>
 					<td>{{$item->estracto}}</td>
-					<td>{{$item->fecha_noticia}}</td>
-					<td>{{$item->created_at}}</td>
+					<td>{{$newfecha}}</td>
+					<td>{{$newfecha2}}</td>
 					<td><a onclick="editar('{{$item->id_noticia}}')" class="btn btn-primary">Editar</a></td>
 					<td><a onclick="eliminar('{{$item->id_noticia}}')" class="btn btn-danger">Eliminar</a></td>
 				</tr>

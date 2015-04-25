@@ -23,12 +23,18 @@ Ad-Colaboradores
 		</thead>
 		<tbody>
 			@foreach($datos as $item)
+				<?php 
+					$fecha = $item->fecha_colaborador;
+					$oldfecha = strtotime($fecha);
+					$newfecha = date("d/m/Y",$oldfecha);
+				?>
+
 				<tr>
 					<td>{{HTML::image('uploads/logo_colaboradores/'.$item->logo,'logo',array("class"=>"img_admonColaboradores"))}}</td>
 					<td>{{$item->nombre}}</td>
 					<td>{{$item->descripcion}}</td>
 					<td>{{$item->sitio_web}}</td>
-					<td>{{$item->fecha_colaborador}}</td>
+					<td>{{$newfecha}}</td>
 					<td><a onclick="editar('{{$item->id_colaborador}}')" class="btn btn-primary">Editar</a></td>
 					<td><a onclick="eliminar('{{$item->id_colaborador}}')" class="btn btn-danger">Eliminar</a></td>
 				</tr>

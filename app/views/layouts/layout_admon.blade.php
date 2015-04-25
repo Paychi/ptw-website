@@ -7,6 +7,11 @@
 			Telemedicina | @section('titulo')Administraci&oacute;n
 			@show
 		</title>
+
+		<!-- LOGO -->
+		<link rel="icon" href="{{URL::to('/')}}/img/logo/logo_conf.png" />
+
+
 	  	<!-- FONT -->
 	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
 
@@ -20,7 +25,7 @@
 		@yield('css')
 	</head>
 	
-	<body>
+	<body id="cuerpo">
 		<header>
 			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="navbar-header">
@@ -30,7 +35,7 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{URL::to('/')}}">{{HTML::image('img/globe.svg','img',array("width"=>"10px", "height"=>"40px"))}} Inicio</a>
+					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/inicio.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
@@ -41,6 +46,7 @@
 					<ul class="nav navbar-nav navbar-right">	
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
 							<ul class="dropdown-menu">
+								<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 								<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
@@ -61,6 +67,7 @@
 						<li><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
 						<li><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
+						<li><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
 					</ul>
 				</aside>

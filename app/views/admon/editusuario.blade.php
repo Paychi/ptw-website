@@ -10,6 +10,12 @@ Ad-Usuarios
 			<a href='{{URL::to('/')}}/admin/usuarios' class="btn btn-danger"> X </a>
 		</div>
 		
+		@if(Session::has('mensajeError'))
+			<div class="error" style="font-size: 1.1em;">
+				<Label>{{Session::get('mensajeError')}}</Label>
+			</div>
+		@endif
+		
 		{{ Form::hidden('id', $datos->id_usuario) }}
 		
 		<div class="row">		
@@ -41,7 +47,7 @@ Ad-Usuarios
 			<div class="col-md-6">
 				<label class="control-label col-md-12">Nombre de Usuario</label>					
 				<div class="col-md-12"> 
-					{{ Form::text('nombre_user',$datos->nombre_usuario, array('class' => 'form-control', 'required') ) }}
+					{{ Form::text('nombre_user',$datos->nombre_usuario, array('class' => 'form-control', 'disabled') ) }}
 					<label class="error">{{$errors->first("nombre_user")}}</label>
 				</div>
 			</div>					
@@ -51,14 +57,14 @@ Ad-Usuarios
 			<div class="col-md-6">	
 				<label class="control-label col-md-12">Contraseña</label>					
 				<div class="col-md-12"> 
-					{{ Form::password('pass_user', array('class' => 'form-control', 'required')) }}
+					{{ Form::password('pass_user', array('class' => 'form-control', 'disabled')) }}
 					<label class="error">{{$errors->first("pass_user")}}</label>
 				</div>
 			</div>
 			<div class="col-md-6">
 				<label class="control-label col-md-12">Confirmar Contraseña</label>					
 				<div class="col-md-12"> 
-					{{ Form::password('Cpass_user', array('class' => 'form-control', 'required')) }}
+					{{ Form::password('Cpass_user', array('class' => 'form-control', 'disabled')) }}
 					<label class="error">{{$errors->first("Cpass_user")}}</label>
 				</div>
 			</div>

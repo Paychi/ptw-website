@@ -110,21 +110,25 @@ class AdmonController extends BaseController {
 		
 		try
 		{
-			DB::beginTransaction();
+			//DB::beginTransaction();
 			$inputs = Input::All();
 			$validaciones = array
 			(
 				'titulo' => 'required|min:5',
 				'estracto' => 'required|min:5',
 				'contenido' => 'required|min:5',
-				'fecha' => 'required|min:5'
+				'fecha' => 'required|date',
+				'archivo' => 'required'
 			);		
 			$mensajes = array
 			(
 				"required" => "Este campo no puede quedar vacio.",
-				"min" => "Debe tener como minimo 5 caracteres"
+				"min" => "Debe tener como minimo 5 caracteres",
+				"date" => "La fecha no es valida"
 			);
+
 			
+
 			$validar=Validator::make($inputs,$validaciones,$mensajes);
 			
 			if($validar->fails())
@@ -132,7 +136,12 @@ class AdmonController extends BaseController {
 				return Redirect::back() -> withErrors($validar);
 				
 			}else
-			{			
+			{	
+				$fecha = $inputs["fecha"];
+				$fecha = str_replace('/', '-', $fecha);
+				$fecha_post = strtotime($fecha);
+				$newfecha = date("Y-m-d",$fecha_post);
+
 				$path = 'uploads/noticias';
 				$file = Input::file('archivo');
 				$archivo = $file->getClientOriginalName();
@@ -148,7 +157,7 @@ class AdmonController extends BaseController {
 					$n->estracto = $inputs["estracto"];
 					$n->descripcion = $inputs["contenido"];
 					$n->imagen = $archivo;
-					$n->fecha_noticia = $inputs["fecha"];
+					$n->fecha_noticia = $newfecha;
 					$n->estado = 1;
 					$n->save();
 					Session::flash('mensaje','Registro ingresado correctamente!!');
@@ -213,13 +222,13 @@ class AdmonController extends BaseController {
 				'titulo' => 'required|min:5',
 				'estracto' => 'required|min:5',
 				'contenido' => 'required|min:5',
-				'fecha' => 'required|min:5'
+				'fecha' => 'required|date'
 			);		
 			$mensajes = array
 			(
 				"required" => "Este campo no puede quedar vacio.",
 				"min" => "Debe tener como minimo 5 caracteres",
-				"unique" => "Usuario ya existe"
+				"date" => "La fecha no es valida"
 			);
 			
 			$validar=Validator::make($inputs,$validaciones,$mensajes);
@@ -228,12 +237,18 @@ class AdmonController extends BaseController {
 			{
 				return Redirect::back() -> withErrors($validar);
 			}else
-			{				
+			{		
+
+				$fecha = $inputs["fecha"];
+				$fecha = str_replace('/', '-', $fecha);
+				$fecha_post = strtotime($fecha);
+				$newfecha = date("Y-m-d",$fecha_post);
+
 				$eu = Noticias::find($inputs["id"]);
 				$eu->titulo = $inputs["titulo"];
 				$eu->estracto = $inputs["estracto"];
 				$eu->descripcion = $inputs["contenido"];
-				$eu->fecha_noticia = $inputs["fecha"];
+				$eu->fecha_noticia = $newfecha;
 				$eu->estado = 1;
 				$eu->save();
 				Session::flash('mensaje','Registro editado correctamente!!');
@@ -324,7 +339,7 @@ class AdmonController extends BaseController {
 		}
 		/*******     Fin     *******/
 		
-		$perfiles = Perfiles::all()->lists('nombre', 'id_perfil');	
+		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
 		$selected = array();	
 		return $this->layout->content = View::make('admon.addusuario',compact("lista_perfil","selected"));
@@ -346,7 +361,7 @@ class AdmonController extends BaseController {
 		/*******     Fin     *******/
 		
 		$datos = Usuarios::find($id_usuario);
-		$perfiles = Perfiles::all()->lists('nombre', 'id_perfil');	
+		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
 		$selected = array($datos->id_perfil);
 		return $this->layout->content = View::make('admon.editusuario',compact("datos","lista_perfil","selected"));
@@ -371,9 +386,7 @@ class AdmonController extends BaseController {
 		$validaciones = array
 		(
 			'nombres' => 'required|min:5',
-			'apellidos' => 'required|min:5',
-			'nombre_user' => 'required',
-			'pass_user' => 'required'
+			'apellidos' => 'required|min:5'
 		);		
 		$mensajes = array
 		(
@@ -388,21 +401,58 @@ class AdmonController extends BaseController {
 		{
 			return Redirect::back() -> withErrors($validar);
 		}else
-		{				
-			$eu = Usuarios::find($inputs["id"]);
-			$p = $eu->id_perfil;
-			$user = $eu->nombre_usuario;
-			$eu->id_perfil = $inputs["perfil"];
-			$eu->nombres = $inputs["nombres"];
-			$eu->apellidos = $inputs["apellidos"];
-			$eu->nombre_usuario = $inputs["nombre_user"];
-			$eu->contrasena = Crypt::encrypt($inputs["pass_user"]);
-			$eu->estado = 1;
-			$eu->save();
-			if ($p == 1 && $user == Session::get('usuario'))
-				Session::put('usuario',$inputs["nombre_user"]);
-			Session::flash('mensaje','Registro editado correctamente!!');
-			return Redirect::to('/admin/usuarios');
+		{			
+			$num_perfil = $inputs["perfil"];
+			/*$passUser = $inputs["pass_user"];
+			$conPass = $inputs["conpass_user"];	*/
+
+			if ($num_perfil != 0)
+			{
+				/*if ($passUser != $conPass) {
+					return Redirect::to('/admin/addusuario')->with('mensajeError','Las contrase&ntilde;as no coenciden!!');
+				} 
+				else 
+				{
+					
+				}*/
+				$eu = Usuarios::find($inputs["id"]);
+				$p = $inputs["perfil"];
+				$p_bd = $eu->id_perfil;
+				$user = $eu->nombre_usuario;
+				$eu->id_perfil = $inputs["perfil"];
+				$eu->nombres = $inputs["nombres"];
+				$eu->apellidos = $inputs["apellidos"];
+				$eu->estado = 1;
+				$eu->save();
+				if ($p != $p_bd && $user == Session::get('usuario'))
+				{
+					switch ($p) {
+						case '2':
+								return Redirect::to('/adis');
+							break;
+						
+						default:
+								return Redirect::to('/login');
+							break;
+					}
+					
+				}
+				else
+				{
+					Session::flash('mensaje','Registro editado correctamente!!');
+					return Redirect::to('/admin/usuarios');
+				}
+				//Session::put('usuario',$inputs["nombre_usuario"]);
+				/*$p = $eu->id_perfil;
+				$user = $eu->nombre_usuario;
+				.....
+				if ($p != 1 && $user == Session::get('usuario'))
+					Session::put('usuario',$inputs["nombre_usuario"]);*/
+			}
+			else
+			{
+				return Redirect::to('/admin/editusuario/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+			}			
 		}
 	}
 	
@@ -426,7 +476,7 @@ class AdmonController extends BaseController {
 		(
 			'nombres' => 'required|min:5',
 			'apellidos' => 'required|min:5',
-			'nombre_user' => 'required',
+			'nombre_usuario' => 'required|unique:usuario',
 			'pass_user' => 'required'
 		);		
 		$mensajes = array
@@ -442,17 +492,34 @@ class AdmonController extends BaseController {
 		{
 			return Redirect::back() -> withErrors($validar);
 		}else
-		{							
-			$nu = new Usuarios;
-			$nu->id_perfil = $inputs["perfil"];;
-			$nu->nombres = $inputs["nombres"];
-			$nu->apellidos = $inputs["apellidos"];
-			$nu->nombre_usuario = $inputs["nombre_user"];
-			$nu->contrasena = Crypt::encrypt($inputs["pass_user"]);
-			$nu->estado = 1;
-			$nu->save();
-			Session::flash('mensaje','Registro ingresado correctamente!!');
-			return Redirect::to('/admin/usuarios');	
+		{			
+			$num_perfil = $inputs["perfil"];
+			$passUser = $inputs["pass_user"];
+			$conPass = $inputs["conpass_user"];		
+
+			if ($num_perfil != 0)
+			{
+				if ($passUser != $conPass) {
+					return Redirect::to('/admin/addusuario')->with('mensajeError','Las contrase&ntilde;as no coenciden!!');
+				} 
+				else 
+				{
+					$nu = new Usuarios;
+					$nu->id_perfil = $inputs["perfil"];
+					$nu->nombres = $inputs["nombres"];
+					$nu->apellidos = $inputs["apellidos"];
+					$nu->nombre_usuario = $inputs["nombre_usuario"];
+					$nu->contrasena = Crypt::encrypt($passUser);
+					$nu->estado = 1;
+					$nu->save();
+					Session::flash('mensaje','Registro ingresado correctamente!!');
+					return Redirect::to('/admin/usuarios');	
+				}					
+			}
+			else
+			{
+				return Redirect::to('/admin/addusuario')->with('mensajeError','Seleccione un Perfil!!');	
+			}
 		}
 	}
 	
@@ -530,7 +597,7 @@ class AdmonController extends BaseController {
 			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
 		}
 		/*******     Fin     *******/
-		
+
 		try
 		{
 			DB::beginTransaction();
@@ -540,12 +607,14 @@ class AdmonController extends BaseController {
 				'nombre' => 'required|min:5',
 				'descripcion' => 'required|min:5',
 				'abreviatura' => 'required',
-				'fecha' => 'required|min:5'
+				'fecha' => 'required|date',
+				'logo' => 'required'
 			);		
 			$mensajes = array
 			(
 				"required" => "Este campo no puede quedar vacio.",
-				"min" => "Debe tener como minimo 5 caracteres"
+				"min" => "Debe tener como minimo 5 caracteres",
+				"date" => "La fecha no es valida"
 			);
 			
 			$validar=Validator::make($inputs,$validaciones,$mensajes);
@@ -555,7 +624,12 @@ class AdmonController extends BaseController {
 				return Redirect::back() -> withErrors($validar);
 				
 			}else
-			{			
+			{		
+				$fecha = $inputs["fecha"];
+				$fecha = str_replace('/', '-', $fecha);
+				$fecha_post = strtotime($fecha);
+				$newfecha = date("Y-m-d",$fecha_post);	
+
 				$path = 'uploads/logo_colaboradores';
 				$file = Input::file('logo');
 				$archivo = $file->getClientOriginalName();
@@ -572,7 +646,7 @@ class AdmonController extends BaseController {
 					$c->descripcion = $inputs["descripcion"];
 					$c->logo = $archivo;
 					$c->sitio_web = $inputs["website"];
-					$c->fecha_colaborador = $inputs["fecha"];
+					$c->fecha_colaborador = $newfecha;
 					$c->estado = 1;
 					$c->save();
 					Session::flash('mensaje','Registro ingresado correctamente!!');
@@ -637,13 +711,13 @@ class AdmonController extends BaseController {
 				'nombre' => 'required|min:5',
 				'descripcion' => 'required|min:5',
 				'abreviatura' => 'required',
-				'fecha' => 'required|min:5'
+				'fecha' => 'required|date'
 			);		
 			$mensajes = array
 			(
 				"required" => "Este campo no puede quedar vacio.",
 				"min" => "Debe tener como minimo 5 caracteres",
-				"unique" => "Usuario ya existe"
+				"date" => "La fecha no es valida"
 			);
 			
 			$validar=Validator::make($inputs,$validaciones,$mensajes);
@@ -652,13 +726,18 @@ class AdmonController extends BaseController {
 			{
 				return Redirect::back() -> withErrors($validar);
 			}else
-			{				
+			{		
+				$fecha = $inputs["fecha"];
+				$fecha = str_replace('/', '-', $fecha);
+				$fecha_post = strtotime($fecha);
+				$newfecha = date("Y-m-d",$fecha_post);	
+
 				$ec = Colaboradores::find($inputs["id"]);
 				$ec->nombre = $inputs["nombre"];
 				$ec->abreviatura = $inputs["abreviatura"];
 				$ec->descripcion = $inputs["descripcion"];
 				$ec->sitio_web = $inputs["website"];
-				$ec->fecha_colaborador = $inputs["fecha"];
+				$ec->fecha_colaborador = $newfecha;
 				$ec->estado = 1;
 				$ec->save();
 				Session::flash('mensaje','Registro editado correctamente!!');
@@ -789,5 +868,153 @@ class AdmonController extends BaseController {
 		
 		
 		return $this->layout->content = View::make('admon.actbanner');
+	}
+
+		/***   Vista Configuracion para los Perfiles   ***/	
+	
+	public function getPerfiles()
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		$datos = Perfiles::paginate(10);
+		return $this->layout->content = View::make('admon.perfiles',compact("datos"));
+	}
+
+	public function getEditperfil($id_perfil = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		$datos = Perfiles::find($id_perfil);
+		return $this->layout->content = View::make('admon.editperfil',compact("datos"));
+	}
+
+	public function postEditperfil($id_perfil = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		try {
+			//DB::beginTransaction();
+			$inputs = Input::All();
+			$validaciones = array
+			(
+				'nombre' => 'required|min:5',
+				'descripcion' => 'required|min:5'
+			);			
+			$mensajes = array
+			(
+				"required" => "Este campo no puede quedar vacio.", 
+				"min" => "Debe tener como minimo 5 caracteres."
+			);
+
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+
+			if ($validar->fails()) 
+			{
+				return Redirect::back()->withErrors($validar);
+			} 
+			else 
+			{
+				$p = Perfiles::find($inputs["id"]);
+				$p->nombre = $inputs["nombre"];
+				$p->descripcion = $inputs["descripcion"];
+				$p->save();
+				return Redirect::to('/admin/perfiles')->with('mensaje', 'Registro editado correctamente!!');
+			}
+			
+		} catch (Exception $e) {
+			DB::rollback();
+			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+		}
+	}
+
+	public function getDeshabilitarperfil($id_perfil = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		try 
+		{
+			$dp = Perfiles::find($id_perfil);
+			$dp->estado = 0;
+			$dp->save();
+			return Redirect::to('/admin/perfiles')->with('mensaje','Registro deshabilitado correctamente!!');
+		} 
+		catch (Exception $e) 
+		{
+			DB::rollback();
+			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+		}			
+	}
+
+	public function getHabilitarperfil($id_perfil = null)
+	{
+		/***    Validacion para el acceso a las rutas    ***/
+		if (Session::has('usuario'))
+		{
+			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+			if($session_user[0]->perfil->id_perfil != 1)
+				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+		}
+		else
+		{
+			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+		}
+		/*******     Fin     *******/
+		
+		try 
+		{
+			$dp = Perfiles::find($id_perfil);
+			$dp->estado = 1;
+			$dp->save();
+			return Redirect::to('/admin/perfiles')->with('mensaje','Registro habilitado correctamente!!');
+		} 
+		catch (Exception $e) 
+		{
+			DB::rollback();
+			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+		}			
 	}
 }

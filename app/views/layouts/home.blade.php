@@ -15,7 +15,7 @@
 		</title>
 		
 		<!-- LOGO -->
-		<link rel="icon" href="{{URL::to('/')}}/img/nova.png" />
+		<link rel="icon" href="{{URL::to('/')}}/img/logo/logo.png" />
 
 	  	<!-- FONT -->
 	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
@@ -29,7 +29,7 @@
 		@yield('css')
 	</head>
 	
-	<body>
+	<body id="cuerpo">
 		<header>
 			<section class="banner">
 				<div>					
@@ -44,13 +44,14 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" href="{{URL::to('/')}}">{{HTML::image('img/globe.svg','img',array("width"=>"10px", "height"=>"40px"))}} Inicio</a>
+					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/inicio.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<li><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
 						<li><a href='{{URL::to('/')}}/es/about'><span>Lo que somos</span></a></li>
 						<li><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
+						<li><a href='{{URL::to('/')}}/es/simsiv'><span>SIMSIV</span></a> </li>
 						<!--<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>-->
 					</ul>
 					
@@ -74,6 +75,7 @@
 									@if($perfil == 2)
 										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>
 									@endif
+									<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 									<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 									<li><a href='{{URL::to('/')}}/es/logout'><span>Cerrar Sesion</span></a></li>
 								</ul>
@@ -153,4 +155,3 @@
 		@yield('javascript')
 	</body>
 </html> 
-

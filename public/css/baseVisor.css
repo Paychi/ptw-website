@@ -1,4 +1,4 @@
-
+﻿
 #sec
 {
     margin-top:20px;   
@@ -58,17 +58,17 @@ a{
  padding: 0.5em;
  }
  
-.article figure{
+.article figure {
  width: 99%;
  }
  
-.article figure{padding: 0; margin: 0;}
- 
+.article figure {padding: 0; margin: 0;} 
+
 .article figure img{
  width: 100%;
- border: solid 5px rgba(250,250,250,0.8);
+ border: solid 5px rgb(250,250,250);
  border-radius: 3px;
- box-shadow: 0 0 2px rgba(0,0,0,0.5);
+ /*box-shadow: 0 0 2px rgb(0,0,0,0.5);*/
  }
  
 .article figure figcaption{

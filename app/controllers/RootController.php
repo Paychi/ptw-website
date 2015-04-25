@@ -306,4 +306,27 @@ class RootController extends BaseController {
 		Session::forget('usuario');
 		return Redirect::to('/');
 	}
+
+	public function getSimsiv()
+	{
+		$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+		$perfil = 0;
+		if (count($user_login)>0)
+		{
+			if($user_login[0]->perfil->id_perfil == 1)
+				$perfil = 1;
+				
+			if($user_login[0]->perfil->id_perfil == 2)
+				$perfil = 2;
+		}
+		else
+		{
+			$perfil = 0;
+		}
+
+		$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+		$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+
+		return $this->layout->content = View::make('site.simsiv', compact("perfil", "defn","defnhidden"));
+	}
 }

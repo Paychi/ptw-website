@@ -1,11 +1,10 @@
 @extends('layouts.layout_admon')
 
 @section('titulo')
-Ad-Usuarios
+Ad-Banners
 @stop
 
-@section('content_hidden')
-	
+@section('css')
 @stop
 
 @section('content_admon')
@@ -20,38 +19,38 @@ Ad-Usuarios
 		<thead>
 			<th>Vista</th>
 			<th>Banner</th>
-			<th><center>Actualizar Imagen Banner</center></th>
+			<th><center>Acci&oacute;n</center></th>
 		</thead>
 		<tbody>
 			<tr>
 				<td>Inicio</td>
 				<td>{{HTML::Image('uploads/header_site/banner_inicio.png','inicio_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(1)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(1)" class="btn btn-primary btnAct">Actualizar</a></center></td>
 			</tr>
 			<tr>
 				<td>Waslala</td>
 				<td>{{HTML::Image('uploads/header_site/banner_waslala.png','waslala_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(2)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(2)" class="btn btn-primary btnAct">Actualizar</a></center></td>
 			</tr>
 			<tr>
 				<td>Lo que somos</td>
 				<td>{{HTML::Image('uploads/header_site/banner_about.png','about_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(3)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(3)" class="btn btn-primary btnAct" >Actualizar</a></center></td>
 			</tr>
 			<tr>
 				<td>Colaboradores</td>
 				<td>{{HTML::Image('uploads/header_site/banner_colaboradores.png','colaboradores_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(4)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(4)" class="btn btn-primary btnAct">Actualizar</a></center></td>
 			</tr>
 			<tr>
-				<td>Detalle</td>
+				<td>Detalle Noticia</td>
 				<td>{{HTML::Image('uploads/header_site/banner_detalle.png','detalle_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(5)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(5)" class="btn btn-primary btnAct" >Actualizar</a></center></td>
 			</tr>
 			<tr>
-				<td>Busqueda</td>
+				<td>Resultado Busqueda Noticia</td>
 				<td>{{HTML::Image('uploads/header_site/banner_search.png','search_banner',array("class"=>"img-header"))}}</td>
-				<td><center><a onclick="actualizar(6)" class="btn btn-primary">Actualizar</a></center></td>
+				<td><center><a onclick="actualizar(6)" class="btn btn-primary btnAct" >Actualizar</a></center></td>
 			</tr>
 		</tbody>
 	</table>
@@ -103,6 +102,9 @@ Ad-Usuarios
 		{
 			$("#div_loadfile").toggle("slow");
 			$("#div_loadfilefondo").toggle("slow");
+			$("#cuerpo").addClass("remove_scroll");
+			$("#div_loadfile").addClass("add_scroll");;
+			$(".btnAct").addClass("disabled");
 			switch(id_banner)
 			{
 				case 1: 
@@ -131,7 +133,7 @@ Ad-Usuarios
 					$("#id_nombre_banner").val("banner_detalle.png");
 				break;
 				case 6: 
-					$("#cabecera").text("Busqueda Noticia");
+					$("#cabecera").text("Resultado Busqueda Noticia");
 					document.getElementById("img_banner").src = "{{URL::to('/')}}/uploads/header_site/banner_search.png";
 					$("#id_nombre_banner").val("banner_search.png");
 				break;
@@ -145,6 +147,9 @@ Ad-Usuarios
 		{
 			$("#div_loadfile").hide("fade");
 			$("#div_loadfilefondo").hide("fade");
+			$("#div_loadfile").removeClass("add_scroll");
+			$("#cuerpo").removeClass("remove_scroll");
+			$(".btnAct").removeClass("disabled");
 		}
 	</script>
  	

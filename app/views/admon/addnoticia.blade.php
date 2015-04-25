@@ -20,7 +20,7 @@ Ad-Noticias
 		<div class="row">				
 			<label class="control-label col-md-12">Titulo</label>					
 			<div class="col-md-12"> 
-				{{ Form::text('titulo',null, array('class' => 'form-control') ) }}
+				{{ Form::text('titulo',null, array('class' => 'form-control', 'required', 'autofocus') ) }}
 				<label class="error">{{$errors->first("titulo")}}</label>
 			</div>
 		</div> 	
@@ -28,7 +28,7 @@ Ad-Noticias
 		<div class="row">				
 			<label class="control-label col-md-12">Estracto</label>					
 			<div class="col-md-12"> 
-				{{Form::textarea('estracto',null, array('class' => 'form-control', 'rows' => '2'))}}
+				{{Form::textarea('estracto',null, array('class' => 'form-control', 'rows' => '2', 'required'))}}
 				<label class="error">{{$errors->first("estracto")}}</label>
 			</div>
 		</div> 	
@@ -36,7 +36,7 @@ Ad-Noticias
 		<div class="row">				
 			<label class="control-label col-md-12">Contenido</label>					
 			<div class="col-md-12"> 
-				{{Form::textarea('contenido',null, array('class' => 'form-control', 'rows' => '8'))}}
+				{{Form::textarea('contenido',null, array('class' => 'form-control', 'rows' => '8', 'required'))}}
 				<label class="error">{{$errors->first("contenido")}}</label>
 			</div>
 		</div> 	
@@ -52,10 +52,10 @@ Ad-Noticias
 									<span class="btn btn-primary btn-file">
 										+ {{Form::file('archivo')}}										
 									</span>
-									{{$errors->first("archivo")}}
 								</span>
 								<input type="text" class="form-control" readonly></input>						
 							</div>
+							<label class="error">{{$errors->first("archivo")}}</label>
 						</div>					
 					</div>
 				</div>
@@ -64,7 +64,7 @@ Ad-Noticias
 				<label class="control-label col-md-12">Fecha de la Noticia</label>					
 				<div class="col-md-12"> 
 					<!--{{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }}-->
-					<input type="date" name ="fecha" class="form-control">
+					<input type="date" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required >
 					<label class="error">{{$errors->first("fecha")}}</label>
 				</div>
 			</div>

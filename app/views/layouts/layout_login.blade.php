@@ -13,6 +13,10 @@
 			Telemedicina | @section('titulo')Inicio
 			@show
 		</title>
+
+		<!-- LOGO -->
+		<link rel="icon" href="{{URL::to('/')}}/img/logo/logo_login.png" />
+
 	  	<!-- FONT -->
 	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
 

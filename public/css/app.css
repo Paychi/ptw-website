@@ -127,9 +127,17 @@ img, video {
 	height:200px;
 }
 
+.error
+{
+	color:red;
+	font-size: 0.9em;
+}
+
 .st{
 	padding: 10px;
 	box-shadow:0 0 5px rgba(0,0,0,.1);
+	border: 1px solid #ccc;
+	border-radius: 5px;
 	max-height:auto;
 }
 
@@ -188,6 +196,21 @@ img, video {
 .contenido
 {
 	
+}
+
+#content-left > aside
+{
+	background: linear-gradient(#fff, #ccc);
+} 
+
+#content-left2 > aside
+{
+	background: linear-gradient(#fff, #ccc);
+} 
+
+#content-right > aside
+{
+	background: linear-gradient(#fff, #ccc);
 }
 
 .margin-content
@@ -249,8 +272,8 @@ img, video {
 {
 	display: none;
 	padding: 5px;
-	background:#DDE8DE;
-	box-shadow:0 0 20px rgba(0,0,0,.1);
+	background:transparent;
+	box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
 #contDefPromotorHidden
@@ -302,4 +325,32 @@ input[readonly] {
 .input-group-btn > .btn:focus,
 .input-group-btn > .btn:active {
   z-index: 3;
+}
+
+.add_scroll
+{
+	overflow-y:scroll !important; 
+}
+
+.remove_scroll
+{
+	overflow-y:hidden !important;
+}
+
+.spline {
+	margin-top: 10px;
+    border-style: solid;
+    border-width: 2px;
+    width: 56px;
+    margin: -5px auto 8px;
+    display: block;
+}
+
+.bColor {
+    border-color: #0b556a;
+}
+
+.title-admon {
+    font-size: 18px;
+    font-weight: 700;
 }
