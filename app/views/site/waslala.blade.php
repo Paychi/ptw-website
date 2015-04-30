@@ -444,6 +444,7 @@ Waslala
                           69,329   58,338   48,344  37,342  31,351  26,357  13,359" 
 				            style="fill:#fcf9c2;stroke:red;stroke-width:2; z-index:1;"/>
 
+                        <text x="30" y="305" style="font-size:8px;">SanRamonLasVallas</text>
 
 
           <polygon class="Municipio" id="VallasElPastal"
