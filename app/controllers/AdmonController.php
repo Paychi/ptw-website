@@ -17,39 +17,47 @@ class AdmonController extends BaseController {
 	
 	public $restful = true;
 	protected $layout = 'layouts.layout_admon';
-	
-	public function getIndex()
+	protected $mensaje = null;
+
+	public function accessRutesAdmon()
 	{
 		/***    Validacion para el acceso a las rutas    ***/
+		$access = true;
 		if (Session::has('usuario'))
 		{
 			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
+
 			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			{
+				$access = false;
+				$this->mensaje = '¡No tiene permiso para acceder a esta página!.';
+			}
 		}
 		else
 		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
+			$access = false;
+			$this->mensaje = '¡Debes iniciar sesión para ver esa página!.';			
 		}
 		/*******     Fin     *******/
-		
+		return $access;
+	}
+	
+	public function getIndex()
+	{		
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
 		return $this->layout->content = View::make('admon.index_admon');
 	}
 	
 	public function getLogout()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		//Auth::logout();
 		Session::forget('usuario');
@@ -58,18 +66,10 @@ class AdmonController extends BaseController {
 	
 	public function getNoticias()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Noticias::paginate(10);
 		return $this->layout->content = View::make('admon.noticias',compact("datos"));
@@ -77,36 +77,20 @@ class AdmonController extends BaseController {
 	
 	public function getAddnoticia()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		return $this->layout->content = View::make('admon.addnoticia');
 	}
 	
 	public function postAddnoticia()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		try
 		{
@@ -181,18 +165,10 @@ class AdmonController extends BaseController {
 	
 	public function getEditnoticia($id_noticia = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Noticias::find($id_noticia);
 		return $this->layout->content = View::make('admon.editnoticia',compact("datos"));
@@ -200,18 +176,10 @@ class AdmonController extends BaseController {
 	
 	public function postEditnoticia()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		try
 		{
@@ -268,57 +236,36 @@ class AdmonController extends BaseController {
 	
 	public function getDelatenoticia($id_noticia = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
-		$du = Noticias::find($id_noticia);
-		$du -> delete();
+		$path = 'uploads/noticias';
+
+		$dn = Noticias::find($id_noticia);
+		$nombre_imagen = $dn->imagen;
+		$dn -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
 		return Redirect::to('/admin/noticias');	
 	}
 	
 	public function getEventos()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		return $this->layout->content = View::make('admon.eventos');
 	}
 	
 	public function getUsuarios()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Usuarios::paginate(10);
 		return $this->layout->content = View::make('admon.usuarios',compact("datos"));
@@ -326,18 +273,10 @@ class AdmonController extends BaseController {
 	
 	public function getAddusuario()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
@@ -347,18 +286,10 @@ class AdmonController extends BaseController {
 	
 	public function getEditusuario($id_usuario = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Usuarios::find($id_usuario);
 		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
@@ -369,18 +300,10 @@ class AdmonController extends BaseController {
 	
 	public function postEditusuario()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$inputs = Input::All();
 		$validaciones = array
@@ -458,18 +381,10 @@ class AdmonController extends BaseController {
 	
 	public function postAddusuarios()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$inputs = Input::All();		
 		$validaciones = array
@@ -525,18 +440,10 @@ class AdmonController extends BaseController {
 	
 	public function getDelateusuario($id_usuario = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$du = Usuarios::find($id_usuario);
 		$du -> delete();
@@ -548,18 +455,10 @@ class AdmonController extends BaseController {
 	
 	public function getColaboradores()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Colaboradores::paginate(10);
 		return $this->layout->content = View::make('admon.colaboradores',compact("datos"));
@@ -567,36 +466,20 @@ class AdmonController extends BaseController {
 	
 	public function getAddcolaborador()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		return $this->layout->content = View::make('admon.addcolaborador');
 	}
 	
 	public function postAddcolaborador()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 
 		try
 		{
@@ -670,18 +553,10 @@ class AdmonController extends BaseController {
 	
 	public function getEditcolaborador($id_colaborador = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Colaboradores::find($id_colaborador);
 		return $this->layout->content = View::make('admon.editcolaborador',compact("datos"));
@@ -689,18 +564,10 @@ class AdmonController extends BaseController {
 	
 	public function postEditcolaborador()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 	
 		try
 		{
@@ -756,18 +623,10 @@ class AdmonController extends BaseController {
 	
 	public function getDelatecolaborador($id_colaborador = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$dc = Colaboradores::find($id_colaborador);
 		$dc -> delete();
@@ -779,36 +638,20 @@ class AdmonController extends BaseController {
 	
 	public function getConfbanners()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		return $this->layout->content = View::make('admon.banners');
 	}
 	
 	public function postConfbanners()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 			
 		try
 		{		
@@ -852,20 +695,10 @@ class AdmonController extends BaseController {
 	
 	public function getActbanner($id_banner = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
-		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
-		
-		
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}	
 		
 		return $this->layout->content = View::make('admon.actbanner');
 	}
@@ -874,18 +707,10 @@ class AdmonController extends BaseController {
 	
 	public function getPerfiles()
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Perfiles::paginate(10);
 		return $this->layout->content = View::make('admon.perfiles',compact("datos"));
@@ -893,18 +718,10 @@ class AdmonController extends BaseController {
 
 	public function getEditperfil($id_perfil = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		$datos = Perfiles::find($id_perfil);
 		return $this->layout->content = View::make('admon.editperfil',compact("datos"));
@@ -912,18 +729,10 @@ class AdmonController extends BaseController {
 
 	public function postEditperfil($id_perfil = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esa página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		try {
 			//DB::beginTransaction();
@@ -962,18 +771,10 @@ class AdmonController extends BaseController {
 
 	public function getDeshabilitarperfil($id_perfil = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		try 
 		{
@@ -991,18 +792,10 @@ class AdmonController extends BaseController {
 
 	public function getHabilitarperfil($id_perfil = null)
 	{
-		/***    Validacion para el acceso a las rutas    ***/
-		if (Session::has('usuario'))
+		if (!$this->accessRutesAdmon())
 		{
-			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
-			if($session_user[0]->perfil->id_perfil != 1)
-				return Redirect::to('/login')->with('mensaje','¡No tiene permiso para acceder a esta página!.');
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		else
-		{
-			return Redirect::to('/login')->with('mensaje','¡Debes iniciar sesión para ver esa página!.');
-		}
-		/*******     Fin     *******/
 		
 		try 
 		{

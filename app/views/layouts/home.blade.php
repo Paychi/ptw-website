@@ -143,8 +143,8 @@
 			<section class="footer">
 				<div class="contenedor-footer">
 					<p class="texto-callado creditos">Proyecto de Telemedicina Waslala-Nicaragua - Sitio Web Desarrollado por Alvin Baltodano y Fernando Montes</p>
-					{{HTML::image('img/logo_uni.png','logo_uni',array("style"=>"height:64px;width:114px;"))}} 					
-					{{HTML::image('img/logo_villanova.png','logo_villanova',array("style"=>"height:64px;width:254px;background:blue;padding:10px;"))}}
+					{{HTML::image('img/uni.svg','logo_uni',array("style"=>"height:64px;"))}} 					
+					{{HTML::image('img/nova.svg','logo_villanova',array("style"=>"height:64px;"))}}
 				</div>
 			</section>
 		</footer>

@@ -17,26 +17,32 @@ class RootController extends BaseController {
 	public $restful = true;
 	protected $layout = 'layouts.home';
 
+	public function perfilUser()
+	{
+		$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
+		$perfil = 0;
+		if (count($user_login)>0)
+		{
+			if($user_login[0]->perfil->id_perfil == 1)
+				$perfil = 1;
+				
+			if($user_login[0]->perfil->id_perfil == 2)
+				$perfil = 2;
+		}
+		else
+		{
+			$perfil = 0;
+		}
+		return $perfil;
+	}
+
 	public function getIndex()
 	{
 		try
 		{
 			$datos = Noticias::paginate(3);
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
 			
+			$perfil = $this->perfilUser();
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 			
@@ -52,21 +58,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+			$perfil = $this->perfilUser();			
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 			
@@ -82,21 +74,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+			$perfil = $this->perfilUser();
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 			
@@ -113,21 +91,8 @@ class RootController extends BaseController {
 		try
 		{
 			$datos = Colaboradores::all();
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+
+			$perfil = $this->perfilUser();			
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 			
@@ -142,22 +107,8 @@ class RootController extends BaseController {
 	public function postSearch()
 	{
 		try
-		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+		{			
+			$perfil = $this->perfilUser();
 			$valores = Input::All();
 			$noticiapost = $valores["itemsearch"];
 			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();
@@ -219,21 +170,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+			$perfil = $this->perfilUser();			
 			return $this->layout->content = View::make('site.creditos',compact("perfil"));
 		}
 		catch(Exception $e )
@@ -246,21 +183,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
-			
+			$perfil = $this->perfilUser();			
 			return $this->layout->content = View::make('admon.index_admon',compact("perfil"));
 		}
 		catch(Exception $e )
@@ -273,20 +196,7 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-			$perfil = 0;
-			if (count($user_login)>0)
-			{
-				if($user_login[0]->perfil->id_perfil == 1)
-					$perfil = 1;
-					
-				if($user_login[0]->perfil->id_perfil == 2)
-					$perfil = 2;
-			}
-			else
-			{
-				$perfil = 0;
-			}
+			$perfil = $this->perfilUser();
 			
 			$datos=Noticias::where('titulo','=',$dato)->firstOrFail();
 			
@@ -309,21 +219,7 @@ class RootController extends BaseController {
 
 	public function getSimsiv()
 	{
-		$user_login = Usuarios::whereRaw('nombre_usuario=?', [Session::get('usuario')])->get();
-		$perfil = 0;
-		if (count($user_login)>0)
-		{
-			if($user_login[0]->perfil->id_perfil == 1)
-				$perfil = 1;
-				
-			if($user_login[0]->perfil->id_perfil == 2)
-				$perfil = 2;
-		}
-		else
-		{
-			$perfil = 0;
-		}
-
+		$perfil = $this->perfilUser();
 		$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 		$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 

@@ -12,7 +12,7 @@ Waslala
 
 @section('javascript')
 	<script src="{{URL::to('/')}}/js/hidden_menu_left.js"></script>
-	<script src="{{URL::to('/')}}/js/jquery-1.3.2.min.js"></script>
+	<!--<script src="{{URL::to('/')}}/js/jquery-1.3.2.min.js"></script>-->
 
 	<script>
         $(document).ready(function(){
@@ -865,6 +865,15 @@ Waslala
 
           
         </svg>
+
+        <h1>Waslala</h1>
+        <h4>Munucipio de Nicaragua</h4>
+        <p>Waslala es una municipalidad de la Región Autónoma del Atlántico Norte, en la República de Nicaragua; 
+        el término waslala es una palabra indígena que significa "río de plata".
+        {{HTML::Link('http://es.wikipedia.org/wiki/Waslala','Wikipedia')}}</p>
+        <p><strong>Superficie:</strong>  1.330 km²</p>
+        <p><strong>Altitud:</strong>  329 msnm</p>
+        <p><strong>Coordenadas:</strong>  <a href="http://tools.wmflabs.org/geohack/geohack.php?language=es&pagename=Waslala&params=13.233333333333_N_-85.383333333333_E_type:city">13°14′00″N 85°23′00″O</a></p>
 
 
 	</section>
