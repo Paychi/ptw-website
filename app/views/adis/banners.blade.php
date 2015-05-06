@@ -1,13 +1,13 @@
-@extends('layouts.layout_admon')
+@extends('layouts.layout_adis')
 
 @section('titulo')
-Ad-Banners
+Adis-Banners
 @stop
 
 @section('css')
 @stop
 
-@section('content_admon')
+@section('content_adis')
 
 	@if(Session::has('mensaje'))
 		<div class="text-info">
@@ -60,7 +60,7 @@ Ad-Banners
 	
 	<div style="display:none;width:100%;height:100%;" class="modal container" id="div_loadfile">
 		<div class="container modal-content" style="margin-top:20px;">
-			{{ Form::open(array('url' => '/admin/confbanners','method'=>'post','class'=>'', 'name'=>'formbanners','id'=>'', 'files' => true)) }}
+			{{ Form::open(array('url' => '/adis/confbanners','method'=>'post','class'=>'', 'name'=>'formbanners','id'=>'', 'files' => true)) }}
 				<input type="hidden" name="nombre_banner" id="id_nombre_banner" />
 				<div class="modal-title" style="margin-top:10px;">
 					<label>Actualizar Banner</label> <label> | </label> <label id="cabecera"></label>

@@ -71,7 +71,13 @@ class AdmonController extends BaseController {
 			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
 		
-		$datos = Noticias::paginate(10);
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$datos = Noticias::where('titulo', 'LIKE', '%'.$buscar.'%')->orwhere('estracto', 'LIKE', '%'.$buscar.'%')->paginate(5);
+		} else {
+			$datos = Noticias::paginate(10);
+		}
+
 		return $this->layout->content = View::make('admon.noticias',compact("datos"));
 	}
 	
@@ -266,8 +272,37 @@ class AdmonController extends BaseController {
 		{
 			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
-		
-		$datos = Usuarios::paginate(10);
+
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$tipo = htmlspecialchars(Input::get('tipo'));
+
+			switch ($tipo) {
+				case 0: //Nombres ó Apellidos
+					$datos = Usuarios::where('nombres', 'LIKE', '%'.$buscar.'%')->orwhere('apellidos', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+
+				case 1: //Nombre de Usuario
+					$datos = Usuarios::where('nombre_usuario', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+				
+				case 2: //Perfil
+					$perfil = Perfiles::where('nombre', '=', $buscar)->get();
+					if ($perfil->count() == 0) {
+						$datos = Usuarios::where('id_perfil', '=', null)->paginate(5);
+					}else{
+						$datos = Usuarios::where('id_perfil', '=', $perfil[0]->id_perfil)->paginate(5);
+					}
+					break;
+
+				default:
+					
+					break;
+			}
+		} else {
+			$datos = Usuarios::paginate(10);
+		}
+	
 		return $this->layout->content = View::make('admon.usuarios',compact("datos"));
 	}
 	
@@ -391,8 +426,7 @@ class AdmonController extends BaseController {
 		(
 			'nombres' => 'required|min:5',
 			'apellidos' => 'required|min:5',
-			'nombre_usuario' => 'required|unique:usuario',
-			'pass_user' => 'required'
+			'nombre_usuario' => 'required|unique:usuario'
 		);		
 		$mensajes = array
 		(
@@ -409,27 +443,27 @@ class AdmonController extends BaseController {
 		}else
 		{			
 			$num_perfil = $inputs["perfil"];
-			$passUser = $inputs["pass_user"];
-			$conPass = $inputs["conpass_user"];		
+			/*$passUser = $inputs["pass_user"];
+			$conPass = $inputs["conpass_user"];*/		
 
 			if ($num_perfil != 0)
 			{
-				if ($passUser != $conPass) {
+				/*if ($passUser != $conPass) {
 					return Redirect::to('/admin/addusuario')->with('mensajeError','Las contrase&ntilde;as no coenciden!!');
 				} 
 				else 
-				{
-					$nu = new Usuarios;
-					$nu->id_perfil = $inputs["perfil"];
-					$nu->nombres = $inputs["nombres"];
-					$nu->apellidos = $inputs["apellidos"];
-					$nu->nombre_usuario = $inputs["nombre_usuario"];
-					$nu->contrasena = Crypt::encrypt($passUser);
-					$nu->estado = 1;
-					$nu->save();
-					Session::flash('mensaje','Registro ingresado correctamente!!');
-					return Redirect::to('/admin/usuarios');	
-				}					
+				{*/
+				$nu = new Usuarios;
+				$nu->id_perfil = $inputs["perfil"];
+				$nu->nombres = $inputs["nombres"];
+				$nu->apellidos = $inputs["apellidos"];
+				$nu->nombre_usuario = $inputs["nombre_usuario"];
+				$nu->contrasena = Crypt::encrypt("temporal123");
+				$nu->estado = 1;
+				$nu->save();
+				Session::flash('mensaje','Registro ingresado correctamente!!');
+				return Redirect::to('/admin/usuarios');	
+				//}					
 			}
 			else
 			{
@@ -460,7 +494,13 @@ class AdmonController extends BaseController {
 			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
 		
-		$datos = Colaboradores::paginate(10);
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$datos = Colaboradores::where('nombre', 'LIKE', '%'.$buscar.'%')->orwhere('descripcion', 'LIKE', '%'.$buscar.'%')->paginate(5);
+		} else {
+			$datos = Colaboradores::paginate(10);
+		}
+
 		return $this->layout->content = View::make('admon.colaboradores',compact("datos"));
 	}
 	
@@ -659,32 +699,36 @@ class AdmonController extends BaseController {
 			$path = 'uploads/header_site';
 			$file = $inputs["imagen_banner"];
 			$nombre_file = $inputs["nombre_banner"];
-			
-			$extencion = $file->getClientOriginalExtension();
-			$tamano = $file->getSize();
-			$imagen_banner = $file->getClientOriginalName();
-			
-			//$imp= 'nada';
-			if($extencion == "png" || $extencion == "jpg" || $extencion == "PNG" || $extencion == "JPG")
-			{
-				$upload = $file->move($path,$nombre_file);
-				if($upload)
+
+			if ($file != null) {
+				$extencion = $file->getClientOriginalExtension();
+				$tamano = $file->getSize();
+				$imagen_banner = $file->getClientOriginalName();
+				
+				//$imp= 'nada';
+				if($extencion == "png" || $extencion == "jpg" || $extencion == "PNG" || $extencion == "JPG")
 				{
-					//$imp= '<br /> nombre: '.$imagen_banner.'<br /> tamano: '.$tamano.'<br /> extencion: '.$extencion;
-					Session::flash('mensaje','Registro actualizado correctamente!!<br /> sino se muestra la nueva imagen recarge la pagina. Gracias!');
-					return Redirect::to('/admin/confbanners');
+					$upload = $file->move($path,$nombre_file);
+					if($upload)
+					{
+						//$imp= '<br /> nombre: '.$imagen_banner.'<br /> tamano: '.$tamano.'<br /> extencion: '.$extencion;
+						Session::flash('mensaje','Registro actualizado correctamente!!<br /> sino se muestra la nueva imagen recarge la pagina. Gracias!');
+						return Redirect::to('/admin/confbanners');
+					}
+					else
+					{
+						Session::flash('mensaje','Error al subir el archivo');
+						return Redirect::to('/admin/confbanners');
+					}				
 				}
 				else
 				{
-					Session::flash('mensaje','Error al subir el archivo');
+					Session::flash('mensaje','Formato Invalido');
 					return Redirect::to('/admin/confbanners');
-				}				
-			}
-			else
-			{
-				Session::flash('mensaje','Formato Invalido');
-				return Redirect::to('/admin/confbanners');
-			}				
+				}
+			} else {
+				return Redirect::to('/admin/confbanners')->with('mensaje', 'El Archivo es Requerido');
+			}	
 		}
 		catch(Exception $e)
 		{			
@@ -711,8 +755,14 @@ class AdmonController extends BaseController {
 		{
 			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
+
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$datos = Perfiles::where('nombre', 'LIKE', '%'.$buscar.'%')->paginate(5);
+		} else {
+			$datos = Perfiles::paginate(10);
+		}
 		
-		$datos = Perfiles::paginate(10);
 		return $this->layout->content = View::make('admon.perfiles',compact("datos"));
 	}
 

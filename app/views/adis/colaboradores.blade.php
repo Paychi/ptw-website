@@ -1,12 +1,12 @@
-@extends('layouts.layout_admon')
+@extends('layouts.layout_adis')
 
 @section('titulo')
-Ad-Colaboradores
+Adis-Colaboradores
 @stop
 
-@section('content_admon')
+@section('content_adis')
 
-	{{Form::open(array('url'=>'admin/colaboradores', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'adis/colaboradores', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro Nombre &oacute; Descripci&oacute;n'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
@@ -19,18 +19,18 @@ Ad-Colaboradores
 	@endif
 	 
 	<table class="table table-hover">
+		<a href="{{URL::to('/')}}/adis/addcolaborador" class="btn btn-success" style="margin-top:5px;">Nuevo</a>
 		<thead>			
 			<th>Logo</th>
 			<th>Nombre</th>
 			<th>Descripci&oacute;n</th>
 			<th>Sitio Web</th>
 			<th>Fecha de Afiliaci&oacute;n</th>
-			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addcolaborador" class="btn btn-success">Nuevo</a></center></th>
 		</thead>
 		<tbody>
 			@if($datos->count() == 0)
 				<tr>
-					<td colspan="7"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
+					<td colspan="5"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
 				</tr>
 			@else
 				@foreach($datos as $item)
@@ -46,8 +46,6 @@ Ad-Colaboradores
 						<td>{{$item->descripcion}}</td>
 						<td>{{$item->sitio_web}}</td>
 						<td>{{$newfecha}}</td>
-						<td><a onclick="editar('{{$item->id_colaborador}}')" class="btn btn-primary">Editar</a></td>
-						<td><a onclick="eliminar('{{$item->id_colaborador}}')" class="btn btn-danger">Eliminar</a></td>
 					</tr>
 				@endforeach
 			@endif
@@ -56,23 +54,9 @@ Ad-Colaboradores
 	<center><?php echo $datos->appends(array("filtro"=>Input::get("filtro")))->links(); ?></center>
  	
  	<script>
-		function editar(id_new)
-		{
-			window.location.href='{{URL::to('/')}}/admin/editcolaborador/'+id_new;
-		}
-		function eliminar(id_new)
-		{
-			if(confirm("Realmente usted quiere eliminar este registro?"))
-			{
-				window.location.href='{{URL::to('/')}}/admin/delatecolaborador/'+id_new;
-			}else
-			{
-				alert("La operación fue cancelada!");
-			}			
-		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/colaboradores';
+			window.location.href='{{URL::to('/')}}/adis/colaboradores';
 		}
 	</script>
 @endsection

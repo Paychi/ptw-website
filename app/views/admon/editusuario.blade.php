@@ -53,7 +53,7 @@ Ad-Usuarios
 			</div>					
 		</div> 		
 		
-		<div class="row">				
+		<!--<div class="row">				
 			<div class="col-md-6">	
 				<label class="control-label col-md-12">Contraseña</label>					
 				<div class="col-md-12"> 
@@ -68,7 +68,7 @@ Ad-Usuarios
 					<label class="error">{{$errors->first("Cpass_user")}}</label>
 				</div>
 			</div>
-		</div> 			
+		</div> 			-->
 		<br/>
 		<center>{{Form::submit('Guardar',['class' => 'btn btn-success action-button'])}}</center>
 	{{ Form::close() }}

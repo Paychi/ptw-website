@@ -31,6 +31,8 @@ img, video {
 
 .contenedor_post{
 	position: relative;
+	margin-bottom: 20px; 
+	background:transparent;
 }
 
 .sticky {
@@ -65,7 +67,6 @@ img, video {
 }
 
 .post {
-	margin:10px;
 	background:#fff;
 	border-bottom:#DDD 1px solid;
 	border-bottom:rgba(0,0,0,.13) 1px solid;
@@ -82,12 +83,13 @@ img, video {
 .post .miniatura{
 	position:relative;
 	height:auto;
+	padding: 5px;
 }
 
 .post .extracto {
 	position:relative;
     padding: 2.9%;
-    margin: 0px;
+    margin: 5px;
 	height: auto;
 }
 
@@ -188,9 +190,43 @@ img, video {
     height: 122px;
     width: 252px;
 }
+
+.footer-header {
+    background: none repeat scroll 0% 0% #121214;
+    border-top: 4px solid #1F1F1F;
+    font-size: 0.9em;
+    margin-top: 10px;
+    padding: 10px 0px 0px;
+}
+
+.footer-copyright {
+    background: none repeat scroll 0% 0% #0C0C0C;
+    border-top: 4px solid #111;
+    padding: 30px 0px 10px;
+}
+
 .alpie
 {
 	
+}
+
+.icon-item:hover
+{
+	/*-webkit-animation: spin 1s  linear;
+    -o-animation: spin 1s  linear;
+    animation: spin 1s  linear;*/
+
+    -webkit-transform:rotatey(720deg) ;
+    -moz-transform:rotatey(720deg) ;
+    -o-transform:rotatey(720deg) ;
+    -ms-transform:rotatey(720deg) ;
+    transform:rotatey(720deg) ;
+
+   -webkit-transition: all 2s ease-in-out;
+   -moz-transition: all 2s ease-in-out;
+   -o-transition: all 2s ease-in-out;
+   -ms-transition: all 2s ease-in-out;
+   transition: all 2s ease-in-out;
 }
 
 .contenido
@@ -261,6 +297,7 @@ img, video {
 {
 	display:none;
 	margin: 0px 24px;
+	margin-bottom: 10px;
 	padding: 10px 5px;
 	background:#fff;
 	border-bottom:#DDD 1px solid;
@@ -346,8 +383,23 @@ input[readonly] {
     display: block;
 }
 
+.splinemenu {
+	margin-top: 10px;
+    border-style: solid;
+    border-width: 1px;
+    width: auto;
+    margin: -5px auto 8px;
+    margin-left: 5px;
+    margin-right: 5px;
+    display: block;
+}
+
 .bColor {
     border-color: #0b556a;
+}
+
+.bColor2 {
+    border-color: rgba(0,0,0,.1);
 }
 
 .title-admon {

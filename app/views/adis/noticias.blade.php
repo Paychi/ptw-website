@@ -1,12 +1,12 @@
-@extends('layouts.layout_admon')
+@extends('layouts.layout_adis')
 
 @section('titulo')
-Ad-Noticias
+Adis-Noticias
 @stop
 
-@section('content_admon')
+@section('content_adis')
 
-	{{Form::open(array('url'=>'admin/noticias', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'adis/noticias', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro Titulo &oacute; Estracto'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
@@ -24,12 +24,12 @@ Ad-Noticias
 			<th>Estracto</th>
 			<th>Fecha de la Noticia</th>
 			<th>Fecha Registro</th>
-			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addnoticia" class="btn btn-success">Nuevo</a></center></th>
+			<th><center><a href="{{URL::to('/')}}/adis/addnoticia" class="btn btn-success">Nuevo</a></center></th>
 		</thead>
 		<tbody>
 			@if($datos->count() == 0)
 				<tr>
-					<td colspan="6"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
+					<td colspan="5"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
 				</tr>
 			@else
 				@foreach($datos as $item)
@@ -48,7 +48,6 @@ Ad-Noticias
 						<td>{{$newfecha}}</td>
 						<td>{{$newfecha2}}</td>
 						<td><a onclick="editar('{{$item->id_noticia}}')" class="btn btn-primary">Editar</a></td>
-						<td><a onclick="eliminar('{{$item->id_noticia}}')" class="btn btn-danger">Eliminar</a></td>
 					</tr>
 				@endforeach
 			@endif
@@ -59,21 +58,11 @@ Ad-Noticias
  	<script>
 		function editar(id_new)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editnoticia/'+id_new;
-		}
-		function eliminar(id_new)
-		{
-			if(confirm("Realmente usted quiere eliminar este registro?"))
-			{
-				window.location.href='{{URL::to('/')}}/admin/delatenoticia/'+id_new;
-			}else
-			{
-				alert("La operación fue cancelada!");
-			}			
+			window.location.href='{{URL::to('/')}}/adis/editnoticia/'+id_new;
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/noticias';
+			window.location.href='{{URL::to('/')}}/adis/noticias';
 		}
 	</script>
 @endsection

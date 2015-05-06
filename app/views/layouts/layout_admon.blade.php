@@ -35,7 +35,7 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/inicio.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
+					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/logo.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
@@ -62,6 +62,8 @@
 		<section class="container">
 			<div class="col-lg-2 st menu_perfil" id="content-left2">
 				<aside>
+					<img src="{{ asset('/img/logo/logo_conf.svg') }}" alt="telemedicina">
+					<span class="splinemenu bColor2"></span>
 					<ul class="nav nav-pills nav-stacked">			
 						<li><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						

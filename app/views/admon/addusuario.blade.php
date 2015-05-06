@@ -50,7 +50,7 @@ Ad-Usuarios
 			</div>					
 		</div> 		
 		
-		<div class="row">		
+		<!--<div class="row">		
 			<div class="col-md-6">	
 				<label class="control-label col-md-12">Contraseña</label>					
 				<div class="col-md-12"> 
@@ -66,7 +66,7 @@ Ad-Usuarios
 				</div>
 			</div>		
 			
-		</div> 	
+		</div> 	-->
 		
 		<br/>
 		<center>{{Form::submit('Guardar',['class' => 'btn btn-success action-button'])}}</center>

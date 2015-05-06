@@ -40,8 +40,11 @@ class RootController extends BaseController {
 	{
 		try
 		{
-			$datos = Noticias::paginate(3);
-			
+			//$datos = Noticias::paginate(3);
+
+			$datos = DB::table('noticia')->orderBy('fecha_noticia', 'desc')->paginate(5);
+
+
 			$perfil = $this->perfilUser();
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";

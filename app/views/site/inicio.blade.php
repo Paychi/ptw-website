@@ -24,7 +24,7 @@
 			$mes=date("m",$fecha);
 			$fecha_noticia= date("d",$fecha) ." de ". strftime("%B",mktime(0,0,0,$mes,1,2000)) ." del ". date("Y",$fecha);
 		 ?>
-		<div class="contenedor_post">	
+		<div class="row contenedor_post">	
 			<section id="noticia{{$dato->id_noticia}}" class = "col-lg-12">
 				<center>
 					<div class="post">	
@@ -33,11 +33,11 @@
 						</figure>
 						<div class="extracto">
 							<p class="fecha_post">{{$fecha_noticia}}</p>
-							<header class="entry-header">
+							<div class="entry-header">
 								<h2 class="entry-title">
 									<a href="{{URL::to('/')}}/es/detalle/{{$dato->titulo}}">{{$dato->titulo}}</a>
 								</h2>
-							</header>
+							</div>
 							<div class="entry-summary">
 								<p>
 									{{$dato->estracto}}

@@ -6,6 +6,18 @@ Ad-Usuarios
 
 @section('content_admon')
 
+	<?php 
+		$lista_filtro = array(0 => "Nombres &oacute; Apellidos", 1 => "Nombre de Usuario", 2 => "Perfil de Usuario");
+		$selected = array();
+	?>
+
+	{{Form::open(array('url'=>'admin/usuarios', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
+		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
+		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
+		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
+	{{Form::close()}}
+
 	@if(Session::has('mensaje'))
 		<div class="alert-box success">
 			<label>{{Session::get('mensaje')}}</label>
@@ -21,25 +33,31 @@ Ad-Usuarios
 			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class="btn btn-success">Nuevo</a></center></th>
 		</thead>
 		<tbody>
-			@foreach($datos as $item)
-				<?php
-					$fecha = $item->created_at;
-					$oldfecha = strtotime($fecha);
-					$newfecha = date("d/m/Y H:i:s",$oldfecha);
-				?>
-
+			@if($datos->count() == 0)
 				<tr>
-					<td>{{$item->nombres.' '.$item->apellidos}}</td>
-					<td>{{$item->nombre_usuario}}</td>
-					<td>{{$item->perfil->nombre}}</td>
-					<td>{{$newfecha}}</td>
-					<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
-					<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
+					<td colspan="6"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
 				</tr>
-			@endforeach
+			@else
+				@foreach($datos as $item)
+					<?php
+						$fecha = $item->created_at;
+						$oldfecha = strtotime($fecha);
+						$newfecha = date("d/m/Y H:i:s",$oldfecha);
+					?>
+
+					<tr>
+						<td>{{$item->nombres.' '.$item->apellidos}}</td>
+						<td>{{$item->nombre_usuario}}</td>
+						<td>{{$item->perfil->nombre}}</td>
+						<td>{{$newfecha}}</td>
+						<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
+						<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
+					</tr>
+				@endforeach
+			@endif
 		</tbody>
 	</table>
-	<center><?php echo $datos->links(); ?></center>
+	<center><?php echo $datos->appends(array("filtro"=>Input::get("filtro")))->links(); ?></center>
 	
 	<script>
 		function editar(id_user)
@@ -55,6 +73,10 @@ Ad-Usuarios
 			{
 				alert("La operación fue cancelada!");
 			}			
+		}
+		function MT()
+		{
+			window.location.href='{{URL::to('/')}}/admin/usuarios';
 		}
 	</script>
  	
