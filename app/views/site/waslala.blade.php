@@ -431,21 +431,29 @@ Waslala
 
 @section('content')
 	<section>
+
+        <h1>Waslala</h1>
+        <h4>Munucipio de Nicaragua</h4>
+        <p>Waslala es una municipalidad de la Región Autónoma del Atlántico Norte, en la República de Nicaragua; 
+        el término waslala es una palabra indígena que significa "río de plata".
+        {{HTML::Link('http://es.wikipedia.org/wiki/Waslala','Wikipedia')}}</p>
+        <p><strong>Superficie:</strong>  1.330 km²</p>
+        <p><strong>Altitud:</strong>  329 msnm</p>
+        <p><strong>Coordenadas:</strong>  <a href="http://tools.wmflabs.org/geohack/geohack.php?language=es&pagename=Waslala&params=13.233333333333_N_-85.383333333333_E_type:city">13°14′00″N 85°23′00″O</a></p>
 		
 	  <!--{{ HTML::image('img/SegundaWaslala.png', $alt="DRCSports", $attributes = array()) }}-->
       <!--<img src="img\SegundaWaslala.png" alt="" usemap="#map" style="position:absolute;z-index:-1;"/>-->
 			
-        <svg width="800" height="720" >
+        <svg width="800" height="720" style="margin-left:25%;" >
 
-			    <polygon class="Municipio" id="SanRamonLasVallas"
+		    <polygon class="Municipio" id="SanRamonLasVallas"
                     points="13,359  10,354  12,345   13,338   18,327  37,271  63,255
                           68,259  73,261  83,262  93,265  97,268  98,278  97,286
                           104,299   105,306  102,310  97,318  93,325  90,331  85,325  76,327
                           69,329   58,338   48,344  37,342  31,351  26,357  13,359" 
 				            style="fill:#fcf9c2;stroke:red;stroke-width:2; z-index:1;"/>
 
-                        <text x="30" y="305" style="font-size:8px;">SanRamonLasVallas</text>
-
+                        <!--<text x="30" y="305" style="font-size:8px;">SanRamonLasVallas</text>-->
 
           <polygon class="Municipio" id="VallasElPastal"
                     points="13,358  14,361  11,363  17,369  13,369  8,369  5,373  
@@ -455,13 +463,11 @@ Waslala
                     style="fill:#fcf7d7;stroke:red;stroke-width:2; z-index:1;"/>
 
 
-
           <polygon class="Municipio" id="Kaskita"
                     points="98,267  98,274  96,279  98,282  95,286  102,296  105,306    93,326  90,331  96,333  
                           103,334  110,331  117,327  121,325  130,316  130,311  133,307  133,303  133,291  133,284  
                           122,269  123,262  109,263  98,267" 
                     style="fill:#e6cafb;stroke:red;stroke-width:2; z-index:1;"/>
-
 
 
           <polygon class="Municipio" id="VallasCentral"
@@ -569,10 +575,17 @@ Waslala
                           537,250  537,245   535,241  542,242   539,237   537,233    532,233   526,230  520,225  514,224  509,219 515, 204" 
                         style="fill:#c7dbfc;stroke:red;stroke-width:2; z-index:1;"  />
 
+                        <!--<image x="495" y="220" width="30" height="30" xlink:href="http://imageshack.com/a/img661/6610/VoWyVP.png"/>-->
+                        <image onClick='alert("ElPuyus")' x="495" y="220" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}" />
+
+
               <polygon class="Municipio" id="ElKiawa"
                       points="486,217  480,215  465,201  443,199  431,205  426,203    423,207   421,221  409,230  422,242  432,246  440,256  
                           457,271  461,279  471,268  481,255  493,253  487,236" 
                           style="fill:#ccfce6;stroke:red;stroke-width:2; z-index:1;"/>
+
+                          <image onClick='alert("ElKiawa")' x="455" y="220" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+                          <image onClick='alert("ElKiawa")' x="425" y="205" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
 
               <polygon class="Municipio" id="Sofana" 
@@ -580,6 +593,10 @@ Waslala
                          435,293   436,315   448,311   458,320   482,319   490,311    498,311   512,319   510,309   515,301   522,304  
                           523,297  528,297   525,285   532,277   528,275   524,278" 
                         style="fill:#cabbfc;stroke:red;stroke-width:2; z-index:1;"/>
+
+                        <image onClick='alert("Sofana")' x="445" y="285" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
 
               <polygon class="Municipio" id="BuenosAiresDudu"
                       points="513,416  518,422  511,426  499,419  458,419  451,413  442,395  435,370  439,353  439,337  428,323  
@@ -594,6 +611,8 @@ Waslala
                         513,504  512,491  520,483  519,461  516,453  518,449  523,441  520,428  526,425  532,428  532,424 
                          526,419  516,421" 
                        style="fill:#cdfdb3;stroke:red;stroke-width:2; z-index:1;"/>
+
+                       <image onClick='alert("Dipina")' x="430" y="470" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
 
               <polygon class="Municipio" id="CanoSucio"
@@ -618,6 +637,8 @@ Waslala
                           330,577  343,564  354,561" 
                       style="fill:#f1d7fc;stroke:red;stroke-width:2; z-index:1;"/>
 
+                      <image onClick='alert("YaroCentral")' x="350" y="600" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
 
 
               <polygon class="Municipio" id="SnJuanYaro" 
@@ -627,17 +648,30 @@ Waslala
                        352,683  352,693  358,699  368,692  375,695  383,704" 
                       style="fill:#e1c2fd;stroke:red;stroke-width:2; z-index:1;"/>
 
+                      <image onClick='alert("SanJuanYaro")' x="360" y="660" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
+
+
               <polygon class="Municipio" id="OcoteTuma"
                       points="341,564  329,578  330,584  324,591  324,602  311,613  312,625  304,631  301,642 
                        287,641  284,628  268,626  264,609  247,605  244,608  237,596  240,591  240,581 
                         254,565  268,562  286,563  296,557  318,564" 
                       style="fill:#ccc5fb;stroke:red;stroke-width:2; z-index:1;"/>
 
+                      <image onClick='alert("OcoteTuma")' x="270" y="565" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+                      <image onClick='alert("OcoteTuma")' x="240" y="575" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
+
+
               <polygon class="Municipio" id="ChileTres"
                       points="233,525  231,537  227,536  218,524  195,522  182,525  160,520  154,532  154,549  175,582  199,611 
                        213,619  228,614  238,613  244,608  237,596  240,591  240,581  254,565  258,554  263,544  
                        268,539  260,531"
                        style="fill:#f0cffc;stroke:red;stroke-width:2; z-index:1;" />
+
+                       <image onClick='alert("ChileTres")' x="150" y="525" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
               <polygon class="Municipio" id="OcoteYaosca" 
                       points="134,485  152,503  163,500  179,508  174,515  176,524  162,522  154,532  154,541  156,548  152,548 
@@ -649,11 +683,15 @@ Waslala
                         76,438  70,444  68,450  54,452  73,475  81,483  90,485  94,489  96,493  107,483  109,472" 
                         style="fill:#fcb3e0;stroke:red;stroke-width:2; z-index:1;"/>
 
+                        <image onClick='alert("VallasAbajo")' x="80" y="440" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
 
               <polygon class="Municipio" id="SnPedroLasVallas"
                        points="53,451  67,451  70,443  79,436  86,420  94,419  96,403  96,394  91,390  85,394  42,410  34,410 
                         31,415  37,423  42,431  48,439" 
                         style="fill:#edb8fc;stroke:red;stroke-width:2; z-index:1;"/>
+
+                        <image onClick='alert("SanPedroLasVallas")' x="60" y="385" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
 
               <polygon class="Municipio" id="SnRafaelKum" 
@@ -703,10 +741,17 @@ Waslala
                         397,324  383,325  378,322  369,329  358,325  356,333  355,350  345,371  349,391  355,402  372,410" 
                       style="fill:#eafbb4;stroke:red;stroke-width:2; z-index:1;"/>
 
+                      <image onClick='alert("ZapoteDudu")' x="400" y="380" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
+
              <polygon class="Municipio" id="ArenasBlancas" 
                       points="402,455  410,446  411,420  400,414  391,413  372,410  355,402  338,411  338,426  346,425  348,441  368,445 
                        381,446  378,453  379,464  388,463" 
                      style="fill:#b8cefd;stroke:red;stroke-width:2; z-index:1;"/>
+
+                     <image onClick='alert("ArenasBlancas")' x="380" y="420" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
 
              <polygon class="Municipio" id="CeibaDudu"
                       points="354,560  362,562  370,567  378,569  386,575  396,567  404,574  415,575  414,567  419,564  418,551  421,545 
@@ -714,10 +759,19 @@ Waslala
                         365,464  355,466  352,476  353,495  357,503  354,514  353,540  356,545" 
                       style="fill:#fbbde2;stroke:red;stroke-width:2; z-index:1;"/>
 
+                      <image onClick='alert("CeibaDudu")' x="350" y="470" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
              <polygon class="Municipio" id="OcoteDudu" 
                       points="353,496  357,504  354,515  354,540  356,546  354,561  341,564  317,564  294,558  286,563  266,562  254,565 
                        260,545    267,540      261,532  270,523  267,512  289,499  298,506  319,504  325,492  334,485" 
                      style="fill:#d7d2fb;stroke:red;stroke-width:2; z-index:1;"/>
+
+                     <image onClick='alert("OcoteDudu")' x="265" y="525" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+                     <image onClick='alert("OcoteDudu")' x="320" y="505" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+
+
 
              <polygon class="Municipio" id="SnMiguelDudu"
                       points="339,427  320,446  317,440  308,432  314,424  300,423  295,436  286,442  276,446  257,445  236,457  234,473 
@@ -736,12 +790,15 @@ Waslala
                       115,442  121,439" 
                     style="fill:#e3fcbb;stroke:red;stroke-width:2; z-index:1;"/>
 
+                    <image onClick='alert("SanPabloLasVallas")' x="92" y="380" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
 
             <polygon class="Municipio" id="LasFlores"
                      points="149,457  150,446  153,437  129,428  121,440  115,443  107,451  110,457  106,463  109,471  105,482  112,484  131,483  139,469" 
                    style="fill:#fcc7e3;stroke:red;stroke-width:2; z-index:1;"/>
 
+
+                    <image onClick='alert("LasFlores")' x="105" y="452" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
 
             <polygon class="Municipio" id="LaPosolera" 
@@ -766,6 +823,10 @@ Waslala
                     points="261,532  270,522  260,494  251,488  242,483  233,484  225,488  218,489  211,492  215,498  221,503  220,524  
                       223,537  230,537  232,525  240,527  252,527" 
                     style="fill:#befcb3;stroke:red;stroke-width:2; z-index:1;"/>
+                    
+                    <image onClick='alert("ChileDos")' x="218" y="495" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
+
+                    <!--<image x="218" y="495" width="30" height="30" xlink:href="http://imageshack.com/a/img661/6610/VoWyVP.png"/>-->
 
 
             <polygon class="Municipio" id="ElAchioteWaslala"
@@ -861,20 +922,8 @@ Waslala
                     points="358,299  361,311  358,325  369,329  379,322  382,326  422,323  429,327  436,315 
                       435,291  429,285  428,276  403,267  397,272  396,283  388,285  382,279  370,279  363,294" 
                       style="fill:#fce6b4;stroke:red;stroke-width:2; z-index:1;"/>
-            
-
           
         </svg>
-
-        <h1>Waslala</h1>
-        <h4>Munucipio de Nicaragua</h4>
-        <p>Waslala es una municipalidad de la Región Autónoma del Atlántico Norte, en la República de Nicaragua; 
-        el término waslala es una palabra indígena que significa "río de plata".
-        {{HTML::Link('http://es.wikipedia.org/wiki/Waslala','Wikipedia')}}</p>
-        <p><strong>Superficie:</strong>  1.330 km²</p>
-        <p><strong>Altitud:</strong>  329 msnm</p>
-        <p><strong>Coordenadas:</strong>  <a href="http://tools.wmflabs.org/geohack/geohack.php?language=es&pagename=Waslala&params=13.233333333333_N_-85.383333333333_E_type:city">13°14′00″N 85°23′00″O</a></p>
-
 
 	</section>
 @stop
