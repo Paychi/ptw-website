@@ -1,0 +1,12 @@
+.Municipio{
+  opacity:none;
+  margin-left: 100px;
+}   
+
+.Municipio:hover{
+  background-color:red;
+}
+
+a:hover path, a:hover polygon, a:hover circle {
+  fill: red;
+}
