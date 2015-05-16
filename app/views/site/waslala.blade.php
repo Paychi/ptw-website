@@ -35,8 +35,8 @@ Waslala
 		
 	  <!--{{ HTML::image('img/SegundaWaslala.png', $alt="DRCSports", $attributes = array()) }}-->
       <!--<img src="img\SegundaWaslala.png" alt="" usemap="#map" style="position:absolute;z-index:-1;"/>-->
-			
-        <svg width="800" height="720" style="margin-left:25%;" >
+		        
+		<svg viewBox="0 0 800 720" preserveAspectRatio="xMinYMin" style="margin-left:5%;" >
 
 		    <polygon class="Municipio" id="SanRamonLasVallas"
                     points="13,359  10,354  12,345   13,338   18,327  37,271  63,255
