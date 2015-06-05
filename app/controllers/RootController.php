@@ -28,6 +28,9 @@ class RootController extends BaseController {
 				
 			if($user_login[0]->perfil->id_perfil == 2)
 				$perfil = 2;
+
+			if($user_login[0]->perfil->id_perfil == 3)
+				$perfil = 3;
 		}
 		else
 		{
@@ -114,7 +117,8 @@ class RootController extends BaseController {
 			$perfil = $this->perfilUser();
 			$valores = Input::All();
 			$noticiapost = $valores["itemsearch"];
-			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();
+			
+			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();		
 			
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";

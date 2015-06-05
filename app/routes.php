@@ -15,6 +15,7 @@ Route::controller('/es','RootController');
 Route::controller('/login','LoginController');
 Route::controller('/admin','AdmonController');
 Route::controller('/adis','AdisController');
+Route::controller('/colaborador','ColaboradorController');
 
 Route::get('/', function()
 {

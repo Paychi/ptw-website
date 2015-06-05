@@ -134,8 +134,11 @@ class AdmonController extends BaseController {
 
 				$path = 'uploads/noticias';
 				$file = Input::file('archivo');
-				$archivo = $file->getClientOriginalName();
-				
+
+				/*echo $file; exit;*/
+
+				$archivo = $file->getClientOriginalName();				
+
 				$upload = $file->move($path,$archivo);
 				
 				if($upload)
@@ -314,9 +317,12 @@ class AdmonController extends BaseController {
 		}
 		
 		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
+		$colaboradores = Colaboradores::lists('abreviatura', 'id_colaborador');	
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
-		$selected = array();	
-		return $this->layout->content = View::make('admon.addusuario',compact("lista_perfil","selected"));
+		$lista_colaboradores = array(0 => "--- Seleccione --- ") + $colaboradores;
+		$selected = array();
+		$item_selected = array();	
+		return $this->layout->content = View::make('admon.addusuario',compact("lista_perfil","selected","lista_colaboradores","item_selected"));
 	}
 	
 	public function getEditusuario($id_usuario = null)
@@ -328,9 +334,12 @@ class AdmonController extends BaseController {
 		
 		$datos = Usuarios::find($id_usuario);
 		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
+		$colaboradores = Colaboradores::lists('abreviatura', 'id_colaborador');	
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
+		$lista_colaboradores = array(0 => "--- Seleccione --- ") + $colaboradores;
 		$selected = array($datos->id_perfil);
-		return $this->layout->content = View::make('admon.editusuario',compact("datos","lista_perfil","selected"));
+		$item_selected = array($datos->id_colaborador);	
+		return $this->layout->content = View::make('admon.editusuario',compact("datos","lista_perfil","selected","lista_colaboradores","item_selected"));
 	}
 	
 	public function postEditusuario()
@@ -352,7 +361,7 @@ class AdmonController extends BaseController {
 			"min" => "Debe tener como minimo 5 caracteres",
 			"unique" => "Usuario ya existe"
 		);
-		
+		//echo $inputs["colaborador"]; exit;
 		$validar=Validator::make($inputs,$validaciones,$mensajes);
 		
 		if($validar->fails())
@@ -378,6 +387,7 @@ class AdmonController extends BaseController {
 				$p_bd = $eu->id_perfil;
 				$user = $eu->nombre_usuario;
 				$eu->id_perfil = $inputs["perfil"];
+				$eu->id_colaborador = $inputs["colaborador"];
 				$eu->nombres = $inputs["nombres"];
 				$eu->apellidos = $inputs["apellidos"];
 				$eu->estado = 1;
@@ -455,6 +465,7 @@ class AdmonController extends BaseController {
 				{*/
 				$nu = new Usuarios;
 				$nu->id_perfil = $inputs["perfil"];
+				$nu->id_colaborador = $inputs["colaborador"];
 				$nu->nombres = $inputs["nombres"];
 				$nu->apellidos = $inputs["apellidos"];
 				$nu->nombre_usuario = $inputs["nombre_usuario"];

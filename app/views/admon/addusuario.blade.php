@@ -34,10 +34,10 @@ Ad-Usuarios
 		</div> 	
 		
 		<div class="row">		
-			<div class="col-md-6">	
+			<div class="col-md-6" id="selected_perfil">	
 				<label class="control-label col-md-12">Perfil</label>					
 				<div class="col-md-12"> 
-					{{Form::select('perfil', $lista_perfil, $selected, array('class' => 'form-control'))}}
+					{{Form::select('perfil', $lista_perfil, $selected, array('class' => 'form-control', 'id' => 'lista_perfiles'))}}
 					<label class="error">{{$errors->first("perfil")}}</label>
 				</div>
 			</div>
@@ -50,27 +50,26 @@ Ad-Usuarios
 			</div>					
 		</div> 		
 		
-		<!--<div class="row">		
+		<div class="row" style="display: none;" id = "fieldhidden">		
 			<div class="col-md-6">	
-				<label class="control-label col-md-12">Contraseña</label>					
+				<label class="control-label col-md-12">Colaborador</label>					
 				<div class="col-md-12"> 
-					{{ Form::password('pass_user', array('class' => 'form-control', 'required')) }}
-					<label class="error">{{$errors->first("pass_user")}}</label>
+					{{Form::select('colaborador', $lista_colaboradores, $item_selected, array('class' => 'form-control', 'id' => 'list'))}}
+					<label class="error">{{$errors->first("colaborador")}}</label>
 				</div>
 			</div>
-			<div class="col-md-6">	
+			<!--<div class="col-md-6">	
 				<label class="control-label col-md-12">Confirmar Contraseña</label>					
 				<div class="col-md-12"> 
 					{{ Form::password('conpass_user', array('class' => 'form-control', 'required')) }}
 					<label class="error">{{$errors->first("conpass_user")}}</label>
 				</div>
-			</div>		
+			</div>	-->	
 			
-		</div> 	-->
+		</div> 	
 		
 		<br/>
 		<center>{{Form::submit('Guardar',['class' => 'btn btn-success action-button'])}}</center>
 	{{ Form::close() }}
- 	
 @stop
 	

@@ -24,39 +24,41 @@ Ad-Usuarios
 		</div>
 	@endif
 
-	<table class="table table-hover">
-		<thead>
-			<th>Nombre Completo</th>
-			<th>Nombre de Usuario</th>
-			<th>Perfil de Usuario</th>
-			<th>Fecha Registro</th>
-			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class="btn btn-success">Nuevo</a></center></th>
-		</thead>
-		<tbody>
-			@if($datos->count() == 0)
-				<tr>
-					<td colspan="6"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
-				</tr>
-			@else
-				@foreach($datos as $item)
-					<?php
-						$fecha = $item->created_at;
-						$oldfecha = strtotime($fecha);
-						$newfecha = date("d/m/Y H:i:s",$oldfecha);
-					?>
-
+	<div class="table-responsive" style="padding:10px; margin: 5px;">	
+		<table class="table table-hover">
+			<thead>
+				<th>Nombre Completo</th>
+				<th>Nombre de Usuario</th>
+				<th>Perfil de Usuario</th>
+				<th>Fecha Registro</th>
+				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class="btn btn-success">Nuevo</a></center></th>
+			</thead>
+			<tbody>
+				@if($datos->count() == 0)
 					<tr>
-						<td>{{$item->nombres.' '.$item->apellidos}}</td>
-						<td>{{$item->nombre_usuario}}</td>
-						<td>{{$item->perfil->nombre}}</td>
-						<td>{{$newfecha}}</td>
-						<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
-						<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
+						<td colspan="6"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
 					</tr>
-				@endforeach
-			@endif
-		</tbody>
-	</table>
+				@else
+					@foreach($datos as $item)
+						<?php
+							$fecha = $item->created_at;
+							$oldfecha = strtotime($fecha);
+							$newfecha = date("d/m/Y H:i:s",$oldfecha);
+						?>
+
+						<tr>
+							<td>{{$item->nombres.' '.$item->apellidos}}</td>
+							<td>{{$item->nombre_usuario}}</td>
+							<td>{{$item->perfil->nombre}}</td>
+							<td>{{$newfecha}}</td>
+							<td><a onclick="editar('{{$item->id_usuario}}')" class="btn btn-primary">Editar</a></td>
+							<td><a onclick="eliminar('{{$item->id_usuario}}')" class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					@endforeach
+				@endif
+			</tbody>
+		</table>
+	</div>	
 	<center><?php echo $datos->appends(array("filtro"=>Input::get("filtro")))->links(); ?></center>
 	
 	<script>

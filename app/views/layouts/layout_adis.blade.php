@@ -42,11 +42,19 @@
 					<ul class="nav navbar-nav">									
 						<!--<li><a href='{{URL::to('/')}}/es/creditos' target="_blank"><span>Creditos</span></a> </li>-->
 						<li><a href='{{URL::to('/')}}/adis' ><span>Adis</span></a> </li>
+						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>Men&uacute;<b class="caret"></b></span></a>
+							<ul class="dropdown-menu nav nav-pills nav-stacked">
+								<li><a href="{{URL::to('/')}}/adis/addnoticia"><span>Agregar Noticia</span></a></li>
+								<li><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
+								<li><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
+								<li><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
+							</ul>
+						</li>
 					</ul>
 
 					<ul class="nav navbar-nav navbar-right">	
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
-							<ul class="dropdown-menu">
+							<ul class="dropdown-menu nav nav-pills nav-stacked">
 								<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
 								<li><a href='{{URL::to('/')}}/adis/logout'><span>Cerrar Sesion</span></a></li>
@@ -67,8 +75,7 @@
 					<span class="splinemenu bColor2"></span>
 					<ul class="nav nav-pills nav-stacked">						
 						<li><a href="{{URL::to('/')}}/adis/addnoticia"><span>Agregar Noticia</span></a></li>
-						<li><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>						
-						<li><a href='{{URL::to('/')}}/adis/addcolaborador'><span>Agregar Colaborador</span></a></li>
+						<li><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
 						<li><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 						<li><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
 					</ul>

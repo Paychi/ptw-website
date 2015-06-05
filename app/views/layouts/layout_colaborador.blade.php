@@ -4,7 +4,7 @@
 		<meta charset="utf-8" />
 	  	<meta name="viewport" content="width=device-width, initial-scale=1"/>
 	  	<title>
-			Telemedicina | @section('titulo')Administraci&oacute;n
+			Telemedicina | @section('titulo')Colaborador
 			@show
 		</title>
 
@@ -39,15 +39,10 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<!--<li><a href='{{URL::to('/')}}/es/creditos' target="_blank"><span>Creditos</span></a> </li>-->
-						<li><a href='{{URL::to('/')}}/admin' ><span>Administraci&oacute;n</span></a> </li>
+						<li><a href='{{URL::to('/')}}/admin' ><span>Colaborador</span></a> </li>
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>Men&uacute;<b class="caret"></b></span></a>
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
-								<li><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
-								<li><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
+								<li><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -57,7 +52,7 @@
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
 								<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
+								<li><a href='{{URL::to('/')}}/colaborador/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
 						</li>
 					</ul>				
@@ -74,18 +69,13 @@
 					<img src="{{ asset('/img/logo/logo_conf.svg') }}" alt="telemedicina">
 					<span class="splinemenu bColor2"></span>
 					<ul class="nav nav-pills nav-stacked">			
-						<li><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
-						<li><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
-						<li><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
+						<li><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
 					</ul>
 				</aside>
 			</div>
 			
 			<div class="col-lg-10 contenido">
-				@yield('content_admon')
+				@yield('content_colaborador')
 			</div>			
 		</section>
 			

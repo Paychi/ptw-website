@@ -18,41 +18,43 @@ Ad-Colaboradores
 		</div>
 	@endif
 	 
-	<table class="table table-hover">
-		<thead>			
-			<th>Logo</th>
-			<th>Nombre</th>
-			<th>Descripci&oacute;n</th>
-			<th>Sitio Web</th>
-			<th>Fecha de Afiliaci&oacute;n</th>
-			<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addcolaborador" class="btn btn-success">Nuevo</a></center></th>
-		</thead>
-		<tbody>
-			@if($datos->count() == 0)
-				<tr>
-					<td colspan="7"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
-				</tr>
-			@else
-				@foreach($datos as $item)
-					<?php 
-						$fecha = $item->fecha_colaborador;
-						$oldfecha = strtotime($fecha);
-						$newfecha = date("d/m/Y",$oldfecha);
-					?>
-
+	<div class="table-responsive" style="padding:10px; margin: 5px;">	
+		<table class="table table-hover">
+			<thead>			
+				<th>Logo</th>
+				<th>Nombre</th>
+				<th>Descripci&oacute;n</th>
+				<th>Sitio Web</th>
+				<th>Fecha de Afiliaci&oacute;n</th>
+				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addcolaborador" class="btn btn-success">Nuevo</a></center></th>
+			</thead>
+			<tbody>
+				@if($datos->count() == 0)
 					<tr>
-						<td>{{HTML::image('uploads/logo_colaboradores/'.$item->logo,'logo',array("class"=>"img_admonColaboradores"))}}</td>
-						<td>{{$item->nombre}}</td>
-						<td>{{$item->descripcion}}</td>
-						<td>{{$item->sitio_web}}</td>
-						<td>{{$newfecha}}</td>
-						<td><a onclick="editar('{{$item->id_colaborador}}')" class="btn btn-primary">Editar</a></td>
-						<td><a onclick="eliminar('{{$item->id_colaborador}}')" class="btn btn-danger">Eliminar</a></td>
+						<td colspan="7"><center><label class="label label-danger" style="font-size: 0.9em;">No hay Registros</label></center></td>
 					</tr>
-				@endforeach
-			@endif
-		</tbody>
-	</table>
+				@else
+					@foreach($datos as $item)
+						<?php 
+							$fecha = $item->fecha_colaborador;
+							$oldfecha = strtotime($fecha);
+							$newfecha = date("d/m/Y",$oldfecha);
+						?>
+
+						<tr>
+							<td>{{HTML::image('uploads/logo_colaboradores/'.$item->logo,'logo',array("class"=>"img_admonColaboradores"))}}</td>
+							<td>{{$item->nombre}}</td>
+							<td>{{$item->descripcion}}</td>
+							<td>{{$item->sitio_web}}</td>
+							<td>{{$newfecha}}</td>
+							<td><a onclick="editar('{{$item->id_colaborador}}')" class="btn btn-primary">Editar</a></td>
+							<td><a onclick="eliminar('{{$item->id_colaborador}}')" class="btn btn-danger">Eliminar</a></td>
+						</tr>
+					@endforeach
+				@endif
+			</tbody>
+		</table>
+	</div>
 	<center><?php echo $datos->appends(array("filtro"=>Input::get("filtro")))->links(); ?></center>
  	
  	<script>

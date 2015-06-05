@@ -21,6 +21,8 @@ class LoginController extends BaseController
 				return Redirect::to('/admin');
 			if($session_user[0]->perfil->id_perfil == 2)
 				return Redirect::to('/adis');
+			if($session_user[0]->perfil->id_perfil == 3)
+				return Redirect::to('/colaborador');
 		}
 		
 		return $this->layout->content = View::make('login.index');
@@ -57,6 +59,10 @@ class LoginController extends BaseController
 
 						case 2:
 							return Redirect::to('adis');
+							break;
+
+						case 3:
+							return Redirect::to('colaborador');
 							break;
 						
 						default:

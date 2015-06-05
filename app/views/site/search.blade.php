@@ -13,7 +13,9 @@ Search
 @section('content-izq')
 	<div>
 		@if($datos->count() == null)
-			<label> Sin Resultados!</label>
+			<div class="text-center" style="margin-bottom: 10px;">
+				<label class="label label-danger"> Sin Resultados!</label>
+			</div>			
 		@endif
 		<ul class="nav nav-pills nav-stacked">		
 			@foreach($datos as $dato)
@@ -24,10 +26,17 @@ Search
 @stop
 
 @section('content')
-	<h1>Resultado de: <strong>{{$noticiapost}}</strong></h1>
+	@if($noticiapost != '')
+		<h1 class="tituloinfo text-center">Resultado de: <strong>{{$noticiapost}}</strong></h1>	
+	@else
+		<h1 class="tituloinfo text-center"><strong>Todos los Datos</strong></h1>
+	@endif
+	
 	
 	@if($datos->count() == null)
-		<label> No se han encontrado resultados....</label>
+		<div class="text-center">
+			<label class="label label-danger"> No se han encontrado resultados....</label>
+		</div>
 	@endif
 	
 	@foreach($datos as $dato)

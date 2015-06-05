@@ -273,7 +273,8 @@ img, video {
 .search
 {
 	margin: 30px 0px;
-	padding: 0px;
+	padding-top: 1px;
+	border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .img_admonColaboradores
@@ -296,7 +297,7 @@ img, video {
 #div_promotor
 {
 	display:none;
-	margin: 0px 24px;
+	margin: 0px 0px;
 	margin-bottom: 10px;
 	padding: 10px 5px;
 	background:#fff;
@@ -307,15 +308,14 @@ img, video {
 
 #contDefPromotor
 {
-	display: none;
+	margin: 5px;
 	padding: 5px;
-	background:transparent;
+	background:#DDE8DE;
 	box-shadow:0 0 10px rgba(0,0,0,.1);
 }
 
 #contDefPromotorHidden
 {
-	display: none;
 	padding: 5px;
 	background:#DDE8DE;
 	box-shadow:0 0 20px rgba(0,0,0,.1);
@@ -326,13 +326,11 @@ img, video {
 	cursor: pointer;
 }
 
-.text_bienvenida {
-    text-align:center;
-    color: #666666;
-    font-variant: small-caps;
-    text-transform: none;
-    font-family:'Comic Sans MS'; 
-    text-shadow:20px 15px 2px #333;
+.tituloinfo{
+	border: 1px solid rgba(0, 0, 0, 0.3);
+	border-radius: 5px;
+	box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
+	padding: 10px;
 }
 
 .btn-file {
@@ -405,4 +403,13 @@ input[readonly] {
 .title-admon {
     font-size: 18px;
     font-weight: 700;
+}
+
+.text_bienvenida {
+    text-align:center;
+    color: #666666;
+    font-variant: small-caps;
+    text-transform: none;
+    font-family:'Comic Sans MS'; 
+    text-shadow:20px 15px 2px #333;
 }

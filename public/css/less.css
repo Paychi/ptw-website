@@ -18,6 +18,10 @@ px 68 160 252 344 436 528 620 712 804 896 */
 	{
 		display:block;
 	}
+	#content-left2
+	{
+		display: none;
+	}
 }
 
 @media only screen and (min-width: 10px) and (max-width: 1211px) {
@@ -45,6 +49,10 @@ px 68 160 252 344 436 528 620 712 804 896 */
 	   -ms-transition: all 0s ease-in-out;
 	   transition: all 0s ease-in-out;
 	}
+	#content-left2
+	{
+		display: none;
+	}
 }
 
 
@@ -58,6 +66,10 @@ px 68 160 252 344 436 528 620 712 */
 @media only screen and (min-width: 768px) and (max-width: 991px) {
 	#content-left, #content-right{
 		display:none;
+	}
+	#content-left2
+	{
+		display: none;
 	}
 	#div_promotor
 	{
@@ -83,6 +95,10 @@ px 68 160 252 */
 	#content-left, #content-right{
 		display:none;
 	}
+	#content-left2
+	{
+		display: none;
+	}
 	#div_promotor
 	{
 		display:block;
@@ -107,6 +123,10 @@ px 68 160 252 344 436 */
 	#content-left, #content-right{
 		display:none;
 	}
+	#content-left2
+	{
+		display: none;
+	}
 	#div_promotor
 	{
 		display:block;
@@ -127,6 +147,10 @@ device-pixel-ratio of 2+, such as iPhone 4.
 @media only screen and (max-width: 480px) {
 	#content-left, #content-right{
 		display:none;
+	}
+	#content-left2
+	{
+		display: none;
 	}
 	#div_promotor
 	{

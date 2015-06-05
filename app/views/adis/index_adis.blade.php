@@ -16,12 +16,6 @@
 		<p>Editar las Noticias para cuando haya un dato erroneo y corregirlos.</p>
 	</div>
 	<div class="col-lg-3 text-center">
-		<a href="{{URL::to('/')}}/adis/addcolaborador"> <img src="{{ asset('/img/icon/addcolaborador.svg') }}" alt="usuarios" class="icon-item"> </a>
-		<a href="{{URL::to('/')}}/adis/addcolaborador" class="entry-title title-admon"><h2 class="title-admon">Agregar Colaboradores</h2></a>
-		<span class="spline bColor"></span>
-		<p>Agregar un nuevo Colaborador con el Proyecto Telemedicina.</p>
-	</div>
-	<div class="col-lg-3 text-center">
 		<a href="{{URL::to('/')}}/adis/confbanners"> <img src="{{ asset('/img/icon/banners.svg') }}" alt="banners" class="icon-item"> </a>
 		<a href="{{URL::to('/')}}/adis/confbanners" class="entry-title"><h2 class="title-admon">Configuraci&oacute;n Banners</h2></a>
 		<span class="spline bColor"></span>

@@ -21,7 +21,8 @@ Colaboradores
 @stop
 
 @section('content')
-<h1>Instituciones involucradas</h1>
+<h1 class="text-center tituloinfo">Instituciones involucradas</h1>
+<hr />
 <p>
 	Las instituciones involucradas en el desarrollo de este proyecto de Telesalud son: 
 	ADIS, Villanova University, Universidad Nacional de Ingeniería (UNI), 
@@ -32,6 +33,8 @@ Colaboradores
 	Te invitamos a que colabores con el proyecto para seguir ejarciendo la buena labor, que hasta este 
 	momento ha sido de gran ayuda para pobladores de las zonas rurales de Waslala Nicaragua.
 </p>
+
+<hr />
 
 <section style="margin:10px">	
 	@foreach($datos as $dato)

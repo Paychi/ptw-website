@@ -34,7 +34,7 @@ About
 
 @section('content')
 	<div id="telemedicina">
-		<h1 class="text-center">Proyecto Telemedicina</h1>
+		<h1 class="text-center tituloinfo">Proyecto Telemedicina</h1>
 		
 		<p>Desde 2010, este equipo interdisciplinario, dirigido por el Dr. Pritpal Singh, Profesor y 
 		Presidente del Departamento de Ingeniería Eléctrica y Computación, ha venido desarrollando 
@@ -64,7 +64,7 @@ About
 	</div>
 	<hr/>
 	<div id="adis">
-		<h1 class="text-center">Asociaci&oacute;n de  Desarrollo  Integral y Sostenible.(ADIS)</h1>
+		<h1 class="text-center tituloinfo">Asociaci&oacute;n de  Desarrollo  Integral y Sostenible.(ADIS)</h1>
 		
 		<p>En el año 1986 se inicio como pastoral de salud,  luego en 1995 se le da el nombre de Programa Integral en 
 		Salud y en el año 2009 el 29 de junio es aprobada en la Asamblea Nacional la personería jurídica como: 
@@ -121,7 +121,7 @@ About
 	</div>
 	<hr/>
 	<div id="actividades">
-		<h1 class="text-center">Actividades</h1>
+		<h1 class="text-center tituloinfo">Actividades</h1>
 		
 		<p>1. Se les capacita en temáticas de salud, cumpliendo el siguiente pensum de estudio en un periodo de  2 años.</p>
 		
@@ -330,7 +330,7 @@ About
 	</div>
 	<hr/>
 	<div id="fotos">
-		<h1 class="text-center">Fotos del Proyecto de Telemedicina en Waslala-Nicaragua</h1>
+		<h1 class="text-center tituloinfo">Fotos del Proyecto de Telemedicina en Waslala-Nicaragua</h1>
 		
 		<section class="section" id="sec">
 			<center><h4 class="colortexto_galeria" >Primeros Líderes en capacitación, aprendiendo a escribir mensajes</h4></center>

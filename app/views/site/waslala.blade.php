@@ -10,29 +10,60 @@ Waslala
 	</div>
 @stop
 
+@section('css')
+  <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/mapa.css">
+@stop
+
 @section('javascript')
 	<script src="{{URL::to('/')}}/js/hidden_menu_left.js"></script>
-    <script src="{{URL::to('/')}}/js/InfoPlaces.js"></script>        
-    <link rel="stylesheet" type="text/css" href="{{URL::to('/')}}/css/mapa.css">
-
-
+  <script src="{{URL::to('/')}}/js/InfoPlaces.js"></script>       
 	<!--<script src="{{URL::to('/')}}/js/jquery-1.3.2.min.js"></script>-->
-
-
 @stop
 
 @section('content')
 	<section>
 
-        <h1>Waslala</h1>
-        <h4>Munucipio de Nicaragua</h4>
-        <p>Waslala es una municipalidad de la Región Autónoma del Atlántico Norte, en la República de Nicaragua; 
-        el término waslala es una palabra indígena que significa "río de plata".
-        {{HTML::Link('http://es.wikipedia.org/wiki/Waslala','Wikipedia')}}</p>
-        <p><strong>Superficie:</strong>  1.330 km²</p>
-        <p><strong>Altitud:</strong>  329 msnm</p>
-        <p><strong>Coordenadas:</strong>  <a href="http://tools.wmflabs.org/geohack/geohack.php?language=es&pagename=Waslala&params=13.233333333333_N_-85.383333333333_E_type:city">13°14′00″N 85°23′00″O</a></p>
-		
+    <h1 class = "text-center tituloinfo">Waslala</h1>
+    <hr />
+    <div class="row">
+      <div class="col-lg-6">
+          <h4>Munucipio de Nicaragua</h4>
+          <p>Waslala es una municipalidad de la Región Autónoma de la Costa Caribe Norte, en la República de Nicaragua; 
+          el término waslala es una palabra indígena que significa "río de plata".
+          {{HTML::Link('http://es.wikipedia.org/wiki/Waslala','Wikipedia')}}</p>
+          <p><strong>Superficie:</strong>  1.330 km²</p>
+          <p><strong>Altitud:</strong>  329 msnm</p>
+          <p><strong>Coordenadas:</strong>  <a href="http://tools.wmflabs.org/geohack/geohack.php?language=es&pagename=Waslala&params=13.233333333333_N_-85.383333333333_E_type:city">13°14′00″N 85°23′00″O</a></p>
+      </div>
+      <div class="col-lg-6">
+          <h4>L&iacute;mites Geogr&aacute;ficos</h4>
+          <p><strong>Norte:</strong> Con el municipio de Siuna y San Jos&eacute; de Bocay</p>
+          <p><strong>Sur:</strong> Con R&iacute;o Blanco y Rancho Grande</p>
+          <p><strong>Este:</strong> Con el municipio de Siuna y Mulukuku</p>
+          <p><strong>Oeste:</strong> Con Rancho Grande, El Cu&aacute; y Bocay</p>
+      </div>
+    </div>
+
+    <hr />
+
+    <div class="row">
+      <div class="col-lg-6">
+          <h4>Posici&oacute;n Geogr&aacute;fica</h4>
+          <p>Se localiza en las coordenadas 13°20` de Latitud Norte y 85°22` de Longitud Oeste.</p>
+          <h4>Distancia a Managua</h4>
+          <p>Se localiza a 241 Km y a Puerto Cabezas 315 Km.</p>
+      </div>
+      <div class="col-lg-6">
+          <h4>Nombre y Distancia a la cabecera departamental</h4>
+          <p>
+            Región Autónoma de la Costa Caribe Norte (RACCN), no obstante, 
+            por decreto administrativo el municipio es atendido por
+            Matagalpa y se encuentra a una distancia de 118 km.
+          </p>
+      </div>       
+    </div>
+        
+		<h1 class = "text-center tituloinfo">Cobertura del Proyecto en el Municipio</h1>
 	  <!--{{ HTML::image('img/SegundaWaslala.png', $alt="DRCSports", $attributes = array()) }}-->
       <!--<img src="img\SegundaWaslala.png" alt="" usemap="#map" style="position:absolute;z-index:-1;"/>-->
 		        

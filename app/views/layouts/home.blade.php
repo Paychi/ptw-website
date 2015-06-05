@@ -15,7 +15,7 @@
 		</title>
 		
 		<!-- LOGO -->
-		<link rel="icon" href="{{URL::to('/')}}/img/logo/logo.png" />
+		<link rel="icon shortcut" type="image/png" href="{{URL::to('/')}}/img/logo/logo.png" />
 
 	  	<!-- FONT -->
 	  	<link rel="stylesheet" href="{{URL::to('/')}}/css/font.css" /> 
@@ -68,12 +68,15 @@
 					<ul class="nav navbar-nav navbar-right">	
 						@if(Session::has('usuario'))
 							<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
-								<ul class="dropdown-menu">									
+								<ul class="dropdown-menu nav nav-pills nav-stacked">									
 									@if($perfil == 1)
 										<li><a href='{{URL::to('/')}}/admin'><span>Administraci&oacute;n</span></a></li>
 									@endif
 									@if($perfil == 2)
 										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>
+									@endif
+									@if($perfil == 3)
+										<li><a href='{{URL::to('/')}}/colaborador'><span>Colaborador</span></a></li>
 									@endif
 									<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 									<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
@@ -103,9 +106,7 @@
 				<div id="div_promotor" class="text-center">
 					<label class="promotor_mes">Promotor del Mes: 
 						<b>
-							<dfn title="{{$defn}}" onClick="MostrarContPromotorHidden()">
-								Nombre Apellido
-							</dfn>
+							Nombre Apellido
 						</b>
 					</label>
 					<div id="contDefPromotorHidden" class="text-center"> 
@@ -123,9 +124,7 @@
 					<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
 					<label class="promotor_mes">Promotor del Mes: 
 						<b>
-							<dfn title="{{$defn}}" onClick="MostrarContPromotor()">
-								Nombre Apellido
-							</dfn>
+							Nombre Apellido
 						</b>
 					</label>
 					<div id="contDefPromotor" class="text-center"> 
@@ -133,6 +132,7 @@
 							{{$defnhidden}}
 						</p>
 					</div>
+					<br />
 					@yield('content-der')
 				</aside>
 			</div>		
