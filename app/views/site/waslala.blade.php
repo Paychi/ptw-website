@@ -310,7 +310,7 @@ Waslala
                        <image class="imgChileTres" x="150" y="525" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
 
               <polygon class="Municipio" id="OcoteYaosca" 
-                      points="134,485  152,503  163,500  179,508  174,515  176,524  162,522  154,532  154,541  156,548  152,548 
+                      points="132,483  152,503  163,500  179,508  174,515  176,524  162,522  154,532  154,541  156,548  152,548 
                        147,544  145,543  141,541  135,537  128,533  120,530  115,532  111,530  109,515  95,493  106,481  114,485" 
                        style="fill:#f9c2fc;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -323,7 +323,7 @@ Waslala
 
 
               <polygon class="Municipio" id="SnPedroLasVallas"
-                       points="53,451  67,451  70,443  79,436  86,420  94,419  96,403  96,394  91,390  85,394  42,410  34,410 
+                       points="53,451  67,451  70,443  79,436  92,422  94,419  96,403  96,394  91,390  85,394  42,410  34,410 
                         31,415  37,423  42,431  48,439" 
                         style="fill:#edb8fc;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -339,7 +339,7 @@ Waslala
 
               <polygon class="Municipio" id="SnFranciscoPtoViejo"
                         points="296,165  287,165  283,164  275,162  271,156  279,133  293,134  302,127  336,122  355,127  366,136 
-                         371,151  369,169  355,172  345,171  331,169  320,166  315,168  308,168  302,168" 
+                         372,151  373,169  355,172  345,171  331,169  320,166  315,168  308,168  302,168" 
                        style="fill:#b3d5fb;stroke:red;stroke-width:2; z-index:1;"/>
 
                        <image class="imgSnFranViejo" x="280" y="135" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
@@ -352,7 +352,7 @@ Waslala
 
               <polygon class="Municipio" id="LaLimonera"
                        points="314,240  305,234  305,229  306,225  305,222  303,218  312,209  338,208  346,199  355,201  371,219  376,229 
-                        378,241  369,248  355,247  346,251  336,256  329,249  324,250  319,245" 
+                        378,241  369,248  355,247  346,251  336,256  329,252  322,254  319,248" 
                       style="fill:#b3dffc;stroke:red;stroke-width:2; z-index:1;"/>
 
 
@@ -362,7 +362,7 @@ Waslala
                        style="fill:#d7f4fc;stroke:red;stroke-width:2; z-index:1;"/>
 
              <polygon class="Municipio" id="Kusuli" 
-                        points="269,355  263,343  263,336  250,318  255,310  261,305  265,301  269,297  275,300  277,306  279,309 
+                        points="269,355  261,343  261,336  250,318  255,310  261,305  265,301  269,297  275,300  277,306  279,309 
                          293,312  296,310  321,310  322,317  318,327  316,331  314,340  308,346  300,356" 
                        style="fill:#cffbfc;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -382,7 +382,7 @@ Waslala
                        style="fill:#b5fcec;stroke:red;stroke-width:2; z-index:1;"/>
 
              <polygon class="Municipio" id="ZapoteDudu"
-                       points="390,413  402,409  425,411  442,419  452,413  449,405  441,395  435,369  438,353  438,335  429,325  421,323 
+                       points="390,413  402,411  425,411  442,419  452,413  449,405  441,395  435,369  438,353  438,335  429,325  421,323 
                         397,324  383,325  378,322  369,329  358,325  356,333  355,350  345,371  349,391  355,402  372,410" 
                       style="fill:#eafbb4;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -391,7 +391,7 @@ Waslala
 
 
              <polygon class="Municipio" id="ArenasBlancas" 
-                      points="402,455  410,446  411,420  400,414  391,413  372,410  355,402  338,411  338,426  346,425  348,441  368,445 
+                      points="402,455  410,446  411,420  400,414  391,413  372,410  355,402  338,411  338,426  345,426  348,441  368,445 
                        381,446  378,453  379,464  388,463" 
                      style="fill:#b8cefd;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -399,7 +399,7 @@ Waslala
 
 
              <polygon class="Municipio" id="CeibaDudu"
-                      points="354,560  362,562  370,567  378,569  386,575  396,567  404,574  415,575  414,567  419,564  418,551  421,545 
+                      points="354,560  362,562  370,567  378,569  386,575  396,567  404,574  415,575  418,567  419,564  418,551  421,545 
                        416,538  422,528  424,513  423,496  412,485  398,473  402,455  388,463  379,464  379,453  381,446  369,453 
                         365,464  355,466  352,476  353,495  357,503  354,514  353,540  356,545" 
                       style="fill:#fbbde2;stroke:red;stroke-width:2; z-index:1;"/>
@@ -445,7 +445,7 @@ Waslala
 
 
             <polygon class="Municipio" id="LaPosolera" 
-                    points="161,465  149,458  138,470  132,482  139,491  147,496  148,502  156,501  159,499  169,503  178,506  183,499  178,496 
+                    points="161,465  149,458  138,470  132,482  139,491  147,498  151,503  156,501  157,500  169,503  178,506  183,499  178,496 
                      169,489  160,479  155,474  158,470" 
                    style="fill:#c6fcef;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -454,7 +454,7 @@ Waslala
                   style="fill:#b2fcd7;stroke:red;stroke-width:2; z-index:1;"/>
 
             <polygon class="Municipio" id="HierbaBuena" 
-                    points="232,484  234,476  233,470  237,455  234,446  222,434  211,432  205,438  197,441  198,462  196,474  194,486  192,494 
+                    points="234,484  234,476  233,470  237,455  234,446  222,434  213,430  205,438  197,441  198,462  196,474  194,486  192,494 
                      204,494  211,492  217,489  224,488" 
                    style="fill:#fbb3fd;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -464,7 +464,7 @@ Waslala
 
             <polygon class="Municipio" id="ChileDos" 
                     points="261,532  270,522  260,494  251,488  242,483  233,484  225,488  218,489  211,492  215,498  221,503  220,524  
-                      223,537  230,537  232,525  240,527  252,527" 
+                      223,537  230,537  232,525  240,527  252,529" 
                     style="fill:#befcb3;stroke:red;stroke-width:2; z-index:1;"/>
                     
                     <image class="imgChileDos" x="218" y="495" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
@@ -473,12 +473,12 @@ Waslala
 
 
             <polygon class="Municipio" id="ElAchioteWaslala"
-                    points="265,343  260,333  249,317  217,300  223,278  215,267  188,265  184,274  172,280  168,287  171,292  178,298  185,302 
-                     189,310  194,316  198,319  200,330  208,338  217,340  224,343  236,342  248,352  255,344" 
+                    points="263,344  260,333  249,317  217,300  223,278  215,267  188,265  184,274  172,280  168,287  171,292  178,298  185,302 
+                     187,310  194,316  198,319  200,330  208,338  217,340  224,343  236,342  248,352  255,344" 
                    style="fill:#bdfbc8;stroke:red;stroke-width:2; z-index:1;"/>
 
             <polygon class="Municipio" id="ElCorozal" 
-                    points="221,343  236,342  248,352  250,356  242,361  234,385  227,398  218,402  213,407  202,406  193,397  186,383  184,362 
+                    points="221,343  236,342  248,352  250,356  242,361  234,385  227,398  218,404  213,407  202,406  193,397  186,383  184,362 
                      202,373  210,365" 
                    style="fill:#fbe2c4;stroke:red;stroke-width:2; z-index:1;"/>
 
@@ -492,7 +492,7 @@ Waslala
                   style="fill:#fafcb4;stroke:red;stroke-width:2; z-index:1;"/>
 
             <polygon class="Municipio" id="Waslalita" 
-                    points="202,407  193,397  187,384  179,391  158,390  133,365  120,392  141,401  141,412  155,418  153,423  186,423  194,422  193,411" 
+                    points="202,407  193,397  187,384  179,391  158,390  133,365  120,392  141,401  141,412  155,418  153,423  186,423  194,426  195,411" 
                   style="fill:#f1fcc0;stroke:red;stroke-width:2; z-index:1;"/>
 
             <polygon class="Municipio" id="CanoLaCeiba" 
@@ -500,7 +500,7 @@ Waslala
                   style="fill:#d7e8fc;stroke:red;stroke-width:2; z-index:1;"/>
             
             <polygon class="Municipio" id="CiudadWaslala"
-                    points="225,402  218,401  212,407  202,407  194,412  192,422  193,434  194,440  197,442  205,438  215,429  213,424  216,418 
+                    points="225,403  224,400  212,407  202,407  194,412  192,422  193,434  194,440  197,442  205,438  215,429  213,424  216,418 
                      226,416  230,409" 
                    style="fill:#c7fcde;stroke:red;stroke-width:2; z-index:1;"/>
             
@@ -515,7 +515,7 @@ Waslala
             
             <polygon class="Municipio" id="ElGuabo" 
                       points="263,344  255,343  249,353  250,357  242,362  235,385  228,397  225,404  230,410  232,403  241,401  258,396 
-                       270,395  280,395  292,400  306,390  308,371  316,359  306,346  298,357  267,354" 
+                       270,395  280,395  292,400  306,390  308,371  316,359  308,346  298,357  267,354" 
                      style="fill:#fcd8b8;stroke:red;stroke-width:2; z-index:1;"/>
 
                      <image class="imgElGuabo" x="280" y="360" width="30" height="30" xlink:href="{{ asset('/img/celular.png') }}"/>
@@ -527,7 +527,7 @@ Waslala
                     style="fill:#d8fcd8;stroke:red;stroke-width:2; z-index:1;"/>
             
             <polygon class="Municipio" id="ZinicaDos"
-                     points="264,239  275,232  285,236  297,246  298,258  312,259  322,248  303,232  306,221  293,207  284,195  278,188  256,192 
+                     points="264,239  275,232  285,236  297,246  298,258  314,259  325,250  303,232  306,221  293,207  284,195  278,188  256,192 
                       254,205  239,216" 
                       style="fill:#b9e9fd;stroke:red;stroke-width:2; z-index:1;"/>
             
