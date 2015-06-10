@@ -1,3 +1,23 @@
+<div id="BackColor" style="position:fixed; width:100%; height:100%; top:0; bottom:0; background: rgba(0, 0, 0, 0.4); overflow:hidden;">		
+		
+			<div id="BackGroundVisor" style = "width:75%; margin-left:13%; margin-top:0%; background-color:black; height:auto">
+				<p class="nav" style="position:absolute;margin-left:24%; height:1%; width:50%; margin-top:1%;">
+						
+						<input type="button" id="FotoAnterior" value="<<<" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-right:10%;" />
+						<input type="button" id="CerrarVisor" value="X" style="border-style:none; border-radius:5px; width:20px; background-color:rgba(0, 0, 0, 0.5); color:white;"/>
+						<input type="button" id="SiguienteFoto" value=">>>" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-left:10%;"  />
+				</p>
+						</br>
+						</br>
+						
+				<div id="ModalImage" style="height:100%; width:60%; margin-left:15.05%; margin-top:1%;">
+					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;">				
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
 @extends('layouts.home')
 
 @section('titulo')
@@ -329,6 +349,7 @@ About
 		<p>El proyecto ha invertido en cada líder en estos materiales la cantidad de:C$ 5,612.92 córdobas, más los costos de capacitación.</p>
 	</div>
 	<hr/>
+
 	<div id="fotos">
 		<h1 class="text-center tituloinfo">Fotos del Proyecto de Telemedicina en Waslala-Nicaragua</h1>
 		
@@ -336,17 +357,23 @@ About
 			<center><h4 class="colortexto_galeria" >Primeros Líderes en capacitación, aprendiendo a escribir mensajes</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_01.jpg'>{{HTML::image('img/About/about_01.jpg','about_01')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_01.jpg" xlink:href="{{ asset('/img/About/about_01.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_02.jpg'>{{HTML::image('img/About/about_02.jpg','about_02')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_02.jpg" xlink:href="{{ asset('/img/About/about_02.jpg') }}" />
+					</svg>					
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_03.jpg'>{{HTML::image('img/About/about_03.jpg','about_03')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_03.jpg" xlink:href="{{ asset('/img/About/about_03.jpg') }}" />
+					</svg>						
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -355,12 +382,16 @@ About
 			<center><h4 class="colortexto_galeria">50 primeros lideres capacitados con telesalud</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_04.jpg'>{{HTML::image('img/About/about_04.jpg','about_04')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_04.jpg" xlink:href="{{ asset('/img/About/about_04.jpg') }}" />
+					</svg>							
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_05.jpg'>{{HTML::image('img/About/about_05.jpg','about_05')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_05.jpg" xlink:href="{{ asset('/img/About/about_05.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -369,32 +400,44 @@ About
 			<center><h4 class="colortexto_galeria">Visitas de  Pali y estudiantes de Villanova  a las comunidades</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_06.jpg'>{{HTML::image('img/About/about_06.jpg','about_06')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_06.jpg" xlink:href="{{ asset('/img/About/about_06.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_07.jpg'>{{HTML::image('img/About/about_07.jpg','about_07')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_07.jpg" xlink:href="{{ asset('/img/About/about_07.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_08.jpg'>{{HTML::image('img/About/about_08.jpg','about_08')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_08.jpg" xlink:href="{{ asset('/img/About/about_08.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_09.jpg'>{{HTML::image('img/About/about_09.jpg','about_09')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_09.jpg" xlink:href="{{ asset('/img/About/about_09.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_10.jpg'>{{HTML::image('img/About/about_10.jpg','about_10')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_10.jpg" xlink:href="{{ asset('/img/About/about_10.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_11.jpg'>{{HTML::image('img/About/about_11.jpg','about_11')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_11.jpg" xlink:href="{{ asset('/img/About/about_11.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -403,22 +446,30 @@ About
 			<center><h4 class="colortexto_galeria">Líderes tomando signos vitales  en sus comunidades</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_12.jpg'>{{HTML::image('img/About/about_12.jpg','about_12')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_12.jpg" xlink:href="{{ asset('/img/About/about_12.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_13.jpg'>{{HTML::image('img/About/about_13.jpg','about_13')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_13.jpg" xlink:href="{{ asset('/img/About/about_13.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_14.jpg'>{{HTML::image('img/About/about_14.jpg','about_14')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_14.jpg" xlink:href="{{ asset('/img/About/about_14.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_15.jpg'>{{HTML::image('img/About/about_15.jpg','about_15')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_15.jpg" xlink:href="{{ asset('/img/About/about_15.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -427,32 +478,44 @@ About
 			<center><h4 class="colortexto_galeria">En visitas de supervisión y seguimiento</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_16.jpg'>{{HTML::image('img/About/about_16.jpg','about_16')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_16.jpg" xlink:href="{{ asset('/img/About/about_16.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_17.jpg'>{{HTML::image('img/About/about_17.jpg','about_17')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_17.jpg" xlink:href="{{ asset('/img/About/about_17.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_18.jpg'>{{HTML::image('img/About/about_18.jpg','about_18')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_18.jpg" xlink:href="{{ asset('/img/About/about_18.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_19.jpg'>{{HTML::image('img/About/about_19.jpg','about_19')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_19.jpg" xlink:href="{{ asset('/img/About/about_19.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_20.jpg'>{{HTML::image('img/About/about_20.jpg','about_20')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_20.jpg" xlink:href="{{ asset('/img/About/about_20.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_21.jpg'>{{HTML::image('img/About/about_21.jpg','about_21')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_21.jpg" xlink:href="{{ asset('/img/About/about_21.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -461,7 +524,9 @@ About
 			<center><h4 class="colortexto_galeria">Líderes de Villa el Carmen</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_22.jpg'>{{HTML::image('img/About/about_22.jpg','about_22')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_22.jpg" xlink:href="{{ asset('/img/About/about_22.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -470,7 +535,9 @@ About
 			<center><h4 class="colortexto_galeria">Lideres de Cua y Bocay</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_23.jpg'>{{HTML::image('img/About/about_23.jpg','about_23')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_23.jpg" xlink:href="{{ asset('/img/About/about_23.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -479,22 +546,30 @@ About
 			<center><h4 class="colortexto_galeria">Lideres  practicando  y editando mensajes para  enviarlos al sistema</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_24.jpg'>{{HTML::image('img/About/about_24.jpg','about_24')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_24.jpg" xlink:href="{{ asset('/img/About/about_24.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_25.jpg'>{{HTML::image('img/About/about_25.jpg','about_25')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_25.jpg" xlink:href="{{ asset('/img/About/about_25.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_26.jpg'>{{HTML::image('img/About/about_26.jpg','about_26')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_26.jpg" xlink:href="{{ asset('/img/About/about_26.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_27.jpg'>{{HTML::image('img/About/about_27.jpg','about_27')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_27.jpg" xlink:href="{{ asset('/img/About/about_27.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -503,22 +578,30 @@ About
 			<center><h4 class="colortexto_galeria">Líderes en pasantía en el Hospital Fidel Ventura</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_28.jpg'>{{HTML::image('img/About/about_28.jpg','about_28')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_28.jpg" xlink:href="{{ asset('/img/About/about_28.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_29.jpg'>{{HTML::image('img/About/about_29.jpg','about_29')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_29.jpg" xlink:href="{{ asset('/img/About/about_29.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_30.jpg'>{{HTML::image('img/About/about_30.jpg','about_30')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_30.jpg" xlink:href="{{ asset('/img/About/about_30.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_31.jpg'>{{HTML::image('img/About/about_31.jpg','about_31')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_31.jpg" xlink:href="{{ asset('/img/About/about_31.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -527,17 +610,23 @@ About
 			<center><h4 class="colortexto_galeria">Primeras visitas  de  Villanova  a Waslala</h4></center>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_32.jpg'>{{HTML::image('img/About/about_32.jpg','about_32')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_32.jpg" xlink:href="{{ asset('/img/About/about_32.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_33.jpg'>{{HTML::image('img/About/about_33.jpg','about_33')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_33.jpg" xlink:href="{{ asset('/img/About/about_33.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<a href='{{URL::to('/')}}/img/About/about_34.jpg'>{{HTML::image('img/About/about_34.jpg','about_34')}}</a>
+					<svg>
+						<image width="194.031" height="148" id="about_34.jpg" xlink:href="{{ asset('/img/About/about_34.jpg') }}" />
+					</svg>
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -545,7 +634,8 @@ About
 			<p>	
 		</section>
 	</div>
-	
+
+<script src="{{URL::to('/')}}/js/visorImagenes.js"></script>	
 
 @stop
 

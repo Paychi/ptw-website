@@ -4,9 +4,9 @@
 }   
 
 .Municipio:hover{
-  background-color:red;
+  background-color:lightgray;
 }
 
 a:hover path, a:hover polygon, a:hover circle {
-  fill: red;
+  fill: lightgray;
 }
