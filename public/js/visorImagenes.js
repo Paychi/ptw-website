@@ -9,7 +9,7 @@
 			});
 
 			$('#SiguienteFoto').click(function(){
-				var nextt = $(oyeSi).closest('.article').next('.article').find('image');
+				var nextt = $(oyeSi).closest('.article').next('.article').find('img');
 
 				if(nextt.length > 0)
 				{
@@ -27,7 +27,7 @@
 			});
 
 			$('#FotoAnterior').click(function(){
-				var anterior = $(oyeSi).closest('.article').prev('.article').find('image');
+				var anterior = $(oyeSi).closest('.article').prev('.article').find('img');
 
 				if(anterior.length > 0)
 				{
@@ -47,7 +47,7 @@
 
 			
 
-			$('.article').on("click", "image", function () {
+			$('.article').on("click", "img", function () {
 				$('#BackColor').fadeIn();
 				$('#BackColor').css('z-index','1');
 

@@ -30,6 +30,22 @@
 	</head>
 	
 	<body id="cuerpo">
+		<div id="BackColor" style=" display:none; position:fixed; width:100%; height:100%; top:0; bottom:0; background: rgba(0, 0, 0, 0.4); overflow:hidden;">		
+			
+			<div id="BackGroundVisor" style = "position:absolute; top:0; bottom:0; left:0; right:0; z-index:5; width:75%; margin-left:13%; margin-top:0%; background-color:black; height:auto">
+				<p class="nav text-center" style="position:absolute; top:0; bottom:0; left:0; right:0; margin:0px auto; z-index:5; height:1%; width:50%;">
+					<a class="visorControls" id="FotoAnterior" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-right:10%;"><span class="glyphicon glyphicon-chevron-left"></span></a>
+					<a class="visorControls" id="CerrarVisor" style="border-style:none; border-radius:5px; width:20px; background-color:rgba(0, 0, 0, 0.5); color:white;"><span class="glyphicon glyphicon-remove"></span></a>
+					<a class="visorControls" id="SiguienteFoto" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-left:10%;"><span class="glyphicon glyphicon-chevron-right"></span></a>
+				</p>
+				</br>
+				</br>							
+				<div id="ModalImage" style="height:100%; width:60%; margin-left:15.05%; margin-top:1%;">
+					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;"> </div>
+				</div>
+			</div>
+		</div>
+
 		<header>
 			<section class="banner">
 				<div>					
@@ -48,10 +64,10 @@
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
-						<li><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
-						<li><a href='{{URL::to('/')}}/es/about'><span>Lo que somos</span></a></li>
-						<li><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
-						<li><a href='{{URL::to('/')}}/es/simsiv'><span>SIMSIV</span></a> </li>
+						<li id="tag_waslala"><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
+						<li id="tag_about"><a href='{{URL::to('/')}}/es/about'><span>Lo que somos</span></a></li>
+						<li id="tag_colaboradores"><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
+						<li id="tag_simsiv"><a href='{{URL::to('/')}}/es/simsiv'><span>SIMSIV</span></a> </li>
 						<!--<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>-->
 					</ul>
 					

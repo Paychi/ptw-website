@@ -405,6 +405,11 @@ input[readonly] {
     font-weight: 700;
 }
 
+.visorControls
+{
+	cursor: pointer;
+}
+
 .text_bienvenida {
     text-align:center;
     color: #666666;

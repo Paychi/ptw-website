@@ -77,6 +77,8 @@ Ad-Noticias
 				<div class="col-md-12"> 
 					<!--{{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }}-->
 					<input type="date" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required >
+					<!--<input type="date" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required style="width: 85%;display: inline;margin-right: 5px;cursor: pointer;background: white;color: black;">
+					<a href="" class="ui-datepicker-trigger"><span class="glyphicon glyphicon-calendar"></span></a>-->
 					<label class="error">{{$errors->first("fecha")}}</label>
 				</div>
 			</div>

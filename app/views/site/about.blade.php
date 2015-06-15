@@ -1,23 +1,3 @@
-<div id="BackColor" style="position:fixed; width:100%; height:100%; top:0; bottom:0; background: rgba(0, 0, 0, 0.4); overflow:hidden;">		
-		
-			<div id="BackGroundVisor" style = "width:75%; margin-left:13%; margin-top:0%; background-color:black; height:auto">
-				<p class="nav" style="position:absolute;margin-left:24%; height:1%; width:50%; margin-top:1%;">
-						
-						<input type="button" id="FotoAnterior" value="<<<" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-right:10%;" />
-						<input type="button" id="CerrarVisor" value="X" style="border-style:none; border-radius:5px; width:20px; background-color:rgba(0, 0, 0, 0.5); color:white;"/>
-						<input type="button" id="SiguienteFoto" value=">>>" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-left:10%;"  />
-				</p>
-						</br>
-						</br>
-						
-				<div id="ModalImage" style="height:100%; width:60%; margin-left:15.05%; margin-top:1%;">
-					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;">				
-				</div>
-			</div>
-		</div>
-		
-	</div>
-
 @extends('layouts.home')
 
 @section('titulo')
@@ -26,6 +6,12 @@ About
 
 @section('css')
 	{{ HTML::style('css/baseVisor.css'); }}
+@stop
+
+@section('javascript')
+	<script type="text/javascript">
+		$("tag_about").addClass("active");
+	</script>
 @stop
 
 @section('imagenes')
@@ -357,23 +343,17 @@ About
 			<center><h4 class="colortexto_galeria" >Primeros Líderes en capacitación, aprendiendo a escribir mensajes</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_01.jpg" xlink:href="{{ asset('/img/About/about_01.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_01.jpg" src="{{ asset('/img/About/about_01.jpg') }}" />
+				</figure>
+			</article>
+			<article class="article">
+				<figure>					
+					<img width="194.031" height="148" id="about_02.jpg" src="{{ asset('/img/About/about_02.jpg') }}" />		
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_02.jpg" xlink:href="{{ asset('/img/About/about_02.jpg') }}" />
-					</svg>					
-				</figure>
-			</article>
-			<article class="article">
-				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_03.jpg" xlink:href="{{ asset('/img/About/about_03.jpg') }}" />
-					</svg>						
+					<img width="194.031" height="148" id="about_03.jpg" src="{{ asset('/img/About/about_03.jpg') }}" />			
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -382,16 +362,12 @@ About
 			<center><h4 class="colortexto_galeria">50 primeros lideres capacitados con telesalud</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_04.jpg" xlink:href="{{ asset('/img/About/about_04.jpg') }}" />
-					</svg>							
+					<img width="194.031" height="148" id="about_04.jpg" src="{{ asset('/img/About/about_04.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_05.jpg" xlink:href="{{ asset('/img/About/about_05.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_05.jpg" src="{{ asset('/img/About/about_05.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -400,44 +376,32 @@ About
 			<center><h4 class="colortexto_galeria">Visitas de  Pali y estudiantes de Villanova  a las comunidades</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_06.jpg" xlink:href="{{ asset('/img/About/about_06.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_06.jpg" src="{{ asset('/img/About/about_06.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_07.jpg" xlink:href="{{ asset('/img/About/about_07.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_07.jpg" src="{{ asset('/img/About/about_07.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_08.jpg" xlink:href="{{ asset('/img/About/about_08.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_08.jpg" src="{{ asset('/img/About/about_08.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_09.jpg" xlink:href="{{ asset('/img/About/about_09.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_09.jpg" src="{{ asset('/img/About/about_09.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_10.jpg" xlink:href="{{ asset('/img/About/about_10.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_10.jpg" src="{{ asset('/img/About/about_10.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_11.jpg" xlink:href="{{ asset('/img/About/about_11.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_11.jpg" src="{{ asset('/img/About/about_11.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -446,30 +410,22 @@ About
 			<center><h4 class="colortexto_galeria">Líderes tomando signos vitales  en sus comunidades</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_12.jpg" xlink:href="{{ asset('/img/About/about_12.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_12.jpg" src="{{ asset('/img/About/about_12.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_13.jpg" xlink:href="{{ asset('/img/About/about_13.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_13.jpg" src="{{ asset('/img/About/about_13.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_14.jpg" xlink:href="{{ asset('/img/About/about_14.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_14.jpg" src="{{ asset('/img/About/about_14.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_15.jpg" xlink:href="{{ asset('/img/About/about_15.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_15.jpg" src="{{ asset('/img/About/about_15.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -478,44 +434,32 @@ About
 			<center><h4 class="colortexto_galeria">En visitas de supervisión y seguimiento</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_16.jpg" xlink:href="{{ asset('/img/About/about_16.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_16.jpg" src="{{ asset('/img/About/about_16.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_17.jpg" xlink:href="{{ asset('/img/About/about_17.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_17.jpg" src="{{ asset('/img/About/about_17.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_18.jpg" xlink:href="{{ asset('/img/About/about_18.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_18.jpg" src="{{ asset('/img/About/about_18.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_19.jpg" xlink:href="{{ asset('/img/About/about_19.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_19.jpg" src="{{ asset('/img/About/about_19.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_20.jpg" xlink:href="{{ asset('/img/About/about_20.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_20.jpg" src="{{ asset('/img/About/about_20.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_21.jpg" xlink:href="{{ asset('/img/About/about_21.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_21.jpg" src="{{ asset('/img/About/about_21.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -524,9 +468,7 @@ About
 			<center><h4 class="colortexto_galeria">Líderes de Villa el Carmen</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_22.jpg" xlink:href="{{ asset('/img/About/about_22.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_22.jpg" src="{{ asset('/img/About/about_22.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -535,9 +477,7 @@ About
 			<center><h4 class="colortexto_galeria">Lideres de Cua y Bocay</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_23.jpg" xlink:href="{{ asset('/img/About/about_23.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_23.jpg" src="{{ asset('/img/About/about_23.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -546,30 +486,22 @@ About
 			<center><h4 class="colortexto_galeria">Lideres  practicando  y editando mensajes para  enviarlos al sistema</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_24.jpg" xlink:href="{{ asset('/img/About/about_24.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_24.jpg" src="{{ asset('/img/About/about_24.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_25.jpg" xlink:href="{{ asset('/img/About/about_25.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_25.jpg" src="{{ asset('/img/About/about_25.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_26.jpg" xlink:href="{{ asset('/img/About/about_26.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_26.jpg" src="{{ asset('/img/About/about_26.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_27.jpg" xlink:href="{{ asset('/img/About/about_27.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_27.jpg" src="{{ asset('/img/About/about_27.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -578,30 +510,22 @@ About
 			<center><h4 class="colortexto_galeria">Líderes en pasantía en el Hospital Fidel Ventura</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_28.jpg" xlink:href="{{ asset('/img/About/about_28.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_28.jpg" src="{{ asset('/img/About/about_28.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_29.jpg" xlink:href="{{ asset('/img/About/about_29.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_29.jpg" src="{{ asset('/img/About/about_29.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_30.jpg" xlink:href="{{ asset('/img/About/about_30.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_30.jpg" src="{{ asset('/img/About/about_30.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_31.jpg" xlink:href="{{ asset('/img/About/about_31.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_31.jpg" src="{{ asset('/img/About/about_31.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
@@ -610,23 +534,17 @@ About
 			<center><h4 class="colortexto_galeria">Primeras visitas  de  Villanova  a Waslala</h4></center>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_32.jpg" xlink:href="{{ asset('/img/About/about_32.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_32.jpg" src="{{ asset('/img/About/about_32.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_33.jpg" xlink:href="{{ asset('/img/About/about_33.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_33.jpg" src="{{ asset('/img/About/about_33.jpg') }}" />
 				</figure>
 			</article>
 			<article class="article">
 				<figure>
-					<svg>
-						<image width="194.031" height="148" id="about_34.jpg" xlink:href="{{ asset('/img/About/about_34.jpg') }}" />
-					</svg>
+					<img width="194.031" height="148" id="about_34.jpg" src="{{ asset('/img/About/about_34.jpg') }}" />
 				</figure>
 			</article>
 			<p class="colortexto_galeria">
