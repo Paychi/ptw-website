@@ -32,18 +32,26 @@
 	<body id="cuerpo">
 		<div id="BackColor" style=" display:none; position:fixed; width:100%; height:100%; top:0; bottom:0; background: rgba(0, 0, 0, 0.4); overflow:hidden;">		
 			
-			<div id="BackGroundVisor" style = "position:absolute; top:0; bottom:0; left:0; right:0; z-index:5; width:75%; margin-left:13%; margin-top:0%; background-color:black; height:auto">
-				<p class="nav text-center" style="position:absolute; top:0; bottom:0; left:0; right:0; margin:0px auto; z-index:5; height:1%; width:50%;">
-					<a class="visorControls" id="FotoAnterior" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-right:10%;"><span class="glyphicon glyphicon-chevron-left"></span></a>
-					<a class="visorControls" id="CerrarVisor" style="border-style:none; border-radius:5px; width:20px; background-color:rgba(0, 0, 0, 0.5); color:white;"><span class="glyphicon glyphicon-remove"></span></a>
-					<a class="visorControls" id="SiguienteFoto" style="border-style:none; background-color:rgba(0, 0, 0, 0.5); color:white; border-radius:5px; width:15%; margin-left:10%;"><span class="glyphicon glyphicon-chevron-right"></span></a>
-				</p>
+			<div id="BackGroundVisor" style = "position:absolute; top:0; bottom:0; left:0; right:0; z-index:5; width:75%; margin-left:13%; margin-top:0%; height:auto">
+				</br>
+				</br>
 				</br>
 				</br>							
 				<div id="ModalImage" style="height:100%; width:60%; margin-left:15.05%; margin-top:1%;">
-					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;"> </div>
+					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;"> 
+					</div>
+
+
 				</div>
 			</div>
+			<div style="position:absolute; top:0; bottom:0; left:0; right:0; margin-left:13%; z-index:5; height:100%; width:75%;">
+				
+					<a class="visorControls" id="FotoAnterior" style="font-size:3vw; margin-top:30%; float:left; border-style:none; color:white; border-radius:5px; width:20px; margin-right:10%;"><span class="glyphicon glyphicon-chevron-left"></span></a>					
+					<a class="visorControls" id="SiguienteFoto" style="font-size:3vw; margin-top:30%; float:right; border-style:none; color:white; border-radius:5px; width:20px;"><span class="glyphicon glyphicon-chevron-right"></span></a>										
+					<a class="visorControls" id="CerrarVisor" style=" font-size:1em; text-align:center; background-color:lightgray; border-radius:10px; float:right; border-style:none; width:20px; color:white;"><span class="glyphicon glyphicon-remove"></span></a>
+				
+			</div>
+			
 		</div>
 
 		<header>
