@@ -871,4 +871,185 @@ class AdmonController extends BaseController {
 			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
 		}			
 	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	/**********SECCIÓN LÍDERES Y COMUNIDADES**********/
+	public function getLideres()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$tipo = htmlspecialchars(Input::get('tipo'));
+
+			switch ($tipo) {
+				case 0: //Nombre
+					$datos = Lideres::where('nombre', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+
+				default:
+					
+					break;
+			}
+		} else {
+			$datos = Lideres::paginate(10);
+		}
+	
+		return $this->layout->content = View::make('admon.lideres',compact("datos"));
+	}
+
+	public function getAddlider()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
+		$colaboradores = Colaboradores::lists('abreviatura', 'id_colaborador');	
+		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
+		$lista_colaboradores = array(0 => "--- Seleccione --- ") + $colaboradores;
+		$selected = array();
+		$item_selected = array();	
+		return $this->layout->content = View::make('admon.addlider',compact("lista_perfil","selected","lista_colaboradores","item_selected"));
+	}
+	
+	public function getEditlider($id_lider = null)
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$datos = Lideres::find($id_lider);
+
+		return $this->layout->content = View::make('admon.editlider',compact("datos"));
+	}
+	
+	public function postEditlider()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$inputs = Input::All();
+		$validaciones = array
+		(
+			'nombre' => 'required|min:5'
+		);		
+		$mensajes = array
+		(
+			"required" => "Este campo no puede quedar vacio.",
+			"min" => "Debe tener como minimo 5 caracteres",
+			"unique" => "Lider ya existe"
+		);
+		//echo $inputs["colaborador"]; exit;
+		$validar=Validator::make($inputs,$validaciones,$mensajes);
+		
+		if($validar->fails())
+		{
+			return Redirect::back() -> withErrors($validar);
+		}else
+		{			
+			$nombreLider = $inputs["nombre"];
+
+			if ($nombreLider != "")
+			{
+				$eu = Lideres::find($inputs["id"]);
+
+				$eu->nombre = $inputs["nombre"];
+				$eu->estado = 1;
+				$eu->save();
+				
+				Session::flash('mensaje','Registro editado correctamente!!');
+				return Redirect::to('/admin/lideres');
+				
+			}
+			else
+			{
+				return Redirect::to('/admin/editlider/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+			}			
+		}
+	}
+	
+	public function postAddlideres()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$inputs = Input::All();		
+		$validaciones = array
+		(
+			'nombre' => 'required|min:5'
+		);		
+		$mensajes = array
+		(
+			"required" => "Este campo no puede quedar vacio.",
+			"min" => "Debe tener como minimo 5 caracteres",
+			"unique" => "Lider ya existe"
+		);
+		
+		$validar=Validator::make($inputs,$validaciones,$mensajes);
+		
+		if($validar->fails())
+		{
+			return Redirect::back() -> withErrors($validar);
+		}else
+		{			
+			$campoNombre = $inputs["nombre"];
+			
+			if ($campoNombre != "")
+			{
+			
+				$nu = new Lideres;
+				$nu->nombre = $inputs["nombre"];
+
+				$nu->estado = 1;
+
+				$nu->save();
+				Session::flash('mensaje','Registro ingresado correctamente!!');
+				return Redirect::to('/admin/lideres');	
+				//}					
+			}
+			else
+			{
+				return Redirect::to('/admin/addlider')->with('mensajeError','Seleccione un Perfil!!');	
+			}
+		}
+	}
+	
+	public function getDelatelider($id_lider = null)
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$du = Usuarios::find($id_lider);
+		$du -> delete();
+		Session::flash('mensaje','Registro eliminado correctamente!!');
+		return Redirect::to('/admin/lideres');	
+	}
 }
