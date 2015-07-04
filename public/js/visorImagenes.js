@@ -4,7 +4,7 @@
 
 			var oyeSi = '';
 
-			$('#CerrarVisor').click(function(){
+			$('#CloseXD').click(function(){
 				$('#BackColor').fadeOut();				
 			});
 

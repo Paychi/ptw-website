@@ -44,11 +44,11 @@
 
 				</div>
 			</div>
-			<div style="position:absolute; top:0; bottom:0; left:0; right:0; margin-left:13%; z-index:5; height:100%; width:75%;">
+			<div id="CloseXD" style="position:absolute; top:0; bottom:0; left:0; right:0; margin-left:13%; z-index:5; height:100%; width:75%;">
 				
 					<a class="visorControls" id="FotoAnterior" style="font-size:3vw; margin-top:30%; float:left; border-style:none; color:white; border-radius:5px; width:20px; margin-right:10%;"><span class="glyphicon glyphicon-chevron-left"></span></a>					
 					<a class="visorControls" id="SiguienteFoto" style="font-size:3vw; margin-top:30%; float:right; border-style:none; color:white; border-radius:5px; width:20px;"><span class="glyphicon glyphicon-chevron-right"></span></a>										
-					<a class="visorControls" id="CerrarVisor" style=" font-size:1em; text-align:center; background-color:lightgray; border-radius:10px; float:right; border-style:none; width:20px; color:white;"><span class="glyphicon glyphicon-remove"></span></a>
+					
 				
 			</div>
 			
