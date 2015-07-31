@@ -1,4 +1,5 @@
  <?php
+
 class Comunidades extends Eloquent
 {	
 	protected $table = 'comunidad';
