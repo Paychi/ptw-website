@@ -80,6 +80,8 @@
 						<li><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
 						<li><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
+						<li><a href='{{URL::to('/')}}/admin/lideres'><span>Líderes</span></a></li>
+						<li><a href='{{URL::to('/')}}/admin/comunidades'><span>Comunidades</span></a></li>
 					</ul>
 				</aside>
 			</div>

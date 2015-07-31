@@ -880,16 +880,9 @@ class AdmonController extends BaseController {
 
 
 
+	/**************************************SECCIÓN LÍDERES Y COMUNIDADES*************************************/
 
-
-
-
-
-
-
-
-
-	/**********SECCIÓN LÍDERES Y COMUNIDADES**********/
+	/********Líderes********/
 	public function getLideres()
 	{
 		if (!$this->accessRutesAdmon())
@@ -1040,16 +1033,190 @@ class AdmonController extends BaseController {
 		}
 	}
 	
-	public function getDelatelider($id_lider = null)
+	public function getDeletelider($id_lider = null)
+	{		
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$du = Lideres::find($id_lider);
+		$du -> delete();
+		Session::flash('mensaje','Registro eliminado correctamente!!');
+		return Redirect::to('/admin/lideres');	
+	}
+
+
+
+
+
+
+
+
+	/********Comunidades********/
+	public function getComunidades()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$tipo = htmlspecialchars(Input::get('tipo'));
+
+			switch ($tipo) {
+				case 0: //Nombre
+					$datos = Comunidades::where('nombreComunidad', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+
+				default:
+					
+					break;
+			}
+		} else {
+			$datos = Comunidades::paginate(10);
+		}
+	
+		return $this->layout->content = View::make('admon.comunidades',compact("datos"));
+	}
+
+	public function getAddcomunidad()
 	{
 		if (!$this->accessRutesAdmon())
 		{
 			return Redirect::to('/login')->with('mensaje',$this->mensaje);
 		}
 		
-		$du = Usuarios::find($id_lider);
+		$perfiles = Perfiles::whereRaw('estado=1')->lists('nombre', 'id_perfil');	
+		$colaboradores = Colaboradores::lists('abreviatura', 'id_colaborador');	
+		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
+		$lista_colaboradores = array(0 => "--- Seleccione --- ") + $colaboradores;
+		$selected = array();
+		$item_selected = array();	
+		return $this->layout->content = View::make('admon.addcomunidad',compact("lista_perfil","selected","lista_colaboradores","item_selected"));
+	}
+	
+	public function getEditcomunidad($id_comunidad = null)
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$datos = Comunidades::find($id_comunidad);
+
+		return $this->layout->content = View::make('admon.editcomunidad',compact("datos"));
+	}
+	
+	public function postEditcomunidad()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$inputs = Input::All();
+		$validaciones = array
+		(
+			'nombreComunidad' => 'required|min:5'
+		);		
+		$mensajes = array
+		(
+			"required" => "Este campo no puede quedar vacio.",
+			"min" => "Debe tener como minimo 5 caracteres",
+			"unique" => "Comunidad ya existe"
+		);
+		//echo $inputs["colaborador"]; exit;
+		$validar=Validator::make($inputs,$validaciones,$mensajes);
+		
+		if($validar->fails())
+		{
+			return Redirect::back() -> withErrors($validar);
+		}else
+		{			
+			$nombreComunidad = $inputs["nombreComunidad"];
+
+			if ($nombreComunidad != "")
+			{
+				$eu = Comunidades::find($inputs["id"]);
+
+				$eu->nombreComunidad = $inputs["nombreComunidad"];
+				$eu->codigo_comunidad = $inputs["codigo_comunidad"];
+				$eu->descripcion = $inputs["descripcion"];
+				
+				$eu->save();
+				
+				Session::flash('mensaje','Registro editado correctamente!!');
+				return Redirect::to('/admin/comunidades');
+				
+			}
+			else
+			{
+				return Redirect::to('/admin/editcomunidad/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+			}			
+		}
+	}
+	
+	public function postAddcomunidades()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$inputs = Input::All();		
+		$validaciones = array
+		(
+			'nombreComunidad' => 'required|min:5'
+		);		
+		$mensajes = array
+		(
+			"required" => "Este campo no puede quedar vacio.",
+			"min" => "Debe tener como minimo 5 caracteres",
+			"unique" => "Comunidad ya existe"
+		);
+		
+		$validar=Validator::make($inputs,$validaciones,$mensajes);
+		
+		if($validar->fails())
+		{
+			return Redirect::back() -> withErrors($validar);
+		}else
+		{			
+			$campoNombre = $inputs["nombreComunidad"];
+			
+			if ($campoNombre != "")
+			{
+			
+				$nu = new Comunidades;
+				$nu->nombreComunidad = $inputs["nombreComunidad"];
+				$nu->codigo_comunidad = $inputs["codigo_comunidad"];
+				$nu->descripcion = $inputs["descripcion"];
+
+
+				$nu->save();
+				Session::flash('mensaje','Registro ingresado correctamente!!');
+				return Redirect::to('/admin/comunidades');	
+				//}					
+			}
+			else
+			{
+				return Redirect::to('/admin/addcomunidad')->with('mensajeError','Seleccione un Perfil!!');	
+			}
+		}
+	}
+	
+	public function getDeletecomunidad($id_comunidad = null)
+	{		
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$du = Comunidades::find($id_comunidad);
 		$du -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/lideres');	
+		return Redirect::to('/admin/comunidades');	
 	}
 }
