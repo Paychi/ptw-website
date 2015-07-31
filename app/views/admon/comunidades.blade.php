@@ -28,7 +28,7 @@ Ad-Lideres
 		<table class="table table-hover">
 			<thead>
 				<th>Nombre Completo</th>
-				<th>Fecha Registro</th>
+				<th>Fecha de Actualización</th>
 				<!--<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addcomunidad" class="btn btn-success">Nuevo</a></center></th>-->
 			</thead>
 			<tbody>
@@ -39,7 +39,7 @@ Ad-Lideres
 				@else
 					@foreach($datos as $item)
 						<?php
-							$fecha = $item->created_at;
+							$fecha = $item->updated_at;
 							$oldfecha = strtotime($fecha);
 							$newfecha = date("d/m/Y H:i:s",$oldfecha);
 						?>
