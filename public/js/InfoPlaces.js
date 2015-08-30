@@ -1,6 +1,9 @@
 
         $(document).ready(function(){
             $('#SanRamonLasVallas').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
+
                 var url=$('#mapa_form').attr('action') + "/SanRamonLasVallas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -13,6 +16,8 @@
             });
 
             $('#VallasElPastal').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/VallasElPastal";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -30,6 +35,8 @@
 
             function kaskitaInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/Kaskita";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -63,6 +70,8 @@
 
             function zinicaUnoInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ZinicaUno";
 
                 $.post(url, {idComunidad: "2" }, function(data){                    
@@ -85,7 +94,8 @@
             {
                 //$('#myModalLabel').text('WASLALA');
                 //$('#ContenidoModal').text('El nombre Waslala proviene de una lengua indígena y traducida al español significa Río de Plata');
-                
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/Waslala";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -103,6 +113,8 @@
             
 
             $('#SantaMariaKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SantaMariaKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -115,6 +127,8 @@
             });
 
             $('#BuenosAiresKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/BuenosAiresKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -127,6 +141,8 @@
             });
 
             $('#GuayaboKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/GuayaboKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -144,6 +160,8 @@
 
             function kubaiCentralInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/KubaiCentral";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -164,6 +182,8 @@
 
             function piedrasBlancasInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/PiedrasBlancas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -179,6 +199,8 @@
             });
 
             $('#SectorKum').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SectorKum";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -196,6 +218,8 @@
 
             function lasDeliciasInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasDelicias";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -211,6 +235,8 @@
             });
 
             $('#NaranjoArriba').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/NaranjoArriba";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -228,6 +254,8 @@
 
             function waslalitaInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/WaslalitaNaranjo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -243,6 +271,8 @@
             });
 
             $('#AguasCalientes').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/AguasCalientes";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -255,6 +285,8 @@
             });
 
             $('#ElNaranjo').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElNaranjo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -272,6 +304,8 @@
 
             function lasTorrezInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasTorrez";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -287,6 +321,8 @@
             });
 
             $('#LosMilagros').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LosMilagros";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -299,6 +335,8 @@
             });
 
             $('#LasNuevesDos').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasNuevesDos";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -311,6 +349,8 @@
             });
 
             $('#LasNuevesUno').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasNuevesUno";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -328,6 +368,8 @@
 
             function elPijibayInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElPijibay";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -348,6 +390,8 @@
 
             function elPuyusInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElPuyus";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -368,6 +412,8 @@
 
             function elKiawaInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElKiawa";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -388,6 +434,8 @@
 
              function sofanaInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/Sofana";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -403,6 +451,8 @@
              });             
 
              $('#BuenosAiresDudu').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/BuenosAiresDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -420,6 +470,8 @@
 
             function dipinaInfo()
             {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                var url=$('#mapa_form').attr('action') + "/Dipina";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -435,6 +487,8 @@
              });
 
              $('#CanoSucio').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/CanoSucio";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -447,6 +501,8 @@
             });
 
              $('#SnAntonioYaro').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnAntonioYaro";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -464,6 +520,8 @@
 
              function yaroCentralInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/YaroCentral";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -484,6 +542,8 @@
 
              function snJuanYaroInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnJuanYaro";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -504,6 +564,8 @@
 
              function ocoteTumaInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/OcoteTuma";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -524,6 +586,8 @@
 
              function chileTresInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ChileTres";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -539,6 +603,8 @@
              });
 
              $('#OcoteYaosca').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/OcoteYaosca";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -556,6 +622,8 @@
 
              function vallasAbajoInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/VallasAbajo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -576,6 +644,8 @@
 
              function snPedroVallasInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnPedroLasVallas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -596,6 +666,8 @@
 
              function snRafaKumInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnRafaelKum";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -616,6 +688,8 @@
 
              function snFranciscoPtoInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnFranciscoPtoViejo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -632,6 +706,8 @@
 
 
              $('#GuayaboAbajo').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/GuayaboAbajo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -644,6 +720,8 @@
             });
 
              $('#LaLimonera').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LaLimonera";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -656,6 +734,8 @@
             });
 
              $('#LasJawas').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasJawas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -673,6 +753,8 @@
 
              function kusuliInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/Kusuli";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -693,6 +775,8 @@
 
              function sanBenitoInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SanBenito";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -708,6 +792,8 @@
             });
 
              $('#StaRosaDudu').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/StaRosaDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -725,6 +811,8 @@
 
              function zapoteDuduInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ZapoteDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -745,6 +833,8 @@
 
              function arenasBlancasInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ArenasBlancas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -765,6 +855,8 @@
 
              function ceibaDuduInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/CeibaDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -785,6 +877,8 @@
 
              function ocoteDuduInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/OcoteDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -800,6 +894,8 @@
             });
 
              $('#SnMiguelDudu').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnMiguelDudu";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -812,6 +908,8 @@
             });
 
              $('#ElSombrero').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElSombrero";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -829,6 +927,8 @@
 
              function snPabloVallasInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SnPabloLasVallas";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -849,6 +949,8 @@
 
              function lasFloresInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LasFlores";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -864,6 +966,8 @@
             });
 
              $('#LaPosolera').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LaPosolera";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -876,6 +980,8 @@
             });
 
              $('#ElCipres').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElCipres";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -888,6 +994,8 @@
             });
 
              $('#HierbaBuena').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/HierbaBuena";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -900,6 +1008,8 @@
             });
 
              $('#ChileUno').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ChileUno";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -917,6 +1027,8 @@
 
              function chileDosInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ChileDos";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -932,6 +1044,8 @@
             });
 
              $('#ElAchioteWaslala').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElAchioteWaslala";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -944,6 +1058,8 @@
             });
 
              $('#ElCorozal').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElCorozal";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -956,6 +1072,8 @@
             });
 
              $('#LosPotrerios').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LosPotrerios";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -968,6 +1086,8 @@
             });
 
              $('#CanoDeLosMartinez').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/CanoDeLosMartinez";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -980,6 +1100,8 @@
             });
 
              $('#Waslalita').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/Waslalita";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -992,6 +1114,8 @@
             });
 
              $('#CanoLaCeiba').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/CanoLaCeiba";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1004,6 +1128,8 @@
             });
 
              $('#CiudadWaslala').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/CiudadWaslala";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1016,6 +1142,8 @@
             });
 
              $('#PapayoDos').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/PapayoDos";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1028,6 +1156,8 @@
             });
 
              $('#BarrialColorado').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/BarrialColorado";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1045,6 +1175,8 @@
 
              function elGuaboInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElGuabo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1060,6 +1192,8 @@
             });
 
              $('#GuayaboArriba').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/GuayaboArriba";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1072,6 +1206,8 @@
             });
 
              $('#ZinicaDos').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ZinicaDos";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1084,6 +1220,8 @@
             });
 
              $('#OcoteKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/OcoteKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1101,6 +1239,8 @@
 
              function elBarrillalInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElBarillal";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1116,6 +1256,8 @@
             });
 
              $('#LosMangos').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/LosMangos";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1133,6 +1275,8 @@
 
              function ptoViejoInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/PtoViejo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1148,6 +1292,8 @@
             });
 
              $('#SanPabloKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/SanPabloKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1160,6 +1306,8 @@
             });
 
              $('#EsperanzaKubali').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/EsperanzaKubali";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1172,6 +1320,8 @@
             });
 
              $('#BocaDePiedra').click(function(){
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/BocaDePiedra";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
@@ -1189,6 +1339,8 @@
 
              function elGarroboInfo()
              {
+                $('#myModalLabel').text("");
+                $('#ContenidoModal').text("");
                 var url=$('#mapa_form').attr('action') + "/ElGarrobo";
 
                 $.post(url, {idComunidad: "1" }, function(data){                    
