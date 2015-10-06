@@ -18,8 +18,18 @@ Col-Ajustes
 @section('content_colaborador')
 
 	@if(Session::has('mensaje'))
-		<div class="text-danger">
-			<label>{{Session::get('mensaje')}}</label>
+		<br/>
+		<div class="alert alert-success text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensaje')}}</strong>
+		</div>
+	@endif
+
+	@if(Session::has('mensajeError'))
+		<br/>
+		<div class="alert alert-danger text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensajeError')}}</strong>
 		</div>
 	@endif
 
@@ -31,8 +41,17 @@ Col-Ajustes
 
 	<div class="col-lg-12 modal-content postcambio">
 		@if(Session::has('mensajeNombre'))
-			<div class="text-success">
-				<label>{{Session::get('mensajeNombre')}}</label>
+			<br/>
+			<div class="alert alert-success text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeNombre')}}</strong>
+			</div>
+		@endif
+		@if(Session::has('mensajeNombreError'))
+			<br/>
+			<div class="alert alert-danger text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeNombreError')}}</strong>
 			</div>
 		@endif
 		<label class="error">{{$errors->first("nombre")}}</label>
@@ -49,8 +68,17 @@ Col-Ajustes
 
 	<div class="col-lg-12 modal-content postcambio">
 		@if(Session::has('mensajeDescripcion'))
-			<div class="text-success">
-				<label>{{Session::get('mensajeDescripcion')}}</label>
+			<br/>
+			<div class="alert alert-success text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeDescripcion')}}</strong>
+			</div>
+		@endif
+		@if(Session::has('mensajeDescripcionError'))
+			<br/>
+			<div class="alert alert-danger text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeDescripcionError')}}</strong>
 			</div>
 		@endif
 		<label class="error">{{$errors->first("descripcion")}}</label>
@@ -67,8 +95,17 @@ Col-Ajustes
 
 	<div class="col-lg-12 modal-content postcambio">
 		@if(Session::has('mensajeLogo'))
-			<div class="text-success">
-				<label>{{Session::get('mensajeLogo')}}</label>
+			<br/>
+			<div class="alert alert-success text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeLogo')}}</strong>
+			</div>
+		@endif
+		@if(Session::has('mensajeLogoError'))
+			<br/>
+			<div class="alert alert-danger text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeLogoError')}}</strong>
 			</div>
 		@endif
 		<label class="error">{{$errors->first("imagen_logo")}}</label>
@@ -85,8 +122,17 @@ Col-Ajustes
 
 	<div class="col-lg-12 modal-content postcambio">
 		@if(Session::has('mensajeWebsite'))
-			<div class="text-success">
-				<label>{{Session::get('mensajeWebsite')}}</label>
+			<br/>
+			<div class="alert alert-success text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeWebsite')}}</strong>
+			</div>
+		@endif
+		@if(Session::has('mensajeWebsiteError'))
+			<br/>
+			<div class="alert alert-danger text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeWebsiteError')}}</strong>
 			</div>
 		@endif
 		<label class="error">{{$errors->first("website")}}</label>
@@ -103,8 +149,17 @@ Col-Ajustes
 
 	<div class="col-lg-12 modal-content postcambio">
 		@if(Session::has('mensajeAbreviatura'))
-			<div class="text-success">
-				<label>{{Session::get('mensajeAbreviatura')}}</label>
+			<br/>
+			<div class="alert alert-success text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeAbreviatura')}}</strong>
+			</div>
+		@endif
+		@if(Session::has('mensajeAbreviaturaError'))
+			<br/>
+			<div class="alert alert-danger text-center">
+				<button type="button" class="close" data-dismiss="alert">&times;</button>
+				<strong>{{Session::get('mensajeAbreviaturaError')}}</strong>
 			</div>
 		@endif
 		<label class="error">{{$errors->first("abreviatura")}}</label>

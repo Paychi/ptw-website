@@ -6,10 +6,27 @@ Ad-Noticias
 
 @section('css')
 	<link href="{{URL::to('/')}}/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="{{URL::to('/')}}/css/bootstrap-datepicker.css" media="all" rel="stylesheet" type="text/css" />
 @stop
 
 @section('javascript')
 	<script type="text/javascript" src="{{URL::to('/')}}/js/fileinput.js"></script>
+	<script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-datepicker.js"></script>
+  	<script>
+	  $(function() {
+        $('#sandbox-container2 input').datepicker({
+	        keyboardNavigation: false,
+	        forceParse: false,
+      		todayBtn: "linked",
+			todayHighlight: true,
+			autoclose: true,
+			calendarWeeks: true,
+			format: 'dd/mm/yyyy',
+			calendarWeeks: true,
+			titleFormat: "MM yyyy"
+	    });
+	  });
+  </script>
 @stop
 
 @section('content_admon')
@@ -80,9 +97,9 @@ Ad-Noticias
 			</div>
 			<div class="col-lg-6">
 				<label class="control-label col-md-12">Fecha de Afiliaci&oacute;n</label>					
-				<div class="col-md-12"> 
+				<div class="col-md-12" id = "sandbox-container2"> 
 					<!--{{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }}-->
-					<input type="date" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required>
+					<input type="text" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required autocomplete="off">
 					<label class="error">{{$errors->first("fecha")}}</label>
 				</div>
 			</div>

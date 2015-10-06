@@ -4,6 +4,29 @@
 Ad-Colaboradores
 @stop
 
+@section('css')
+	<link href="{{URL::to('/')}}/css/bootstrap-datepicker.css" media="all" rel="stylesheet" type="text/css" />
+@stop
+
+@section('javascript')
+	<script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-datepicker.js"></script>
+  	<script>
+	  $(function() {
+        $('#sandbox-container2edit input').datepicker({
+	        keyboardNavigation: false,
+	        forceParse: false,
+      		todayBtn: "linked",
+			todayHighlight: true,
+			autoclose: true,
+			calendarWeeks: true,
+			format: 'dd/mm/yyyy',
+			calendarWeeks: true,
+			titleFormat: "MM yyyy"
+	    });
+	  });
+  </script>
+@stop
+
 @section('content_admon')
 	 
 	@if(Session::has('mensaje'))
@@ -66,9 +89,14 @@ Ad-Colaboradores
 			</div>
 			<div class="col-lg-6">
 				<label class="control-label col-md-12">Fecha de Afiliaci&oacute;n</label>					
-				<div class="col-md-12"> 
+				<div class="col-md-12" id = "sandbox-container2edit"> 
 					<!--{{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }}-->
-					<input type="date" name ="fecha" class="form-control" value="{{$datos->fecha_colaborador}}">
+					<?php
+						setlocale(LC_TIME,'spanish');
+						$fecha=strtotime($datos->fecha_colaborador);
+						$fecha_colaborador= date("d",$fecha) ."/". date("m",$fecha) ."/". date("Y",$fecha);
+					 ?>
+					<input type="text" name ="fecha" class="form-control" value="{{$fecha_colaborador}}" required autocomplete="off">
 					<label class="error">{{$errors->first("fecha")}}</label>
 				</div>
 			</div>

@@ -8,12 +8,6 @@ About
 	{{ HTML::style('css/baseVisor.css'); }}
 @stop
 
-@section('javascript')
-	<script type="text/javascript">
-		$("tag_about").addClass("active");
-	</script>
-@stop
-
 @section('imagenes')
 	<div class="container-img_header">
 		{{HTML::image('uploads/header_site/banner_about.png','about',array("class"=>"img-header"))}}

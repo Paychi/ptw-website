@@ -12,12 +12,22 @@ Ad-Banners
 
 @section('content_admon')
 
-	@if(Session::has('mensaje'))
-		<div class="text-info">
-			<label>{{Session::get('mensaje')}}</label>
+	@@if(Session::has('mensaje'))
+		<br/>
+		<div class="alert alert-success text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensaje')}}</strong>
 		</div>
 	@endif
 
+	@if(Session::has('mensajeError'))
+		<br/>
+		<div class="alert alert-danger text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensajeError')}}</strong>
+		</div>
+	@endif
+	
 	<div class="table-responsive" style="padding:10px; margin: 5px;">	
 		<table class="table table-hover">
 			<thead>

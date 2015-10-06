@@ -158,7 +158,7 @@ class AdmonController extends BaseController {
 					return Redirect::to('/admin/noticias');
 				}else
 				{
-					Session::flash('mensaje','No se pudo subir el archivo!!');
+					Session::flash('mensajeError','No se pudo subir el archivo!!');
 					return Redirect::to('/admin/noticias');
 				}
 			}
@@ -167,7 +167,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/admin/noticias');
 		}
 	}
@@ -237,7 +237,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/admin/noticias');
 		}
 		
@@ -588,7 +588,7 @@ class AdmonController extends BaseController {
 					return Redirect::to('/admin/colaboradores');
 				}else
 				{
-					Session::flash('mensaje','No se pudo subir el archivo!!');
+					Session::flash('mensajeError','No se pudo subir el archivo!!');
 					return Redirect::to('/admin/colaboradores');
 				}
 			}
@@ -597,7 +597,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/admin/colaboradores');
 		}
 	}
@@ -667,7 +667,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/admin/colaboradores');
 		}		
 	}
@@ -728,22 +728,22 @@ class AdmonController extends BaseController {
 					}
 					else
 					{
-						Session::flash('mensaje','Error al subir el archivo');
+						Session::flash('mensajeError','Error al subir el archivo');
 						return Redirect::to('/admin/confbanners');
 					}				
 				}
 				else
 				{
-					Session::flash('mensaje','Formato Invalido');
+					Session::flash('mensajeError','Formato Invalido');
 					return Redirect::to('/admin/confbanners');
 				}
 			} else {
-				return Redirect::to('/admin/confbanners')->with('mensaje', 'El Archivo es Requerido');
+				return Redirect::to('/admin/confbanners')->with('mensajeError', 'El Archivo es Requerido');
 			}	
 		}
 		catch(Exception $e)
 		{			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/admin/confbanners');
 		}
 	}
@@ -826,7 +826,7 @@ class AdmonController extends BaseController {
 			
 		} catch (Exception $e) {
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 		}
 	}
 
@@ -847,7 +847,7 @@ class AdmonController extends BaseController {
 		catch (Exception $e) 
 		{
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
 		}			
 	}
 
@@ -868,7 +868,7 @@ class AdmonController extends BaseController {
 		catch (Exception $e) 
 		{
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
 		}			
 	}
 

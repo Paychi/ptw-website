@@ -418,3 +418,23 @@ input[readonly] {
     font-family:'Comic Sans MS'; 
     text-shadow:20px 15px 2px #333;
 }
+
+/*#datepicker{
+	width: 74%;
+	display: inline;
+	margin-right: 5px;
+}
+
+.ui-datepicker-trigger{
+	margin-top:-7px;
+	vertical-align: middle;
+}*/
+
+/*.datepicker table tr td.today{
+	background: green !important;
+}*/
+
+.divinicio{
+	display: inline;
+	margin-left: 5px;	
+}

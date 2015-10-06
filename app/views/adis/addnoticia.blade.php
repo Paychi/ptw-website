@@ -6,10 +6,39 @@ Adis-Noticias
 
 @section('css')
 	<link href="{{URL::to('/')}}/css/fileinput.css" media="all" rel="stylesheet" type="text/css" />
+	<link href="{{URL::to('/')}}/css/bootstrap-datepicker.css" media="all" rel="stylesheet" type="text/css" />
 @stop
 
 @section('javascript')
 	<script type="text/javascript" src="{{URL::to('/')}}/js/fileinput.js"></script>
+	<script type="text/javascript" src="{{URL::to('/')}}/js/bootstrap-datepicker.js"></script>
+  	<script>
+	  $(function() {
+	  	
+	    /*$( "#datepicker" ).datepicker({
+	    	changeMonth: true,
+	    	changeYear: true,
+	       	showOn: "button",
+	      	buttonImage: "{{URL::to('/')}}/img/calendar.png",
+	      	buttonImageOnly: true,
+	      	buttonText: "Select date",
+	      	keyboardNavigation: false,
+	        forceParse: false,
+	        todayHighlight: true
+	    });*/
+        $('#sandbox-container input').datepicker({
+	        keyboardNavigation: false,
+	        forceParse: false,
+      		todayBtn: "linked",
+			todayHighlight: true,
+			autoclose: true,
+			calendarWeeks: true,
+			format: 'dd/mm/yyyy',
+			calendarWeeks: true,
+			titleFormat: "MM yyyy"
+	    });
+	  });
+    </script>
 @stop
 
 @section('content_adis')
@@ -74,9 +103,9 @@ Adis-Noticias
 			</div>
 			<div class="col-lg-6">
 				<label class="control-label col-md-12">Fecha de la Noticia</label>					
-				<div class="col-md-12"> 
-					<!--{{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }}-->
-					<input type="date" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required >
+				<div class="col-md-12" id ="sandbox-container"> 
+					<!-- {{ Form::text('fecha','9999-99-99', array('class' => 'form-control') ) }} -->
+					<input type="text" name ="fecha" class="form-control" placeholder="dd/mm/aaaa" required autocomplete="off">
 					<label class="error">{{$errors->first("fecha")}}</label>
 				</div>
 			</div>

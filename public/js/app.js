@@ -60,6 +60,87 @@ $(document).ready( function() {
         
     });
 
+
+    $('.navbar-header a').hover(function() {
+       // $('.tooltipinicio').toggle("slow");
+    });
+
+    // Navegacion de menus del sitio
+
+    var urlActual = window.location.href;
+
+    if ((urlActual.indexOf('waslala') != -1)) {
+            $("#tag_waslala").addClass("active");
+    }
+
+    if ((urlActual.indexOf('about') != -1)) {
+            $("#tag_about").addClass("active");
+    }
+
+    if ((urlActual.indexOf('colaboradores') != -1)) {
+            $("#tag_colaboradores").addClass("active");
+    }
+
+    if ((urlActual.indexOf('simsiv') != -1)) {
+            $("#tag_simsiv").addClass("active");
+    }
+
+    if ((urlActual.indexOf('noticias') != -1) || (urlActual.indexOf('addnoticia') != -1) || (urlActual.indexOf('editnoticia/') != -1)) {
+        if ($('#perf').val() === 'adis' && (urlActual.indexOf('addnoticia') != -1)) 
+            $(".menu-addnoticia").addClass("active");        
+        else
+            $(".menu-noticia").addClass("active");
+    }
+
+    if ((urlActual.indexOf('colaboradores') != -1) || (urlActual.indexOf('addcolaborador') != -1) || (urlActual.indexOf('editcolaborador/') != -1)) {
+            $(".menu-colaborador").addClass("active");
+    }
+
+    if ((urlActual.indexOf('usuarios') != -1) || (urlActual.indexOf('addusuario') != -1) || (urlActual.indexOf('editusuario/') != -1)) {
+            $(".menu-usuario").addClass("active");
+    }
+
+    if ((urlActual.indexOf('eventos') != -1)) {
+            $(".menu-evento").addClass("active");
+    }
+
+    if ((urlActual.indexOf('perfiles') != -1) || (urlActual.indexOf('editperfil/') != -1)) {
+            $(".menu-perfil").addClass("active");
+    }
+
+    if ((urlActual.indexOf('confbanners') != -1)) {
+            $(".menu-confbanner").addClass("active");
+    }
+
+    if ((urlActual.indexOf('lideres') != -1) || (urlActual.indexOf('addlider') != -1) || (urlActual.indexOf('editlider/') != -1)) {
+            $(".menu-lider").addClass("active");
+    }
+
+    if ((urlActual.indexOf('comunidades') != -1) || (urlActual.indexOf('editcomunidad/') != -1)) {
+            $(".menu-comunidad").addClass("active");
+    }
+
+    if ((urlActual.indexOf('ajustes') != -1)) {
+            $(".menu-perfilcolaborador").addClass("active");
+    }
+
+    if ((urlActual.indexOf('admin') != -1)) {
+            $("#tag_admin").addClass("active");
+    }
+
+    if ((urlActual.indexOf('adis') != -1)) {
+            $("#tag_adis").addClass("active");
+    }
+
+    if ((urlActual.indexOf('colaborador') != -1)) {
+        if($('#perf').val() === 'col' &&  (urlActual.indexOf('ajustes') == -1))
+            $("#tag_perfilcolaborador").addClass("active");
+    }
+
+    // Fin de la navegacion de menus del sitio
+
+    setTimeout(function() {$(".alert").fadeOut(1500); }, 5000);
+
 });
 
 

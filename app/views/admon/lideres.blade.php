@@ -12,15 +12,25 @@ Ad-Lideres
 	?>
 
 	{{Form::open(array('url'=>'admin/lideres', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
-		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
-		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
+		
+		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
 	{{Form::close()}}
 
 	@if(Session::has('mensaje'))
-		<div class="alert-box success">
-			<label>{{Session::get('mensaje')}}</label>
+		<br/>
+		<div class="alert alert-success text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensaje')}}</strong>
+		</div>
+	@endif
+
+	@if(Session::has('mensajeError'))
+		<br/>
+		<div class="alert alert-danger text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensajeError')}}</strong>
 		</div>
 	@endif
 

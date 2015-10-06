@@ -119,7 +119,7 @@ class ColaboradorController extends BaseController {
 		} catch (Exception $e) {
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/colaborador/ajustes');
 		}		
 	}
@@ -161,7 +161,7 @@ class ColaboradorController extends BaseController {
 		} catch (Exception $e) {
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/colaborador/ajustes');
 		}		
 	}
@@ -210,19 +210,19 @@ class ColaboradorController extends BaseController {
 						DB::commit();
 						return Redirect::to('/colaborador/ajustes');
 					}else{
-						Session::flash('mensajeLogo','No se pudo subir el archivo!!');
+						Session::flash('mensajeLogoError','No se pudo subir el archivo!!');
 						return Redirect::to('/colaborador/ajustes');
 					}
 				}
 				else{
-					Session::flash('mensajeLogo','Formato Invalido');
+					Session::flash('mensajeLogoError','Formato Invalido');
 					return Redirect::to('/colaborador/ajustes');
 				}				
 			}
 		} catch (Exception $e) {
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/colaborador/ajustes');
 		}		
 	}
@@ -264,7 +264,7 @@ class ColaboradorController extends BaseController {
 		} catch (Exception $e) {
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/colaborador/ajustes');
 		}			
 	}
@@ -306,7 +306,7 @@ class ColaboradorController extends BaseController {
 		} catch (Exception $e) {
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/colaborador/ajustes');
 		}		
 	}

@@ -25,6 +25,7 @@
 	</head>
 	
 	<body id="cuerpo">
+		<input type="hidden" id="perf" value="col" />
 		<header>
 			<nav class="navbar navbar-inverse" role="navigation">
 				<div class="navbar-header">
@@ -34,15 +35,15 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/logo.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
+					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/logo.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px; display: inline;"))}} <div class="divinicio">Inicio</div></a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<!--<li><a href='{{URL::to('/')}}/es/creditos' target="_blank"><span>Creditos</span></a> </li>-->
-						<li><a href='{{URL::to('/')}}/admin' ><span>Colaborador</span></a> </li>
+						<li id="tag_perfilcolaborador"><a href='{{URL::to('/')}}/colaborador' ><span>Colaborador</span></a> </li>
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>Men&uacute;<b class="caret"></b></span></a>
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
-								<li><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
+								<li class="menu-perfilcolaborador"><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -69,7 +70,7 @@
 					<img src="{{ asset('/img/logo/logo_conf.svg') }}" alt="telemedicina">
 					<span class="splinemenu bColor2"></span>
 					<ul class="nav nav-pills nav-stacked">			
-						<li><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
+						<li class="menu-perfilcolaborador"><a href='{{URL::to('/')}}/colaborador/ajustes'><span>Ajustes</span></a></li>
 					</ul>
 				</aside>
 			</div>

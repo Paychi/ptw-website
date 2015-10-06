@@ -30,6 +30,7 @@
 	</head>
 	
 	<body id="cuerpo">
+		<input type="hidden" id="perf" value="public" />
 		<div id="BackColor" style=" display:none; position:fixed; width:100%; height:100%; top:0; bottom:0; background: rgba(0, 0, 0, 0.4); overflow:hidden;">		
 			
 			<div id="BackGroundVisor" style = "position:absolute; top:0; bottom:0; left:0; right:0; z-index:5; width:75%; margin-left:13%; margin-top:0%; height:auto">
@@ -39,7 +40,7 @@
 				</br>							
 				<div id="ModalImage" style="height:100%; width:60%; margin-left:15.05%; margin-top:1%;">
 					<div id="cuadro_imagen" style="width:100%; height:100%; margin-left:10%;"> 
-					</div>
+				</div>
 
 
 				</div>
@@ -68,7 +69,7 @@
 					  <span class="icon-bar"></span>
 					  <span class="icon-bar"></span>
 					</button>
-					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/logo.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px;"))}} Inicio</a>
+					<a class="navbar-brand" style="display: table-cell;" href="{{URL::to('/')}}">{{HTML::image('img/logo/logo.svg','img',array("width"=>"40px", "height"=>"60px", "style"=>"vertical-align: middle; margin-top: -8px; display: inline;"))}}<div class="divinicio">Inicio</div></a>
 				</div>
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									

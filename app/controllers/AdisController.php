@@ -163,7 +163,7 @@ class AdisController extends BaseController {
 					return Redirect::to('/adis/noticias');
 				}else
 				{
-					Session::flash('mensaje','No se pudo subir el archivo!!');
+					Session::flash('mensajeError','No se pudo subir el archivo!!');
 					return Redirect::to('/adis/noticias');
 				}
 			}
@@ -172,7 +172,7 @@ class AdisController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/adis/noticias');
 		}
 	}
@@ -242,7 +242,7 @@ class AdisController extends BaseController {
 		{
 			DB::rollback();
 			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/adis/noticias');
 		}
 		
@@ -291,22 +291,22 @@ class AdisController extends BaseController {
 					}
 					else
 					{
-						Session::flash('mensaje','Error al subir el archivo');
+						Session::flash('mensajeError','Error al subir el archivo');
 						return Redirect::to('/adis/confbanners');
 					}				
 				}
 				else
 				{
-					Session::flash('mensaje','Formato Invalido');
+					Session::flash('mensajeError','Formato Invalido');
 					return Redirect::to('/adis/confbanners');
 				}
 			} else {
-				return Redirect::to('/adis/confbanners')->with('mensaje', 'El Archivo es Requerido');
+				return Redirect::to('/adis/confbanners')->with('mensajeError', 'El Archivo es Requerido');
 			}							
 		}
 		catch(Exception $e)
 		{			
-			Session::flash('mensaje','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 			return Redirect::to('/adis/confbanners');
 		}
 	}

@@ -16,8 +16,18 @@ Ad-Perfil
 	{{Form::close()}}
 
  	@if(Session::has('mensaje'))
-		<div class="alert-box success">
-			<label>{{Session::get('mensaje')}}</label>
+		<br/>
+		<div class="alert alert-success text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensaje')}}</strong>
+		</div>
+	@endif
+
+	@if(Session::has('mensajeError'))
+		<br/>
+		<div class="alert alert-danger text-center">
+			<button type="button" class="close" data-dismiss="alert">&times;</button>
+			<strong>{{Session::get('mensajeError')}}</strong>
 		</div>
 	@endif
 	<div class="table-responsive" style="padding:10px; margin: 5px;">	
