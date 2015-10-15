@@ -38,6 +38,7 @@ Ad-Lideres
 		<table class="table table-hover">
 			<thead>
 				<th>Nombre Completo</th>
+				<th>Comunidad que Labora<th>
 				<th>Fecha Registro</th>
 				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addlider" class="btn btn-success">Nuevo</a></center></th>
 			</thead>
@@ -56,6 +57,7 @@ Ad-Lideres
 
 						<tr>
 							<td>{{$item->nombre}}</td>
+							<td>{{$item->comunidad->nombreComunidad}}</td>
 							<td>{{$newfecha}}</td>
 							<td><a onclick="editar('{{$item->id_lider}}')" class="btn btn-primary">Editar</a></td>
 							<td><a onclick="eliminar('{{$item->id_lider}}')" class="btn btn-danger">Eliminar</a></td>

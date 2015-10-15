@@ -24,6 +24,13 @@ Ad-Lideres
 					<label class="error">{{$errors->first("nombre")}}</label>
 				</div>
 			</div>
+			<div class="col-md-6" id="selected_comunidad">	
+				<label class="control-label col-md-12">Comunidad que labora</label>					
+				<div class="col-md-12"> 
+					{{Form::select('comunidad', $lista_comunidad, $selected, array('class' => 'form-control', 'id' => 'lista_comunidades'))}}
+					<label class="error">{{$errors->first("comunidad")}}</label>
+				</div>
+			</div>
 		</div> 	
 		
 		

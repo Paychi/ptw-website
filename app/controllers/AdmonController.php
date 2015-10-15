@@ -899,6 +899,14 @@ class AdmonController extends BaseController {
 					$datos = Lideres::where('nombre', 'LIKE', '%'.$buscar.'%')->paginate(5);
 					break;
 
+				case 1: //Comunidad
+					$comunidad = Comunidades::where('nombreComunidad', '=', $buscar)->get();
+					if ($comunidad->count() == 0) {
+						$datos = Comunidades::where('id_comunidad', '=', null)->paginate(5);
+					}else{
+						$datos = Comunidades::where('id_comunidad', '=', $perfil[0]->id_perfil)->paginate(5);
+					}
+
 				default:
 					
 					break;
@@ -922,8 +930,12 @@ class AdmonController extends BaseController {
 		$lista_perfil = array(0 => "--- Seleccione --- ") + $perfiles;
 		$lista_colaboradores = array(0 => "--- Seleccione --- ") + $colaboradores;
 		$selected = array();
+
+		$comunidades = Comunidades::whereRaw('id_comunidad>0')->lists('nombreComunidad', 'id_comunidad');			
+		$lista_comunidad = array(0 => "--- Seleccione --- ") + $comunidades;
+
 		$item_selected = array();	
-		return $this->layout->content = View::make('admon.addlider',compact("lista_perfil","selected","lista_colaboradores","item_selected"));
+		return $this->layout->content = View::make('admon.addlider',compact("lista_comunidad","selected","lista_colaboradores","item_selected"));
 	}
 	
 	public function getEditlider($id_lider = null)
@@ -935,7 +947,11 @@ class AdmonController extends BaseController {
 		
 		$datos = Lideres::find($id_lider);
 
-		return $this->layout->content = View::make('admon.editlider',compact("datos"));
+		$comunidades = Comunidades::whereRaw('id_comunidad>0')->lists('nombreComunidad', 'id_comunidad');			
+		$lista_comunidad = array(0 => "--- Seleccione --- ") + $comunidades;
+		$selected = array($datos->id_comunidad);
+
+		return $this->layout->content = View::make('admon.editlider',compact("datos","lista_comunidad","selected"));
 	}
 	
 	public function postEditlider()
@@ -971,6 +987,9 @@ class AdmonController extends BaseController {
 				$eu = Lideres::find($inputs["id"]);
 
 				$eu->nombre = $inputs["nombre"];
+				$eu->id_comunidad = $inputs["comunidad"];
+
+
 				$eu->estado = 1;
 				$eu->save();
 				
@@ -1018,6 +1037,7 @@ class AdmonController extends BaseController {
 			
 				$nu = new Lideres;
 				$nu->nombre = $inputs["nombre"];
+				$nu->id_comunidad = $inputs["comunidad"];
 
 				$nu->estado = 1;
 
