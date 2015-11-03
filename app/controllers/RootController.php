@@ -45,7 +45,7 @@ class RootController extends BaseController {
 		{
 			//$datos = Noticias::paginate(3);
 
-			$datos = DB::table('noticia')->orderBy('fecha_noticia', 'desc')->paginate(5);
+			$datos = DB::table('noticia')->where('estado', '=', '1')->where('publicado', '=', '1')->orderBy('fecha_noticia', 'desc')->paginate(5);
 
 
 			$perfil = $this->perfilUser();

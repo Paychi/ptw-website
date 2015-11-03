@@ -57,6 +57,13 @@ $(document).ready( function() {
             $('#list').val(0);
             $('#fieldhidden').hide();
         };
+        if ($('#lista_perfiles').val() == 2) {
+            $('#fieldhidden2').show();
+        } else{
+            $('#fieldhidden2').hide();
+            $('#isadmin').removeProp('checked');
+            $('#isadminHide').val('0');
+        };
         
     });
 

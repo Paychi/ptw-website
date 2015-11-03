@@ -21,6 +21,7 @@
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_formulario.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/preloader.css"/>
 		@yield('css')
 	</head>
 	

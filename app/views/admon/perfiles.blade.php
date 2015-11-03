@@ -49,11 +49,11 @@ Ad-Perfil
 							<td>{{$item->id_perfil}}</td>
 							<td>{{$item->nombre}}</td>
 							<td>{{$item->descripcion}}</td>
-							<td><a onclick="editar('{{$item->id_perfil}}')" class="btn btn-primary">Editar</a></td>
+							<td><a onclick="editar('{{$item->id_perfil}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
 							@if($item->estado == 0)						
-								<td><a onclick="habilitar('{{$item->id_perfil}}')" class="btn btn-success">Habilitar</a></td>
+								<td><a onclick="habilitar('{{$item->id_perfil}}')" class="hid valid"><span class='glyphicon glyphicon-ok-circle'></a></td>
 							@else
-								<td><a onclick="deshabilitar('{{$item->id_perfil}}')" class="btn btn-danger">Deshabilitar</a></td>
+								<td><a onclick="deshabilitar('{{$item->id_perfil}}')" class="hid invalid"><span class='glyphicon glyphicon-ban-circle'></span></a></td>
 							@endif
 						</tr>
 					@endforeach
@@ -70,7 +70,7 @@ Ad-Perfil
 		}
 		function deshabilitar(id_perfil)
 		{
-			if(confirm("Realmente usted quiere eliminar este registro?"))
+			if(confirm("Realmente usted quiere deshabilitar este perfil?"))
 			{
 				window.location.href='{{URL::to('/')}}/admin/deshabilitarperfil/'+id_perfil;
 			}else

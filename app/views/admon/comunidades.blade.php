@@ -12,8 +12,8 @@ Ad-Lideres
 	?>
 
 	{{Form::open(array('url'=>'admin/comunidades', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
-		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
-		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
+		
+		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
 	{{Form::close()}}
@@ -39,7 +39,7 @@ Ad-Lideres
 			<thead>
 				<th>Nombre Completo</th>
 				<th>Fecha de Actualización</th>
-				<!--<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addcomunidad" class="btn btn-success">Nuevo</a></center></th>-->
+				<th colspan="2"><center><!--<a href="{{URL::to('/')}}/admin/addcomunidad" class=""><span class='glyphicon glyphicon-plus'></span></a>--></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -57,8 +57,8 @@ Ad-Lideres
 						<tr>
 							<td>{{$item->nombreComunidad}}</td>
 							<td>{{$newfecha}}</td>
-							<td><a onclick="editar('{{$item->id_comunidad}}')" class="btn btn-primary">Editar</a></td>
-							<td><a onclick="eliminar('{{$item->id_comunidad}}')" class="btn btn-danger">Eliminar</a></td>
+							<td><center><a onclick="editar('{{$item->id_comunidad}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></center></td>
+							<td><center><a onclick="eliminar('{{$item->id_comunidad}}')" class="hid"><span class='glyphicon glyphicon-trash'></span></a></center></td>
 						</tr>
 					@endforeach
 				@endif

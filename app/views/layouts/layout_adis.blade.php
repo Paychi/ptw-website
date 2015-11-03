@@ -23,6 +23,7 @@
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/estilos_formulario.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/preloader.css"/>
 		@yield('css')
 	</head>
 	
@@ -49,6 +50,8 @@
 								<li class="menu-noticia"><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
 								<li class="menu-evento"><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 								<li class="menu-confbanner"><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
+								<li class="menu-lider"><a href='{{URL::to('/')}}/adis/lideres'><span>Líderes</span></a></li>
+								<li class="menu-comunidad"><a href='{{URL::to('/')}}/adis/comunidades'><span>Comunidades</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -79,6 +82,8 @@
 						<li class="menu-noticia"><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
 						<li class="menu-evento"><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 						<li class="menu-confbanner"><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
+						<li class="menu-lider"><a href='{{URL::to('/')}}/adis/lideres'><span>Líderes</span></a></li>
+						<li class="menu-comunidad"><a href='{{URL::to('/')}}/adis/comunidades'><span>Comunidades</span></a></li>
 					</ul>
 				</aside>
 			</div>

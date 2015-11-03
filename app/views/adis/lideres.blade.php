@@ -1,19 +1,19 @@
-@extends('layouts.layout_admon')
+@extends('layouts.layout_adis')
 
 @section('titulo')
-Ad-Usuarios
+Adis-Lideres
 @stop
 
-@section('content_admon')
+@section('content_adis')
 
 	<?php 
-		$lista_filtro = array(0 => "Nombres &oacute; Apellidos", 1 => "Nombre de Usuario", 2 => "Perfil de Usuario");
+		$lista_filtro = array(0 => "Nombre");
 		$selected = array();
 	?>
 
-	{{Form::open(array('url'=>'admin/usuarios', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
-		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
-		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
+	{{Form::open(array('url'=>'adis/lideres', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+		
+		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
 	{{Form::close()}}
@@ -38,10 +38,9 @@ Ad-Usuarios
 		<table class="table table-hover">
 			<thead>
 				<th>Nombre Completo</th>
-				<th>Nombre de Usuario</th>
-				<th>Perfil de Usuario</th>
+				<th>Comunidad que Labora</th>
 				<th>Fecha Registro</th>
-				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
+				<th colspan="2"><center><a href="{{URL::to('/')}}/adis/addlider" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -57,12 +56,11 @@ Ad-Usuarios
 						?>
 
 						<tr>
-							<td>{{$item->nombres.' '.$item->apellidos}}</td>
-							<td>{{$item->nombre_usuario}}</td>
-							<td>{{$item->perfil->nombre}}</td>
+							<td>{{$item->nombre}}</td>
+							<td>{{$item->comunidad->nombreComunidad}}</td>
 							<td>{{$newfecha}}</td>
-							<td><a onclick="editar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
-							<td><a onclick="eliminar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-trash'></span></a></td>
+							<td><center><a onclick="editar('{{$item->id_lider}}')" class="hid"><span class="glyphicon glyphicon-edit"></span></a></center></td>
+							<td><center><a onclick="eliminar('{{$item->id_lider}}')" class="hid"><span class="glyphicon glyphicon-trash"></span></a></center></td>
 						</tr>
 					@endforeach
 				@endif
@@ -72,15 +70,15 @@ Ad-Usuarios
 	<center><?php echo $datos->appends(array("filtro"=>Input::get("filtro")))->links(); ?></center>
 	
 	<script>
-		function editar(id_user)
+		function editar(id_lider)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editusuario/'+id_user;
+			window.location.href='{{URL::to('/')}}/adis/editlider/'+id_lider;
 		}
-		function eliminar(id_user)
+		function eliminar(id_lider)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/delateusuario/'+id_user;
+				window.location.href='{{URL::to('/')}}/adis/deletelider/'+ id_lider;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -88,7 +86,7 @@ Ad-Usuarios
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/usuarios';
+			window.location.href='{{URL::to('/')}}/adis/lideres';
 		}
 	</script>
  	

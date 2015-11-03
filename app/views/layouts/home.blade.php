@@ -26,6 +26,7 @@
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/app.css"/>	
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/less.css"/>
 		<link rel="stylesheet" href="{{URL::to('/')}}/css/stylesMenu.css"/>
+		<link rel="stylesheet" href="{{URL::to('/')}}/css/preloader.css"/>
 		@yield('css')
 	</head>
 	

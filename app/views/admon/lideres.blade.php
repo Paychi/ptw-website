@@ -38,9 +38,9 @@ Ad-Lideres
 		<table class="table table-hover">
 			<thead>
 				<th>Nombre Completo</th>
-				<th>Comunidad que Labora<th>
+				<th>Comunidad que Labora</th>
 				<th>Fecha Registro</th>
-				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addlider" class="btn btn-success">Nuevo</a></center></th>
+				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addlider" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -59,8 +59,8 @@ Ad-Lideres
 							<td>{{$item->nombre}}</td>
 							<td>{{$item->comunidad->nombreComunidad}}</td>
 							<td>{{$newfecha}}</td>
-							<td><a onclick="editar('{{$item->id_lider}}')" class="btn btn-primary">Editar</a></td>
-							<td><a onclick="eliminar('{{$item->id_lider}}')" class="btn btn-danger">Eliminar</a></td>
+							<td><center><a onclick="editar('{{$item->id_lider}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></center></td>
+							<td><center><a onclick="eliminar('{{$item->id_lider}}')" class="hid"><span class='glyphicon glyphicon-trash'></span></a></center></td>
 						</tr>
 					@endforeach
 				@endif

@@ -74,9 +74,47 @@ Ad-Usuarios
 			</div>
 		</div> 		
 		@endif	
+		@if($datos->id_perfil == 2)
+		<div class="row" id = "fieldhidden2">				
+			<div class="col-md-6">	
+				<label class="control-label col-md-12">Admin</label>					
+				<div class="col-md-12"> 
+					@if($datos->id_colaborador == 1)
+						{{Form::checkbox('isadmin', 'si', true, array('class' => 'form-control', 'id' => 'isadmin', 'style' => 'width: 20px;','onchange'=>'isadminuser()'))}}
+					@else	
+						{{Form::checkbox('isadmin', 'si', false, array('class' => 'form-control', 'id' => 'isadmin', 'style' => 'width: 20px;','onchange'=>'isadminuser()'))}}
+					@endif
+					{{ Form::hidden('isadminHide', $datos->id_colaborador,  array('id' => 'isadminHide')) }}
+					<label class="error">{{$errors->first("isadmin")}}</label>
+				</div>
+			</div>
+		</div> 
+		@else
+		<div class="row" style="display: none;" id = "fieldhidden2">				
+			<div class="col-md-6">	
+				<label class="control-label col-md-12">Admin</label>					
+				<div class="col-md-12"> 
+					{{Form::checkbox('isadmin', 'si', false, array('class' => 'form-control', 'id' => 'isadmin', 'style' => 'width: 20px;','onchange'=>'isadminuser()'))}}
+					{{ Form::hidden('isadminHide', null,  array('id' => 'isadminHide')) }}
+					<label class="error">{{$errors->first("isadmin")}}</label>
+				</div>
+			</div>
+		</div> 		
+		@endif	
 		<br/>
 		<center>{{Form::submit('Guardar',['class' => 'btn btn-success action-button'])}}</center>
 	{{ Form::close() }}
+
+	<script>
+		function isadminuser(){    
+	       if($('#isadmin:checked').length === 1)
+	       {
+	           $('#isadminHide').val('1');
+	       }else{
+	          $('#isadminHide').val('0');
+	       }       
+	   	}
+	</script>
  	
 @stop
 	

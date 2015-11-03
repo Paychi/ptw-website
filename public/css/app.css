@@ -438,3 +438,67 @@ input[readonly] {
 	display: inline;
 	margin-left: 5px;	
 }
+
+.hid{
+    visibility: hidden;    
+    cursor: pointer;
+}
+
+.table-hover tbody tr:hover td a{
+    visibility: visible;
+}
+
+.fondomodal
+{
+    background: rgba(0,0,0,.5);
+}
+
+.fondomodal .modal-content{
+    position: absolute;
+    max-height: 180px;
+    max-width: 500px;
+    margin: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.fondomodal .modal-content .modal-footer a i{
+    font-size: 20px;
+}
+
+.fondomodal2
+{
+    background: rgba(0,0,0,.5);
+}
+
+.fondomodal2 .modal-content{
+    position: absolute;
+    max-height: 180px;
+    max-width: 500px;
+    margin: auto;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+}
+
+.fondomodal2 .modal-content .modal-footer a i{
+    font-size: 20px;
+}
+
+.valid{
+    color:green;
+}
+
+.invalid{
+    color:red;
+}
+
+.load-confirm{
+	margin: 0px auto;
+	left: 0px;
+	right: 0px;
+	bottom: 20px;
+}

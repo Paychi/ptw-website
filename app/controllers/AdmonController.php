@@ -73,9 +73,9 @@ class AdmonController extends BaseController {
 		
 		if (isset($_GET["filtro"])) {
 			$buscar = htmlspecialchars(Input::get('filtro'));
-			$datos = Noticias::where('titulo', 'LIKE', '%'.$buscar.'%')->orwhere('estracto', 'LIKE', '%'.$buscar.'%')->paginate(5);
+			$datos = Noticias::where('titulo', 'LIKE', '%'.$buscar.'%')->orwhere('estracto', 'LIKE', '%'.$buscar.'%')->orderBy('created_at', 'desc')->paginate(10);
 		} else {
-			$datos = Noticias::paginate(10);
+			$datos = Noticias::orderBy('created_at', 'desc')->paginate(10);
 		}
 
 		return $this->layout->content = View::make('admon.noticias',compact("datos"));
@@ -152,6 +152,7 @@ class AdmonController extends BaseController {
 					$n->imagen = $archivo;
 					$n->fecha_noticia = $newfecha;
 					$n->estado = 1;
+					$n->publicado = 0;
 					$n->save();
 					Session::flash('mensaje','Registro ingresado correctamente!!');
 					DB::commit();
@@ -257,6 +258,120 @@ class AdmonController extends BaseController {
 		$dn -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
 		return Redirect::to('/admin/noticias');	
+	}
+
+	public function postPublishnoticia()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			echo "/login";
+			echo "*";
+			echo $this->mensaje;
+			echo "*";
+			echo "error";
+			exit();	
+		}
+
+		try
+		{
+			DB::beginTransaction();
+			$inputs = Input::All();
+			$validaciones = array
+			(
+				'paramidnew' => 'numeric'
+			);		
+			$mensajes = array
+			(
+				"numeric" => "Valor Invalido."
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+			}else
+			{	
+				$eu = Noticias::find($inputs["paramidnew"]);
+				$eu->publicado = 1;
+				$eu->save();				
+				echo "/admin/noticias";
+				echo "*";
+				echo "La noticia ha sido publicada correctamente!!";
+				echo "*";
+				echo "done";
+				DB::commit();
+				exit();
+			}
+		}
+		catch(Exception $e)
+		{
+			DB::rollback();
+			
+			echo "/admin/noticias";
+			echo "*";
+			echo "Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.";
+			echo "*";
+			echo "error";
+			exit();
+		}
+	}
+
+	public function postUnpublishnoticia()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			echo "/login";
+			echo "*";
+			echo $this->mensaje;
+			echo "*";
+			echo "error";
+			exit();	
+		}
+
+		try
+		{
+			DB::beginTransaction();
+			$inputs = Input::All();
+			$validaciones = array
+			(
+				'paramidnew' => 'numeric'
+			);		
+			$mensajes = array
+			(
+				"numeric" => "Valor Invalido."
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+			}else
+			{	
+				$eu = Noticias::find($inputs["paramidnew"]);
+				$eu->publicado = 0;
+				$eu->save();				
+				echo "/admin/noticias";
+				echo "*";
+				echo "La noticia ha sido ocultada correctamente!!";
+				echo "*";
+				echo "done";
+				DB::commit();
+				exit();
+			}
+		}
+		catch(Exception $e)
+		{
+			DB::rollback();
+			
+			echo "/admin/noticias";
+			echo "*";
+			echo "Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.";
+			echo "*";
+			echo "error";
+			exit();
+		}
 	}
 	
 	public function getEventos()
@@ -387,7 +502,14 @@ class AdmonController extends BaseController {
 				$p_bd = $eu->id_perfil;
 				$user = $eu->nombre_usuario;
 				$eu->id_perfil = $inputs["perfil"];
-				$eu->id_colaborador = $inputs["colaborador"];
+
+				if ($num_perfil == 1)
+					$eu->id_colaborador = $inputs["colaborador"];
+				if ($num_perfil == 2)
+					$eu->id_colaborador = $inputs["isadminHide"];
+				if ($num_perfil == 3)
+					$eu->id_colaborador = $inputs["colaborador"];
+
 				$eu->nombres = $inputs["nombres"];
 				$eu->apellidos = $inputs["apellidos"];
 				$eu->estado = 1;
@@ -465,7 +587,14 @@ class AdmonController extends BaseController {
 				{*/
 				$nu = new Usuarios;
 				$nu->id_perfil = $inputs["perfil"];
-				$nu->id_colaborador = $inputs["colaborador"];
+
+				if ($num_perfil == 1)
+					$nu->id_colaborador = $inputs["colaborador"];
+				if ($num_perfil == 2)
+					$nu->id_colaborador = $inputs["isadminHide"];
+				if ($num_perfil == 3)
+					$nu->id_colaborador = $inputs["colaborador"];
+
 				$nu->nombres = $inputs["nombres"];
 				$nu->apellidos = $inputs["apellidos"];
 				$nu->nombre_usuario = $inputs["nombre_usuario"];
