@@ -26,7 +26,7 @@ Login
 
 	    <div class="text-right">{{ HTML::link('/', 'P&aacute;gina Inicio') }}</div>
 	    
-	    {{ HTML::link('#','¿Olvidó su contraseña?', array('class' => 'margin-campos')) }}
+	    {{ HTML::link('/login/forgotpw','¿Olvidó su contraseña?', array('class' => 'margin-campos')) }}
 	    
 	    @if(Session::has('mensaje')) 
             <div class="flash_notice">{{ Session::get('mensaje') }}</div>                     

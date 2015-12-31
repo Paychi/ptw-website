@@ -20,4 +20,9 @@ class Usuarios extends Eloquent
 	{
 		return $this->hasMany('Colaboradores', 'id_usuario');
 	}
+
+	public function pregunta()
+	{
+		return $this->hasMany('Preguntas', 'id_usuario');
+	}
 }

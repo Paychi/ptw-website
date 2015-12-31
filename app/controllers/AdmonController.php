@@ -598,7 +598,7 @@ class AdmonController extends BaseController {
 				$nu->nombres = $inputs["nombres"];
 				$nu->apellidos = $inputs["apellidos"];
 				$nu->nombre_usuario = $inputs["nombre_usuario"];
-				$nu->contrasena = Crypt::encrypt("temporal123");
+				$nu->contrasena = Crypt::encrypt("Temporal1234");
 				$nu->estado = 1;
 				$nu->save();
 				Session::flash('mensaje','Registro ingresado correctamente!!');

@@ -110,16 +110,13 @@ Contrase&ntilde;a
  
  	<div class="form">
 
-		{{ Form::open(array('url' => '/login/clave','method'=>'post','id'=>'formchange')) }}
+		{{ Form::open(array('url' => '/login/change','method'=>'post','id'=>'formchange')) }}
 			
 			@if (Session::has('error_cambio'))
 			  <div class="error"> {{Session::get('error_cambio')}}</div>
 			@endif
-	 	 
-	        {{ Form::password('old_password', array('class' => 'form-control margin-campos', 'placeholder' => 'Contrase&ntilde;a Actual', 'required')) }}
-			<label class="error">{{$errors->first("old_password")}}</label>
-			
-	        {{ Form::password('new_password', array('class' => 'form-control ', 'id' => 'newpassw', 'placeholder' => 'Contrase&ntilde;a Nueva', 'required')) }}
+	 	       			
+	        {{ Form::password('new_password', array('class' => 'form-control margin-campos', 'id' => 'newpassw', 'placeholder' => 'Contrase&ntilde;a Nueva', 'required')) }}
 			<label class="error">{{$errors->first("new_password")}}</label>
 			<div id="pswd_info" class="arrow-up">
                 <h4>Requerimientos para la contraseña:</h4>

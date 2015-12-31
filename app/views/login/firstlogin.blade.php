@@ -1,13 +1,22 @@
 @extends('layouts.layout_login')
 
 @section('titulo')
-Contrase&ntilde;a
+Primer Cambio de Contraseña
 @endsection
 
 @section('javascript')
 <script type="text/javascript">
 
 	var flagpw=false, flagcpw=false;
+
+	$('#select_ask').change(function(e){
+		if($(this).val() == 4)
+		{
+			$('.ask_seg').show();
+		}else{
+			$('.ask_seg').hide();
+		}
+	});
 
 	$('#newpassw').keyup(function() {
 		flagcpw = false;
@@ -94,7 +103,7 @@ Contrase&ntilde;a
         $('#cpswd_info').hide();
     });
 
-    $('#formchange').submit(function(){  
+    $('#formfirstchange').submit(function(){  
         if (flagpw && flagcpw) {
             return true;
         }
@@ -107,19 +116,39 @@ Contrase&ntilde;a
 @endsection
 
 @section('content_login')
- 
- 	<div class="form">
 
-		{{ Form::open(array('url' => '/login/clave','method'=>'post','id'=>'formchange')) }}
+	<?php 
+		$lista = array(
+			0 => "¿Primer apellido?", 
+			1 => "¿Luguar de nacimiento?", 
+			2 => "¿Nombre de tu primer mascota?",
+			3 => "¿Comida favorita?",
+			4 => "otra");
+		$selected = array();
+	?>
+
+ 	<div class="form">
+		<label class='text-center'>Debe cambiar su contraseña al ingresar por primera vez</label>
+		{{ Form::open(array('url' => '/login/firstchange','method'=>'post', 'id' => 'formfirstchange')) }}
 			
 			@if (Session::has('error_cambio'))
 			  <div class="error"> {{Session::get('error_cambio')}}</div>
 			@endif
 	 	 
-	        {{ Form::password('old_password', array('class' => 'form-control margin-campos', 'placeholder' => 'Contrase&ntilde;a Actual', 'required')) }}
-			<label class="error">{{$errors->first("old_password")}}</label>
-			
-	        {{ Form::password('new_password', array('class' => 'form-control ', 'id' => 'newpassw', 'placeholder' => 'Contrase&ntilde;a Nueva', 'required')) }}
+	        {{ Form::text('username', $usuario_temp, array('class' => 'form-control margin-campos', 'placeholder' => 'Nombre de Usuario', 'required', 'disabled' , 'autofocus')) }}
+			<label class="error">{{$errors->first("username")}}</label>
+
+			<label class="margin-campos">Pregunta de seguridad</label>
+			{{Form::select('select_answer', $lista, $selected, array('class' => 'form-control', 'id' => 'select_ask'))}}
+			<label class="error"></label>
+
+			{{ Form::text('ask', null, array('class' => 'form-control ask_seg', 'placeholder' => 'Pregunta de seguridad')) }}
+			<label class="error">{{$errors->first("ask")}}</label>
+
+			{{ Form::text('answer', null, array('class' => 'form-control', 'placeholder' => 'Respuesta a la pregunta de seguridad', 'required')) }}
+			<label class="error">{{$errors->first("answer")}}</label>
+
+			{{ Form::password('new_password', array('class' => 'form-control ', 'id' => 'newpassw', 'placeholder' => 'Contrase&ntilde;a Nueva', 'required')) }}
 			<label class="error">{{$errors->first("new_password")}}</label>
 			<div id="pswd_info" class="arrow-up">
                 <h4>Requerimientos para la contraseña:</h4>
@@ -131,7 +160,7 @@ Contrase&ntilde;a
                 </ul>
             </div>
 			
-	        {{ Form::password('con_password', array('class' => 'form-control', 'id' => 'conpassw', 'placeholder' => 'Confirmar Contrase&ntilde;a Nueva', 'required')) }}
+	        {{ Form::password('con_password', array('class' => 'form-control ', 'id' => 'conpassw', 'placeholder' => 'Confirmar Contrase&ntilde;a Nueva', 'required')) }}
 			<label class="error">{{$errors->first("con_password")}}</label>
 			<div id="cpswd_info" class="arrow-up">
                 <h4>Requerimientos para confirmar la contraseña:</h4>
@@ -141,7 +170,8 @@ Contrase&ntilde;a
                 </ul>
             </div>
 	 
-	        {{ Form::submit('Cambiar', ['class' => 'btn btn-lg btn-primary btn-block margin-campos']) }}		
+	        {{ Form::submit('Iniciar Sesión', ['class' => 'btn btn-lg btn-primary btn-block margin-campos']) }}		
+	        {{ HTML::link('/login', '< Regresar al inicio de sesión') }}
  
 	    {{ Form::close() }}
 	    
@@ -152,4 +182,3 @@ Contrase&ntilde;a
 	</div>
 
 @endsection
-	
