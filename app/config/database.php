@@ -57,7 +57,7 @@ return array(
 			'host'      => 'localhost',
 			'database'  => 'ptw-website_test',
 			'username'  => 'root',
-			'password'  => '',
+			'password'  => '666837',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',

@@ -547,6 +547,7 @@ About
 		</section>
 	</div>
 
+<script src="{{URL::to('/')}}/js/jquery-1.10.2.js"></script>	
 <script src="{{URL::to('/')}}/js/visorImagenes.js"></script>	
 
 @stop

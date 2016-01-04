@@ -41,7 +41,7 @@ Ad-Usuarios
 				<th>Nombre de Usuario</th>
 				<th>Perfil de Usuario</th>
 				<th>Fecha Registro</th>
-				<th colspan="2"><center><a href="{{URL::to('/')}}/admin/addusuario" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
+				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Usuario" href="{{URL::to('/')}}/admin/addusuario" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -61,8 +61,8 @@ Ad-Usuarios
 							<td>{{$item->nombre_usuario}}</td>
 							<td>{{$item->perfil->nombre}}</td>
 							<td>{{$newfecha}}</td>
-							<td><a onclick="editar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
-							<td><a onclick="eliminar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-trash'></span></a></td>
+							<td><a data-toggle="tooltip" title="Editar Usuario" onclick="editar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
+							<td><a data-toggle="tooltip" title="Deshabilitar Usuario" onclick="eliminar('{{$item->id_usuario}}')" class="hid"><span class='glyphicon glyphicon-trash'></span></a></td>
 						</tr>
 					@endforeach
 				@endif

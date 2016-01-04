@@ -57,8 +57,8 @@ Ad-Lideres
 						<tr>
 							<td>{{$item->nombreComunidad}}</td>
 							<td>{{$newfecha}}</td>
-							<td><center><a onclick="editar('{{$item->id_comunidad}}')" class="hid"><span class="glyphicon glyphicon-edit"></span></a></center></td>
-							<td><center><a onclick="eliminar('{{$item->id_comunidad}}')" class="hid"><span class="glyphicon glyphicon-trash"></span></a></center></td>
+							<td><center><a data-toggle="tooltip" title="Editar Comunidad" onclick="editar('{{$item->id_comunidad}}')" class="hid"><span class="glyphicon glyphicon-edit"></span></a></center></td>
+							<td><center><a data-toggle="tooltip" title="Deshabilitar Comunidad" onclick="eliminar('{{$item->id_comunidad}}')" class="hid"><span class="glyphicon glyphicon-trash"></span></a></center></td>
 						</tr>
 					@endforeach
 				@endif

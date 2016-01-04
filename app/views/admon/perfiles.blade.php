@@ -49,11 +49,11 @@ Ad-Perfil
 							<td>{{$item->id_perfil}}</td>
 							<td>{{$item->nombre}}</td>
 							<td>{{$item->descripcion}}</td>
-							<td><a onclick="editar('{{$item->id_perfil}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
+							<td><a data-toggle="tooltip" title="Editar Perfil" onclick="editar('{{$item->id_perfil}}')" class="hid"><span class='glyphicon glyphicon-edit'></span></a></td>
 							@if($item->estado == 0)						
-								<td><a onclick="habilitar('{{$item->id_perfil}}')" class="hid valid"><span class='glyphicon glyphicon-ok-circle'></a></td>
+								<td><a data-toggle="tooltip" title="Deshabilitar Perfil"onclick="habilitar('{{$item->id_perfil}}')" class="hid valid"><span class='glyphicon glyphicon-ok-circle'></a></td>
 							@else
-								<td><a onclick="deshabilitar('{{$item->id_perfil}}')" class="hid invalid"><span class='glyphicon glyphicon-ban-circle'></span></a></td>
+								<td><a data-toggle="tooltip" title="Deshabilitar Perfil" onclick="deshabilitar('{{$item->id_perfil}}')" class="hid invalid"><span class='glyphicon glyphicon-ban-circle'></span></a></td>
 							@endif
 						</tr>
 					@endforeach

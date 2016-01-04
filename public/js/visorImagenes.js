@@ -3,9 +3,12 @@
 			$('#BackColor').hide();
 
 			var oyeSi = '';
+			var contadorCierraImagen = 0;
 
 			$('#CloseXD').click(function(){
-				$('#BackColor').fadeOut();				
+				if(contadorCierraImagen == 0)
+					$('#BackColor').fadeOut();	
+				contadorCierraImagen = 0;			
 			});
 
 			$('#SiguienteFoto').click(function(){
@@ -21,9 +24,13 @@
 						
 					img.src = '/ptw-website/public/img/About/'+nextt[0].id;
 					$('#cuadro_imagen').append(img);
+					contadorCierraImagen = 1;
 				}
 				else
+				{
 					$('#BackColor').fadeOut();
+					contadorCierraImagen = 0;
+				}
 			});
 
 			$('#FotoAnterior').click(function(){
@@ -39,9 +46,12 @@
 						
 					img.src = '/ptw-website/public/img/About/'+anterior[0].id;
 					$('#cuadro_imagen').append(img);
+					contadorCierraImagen = 1;
 				}
-				else
+				else{
 					$('#BackColor').fadeOut();
+					contadorCierraImagen = 0;
+				}
 			});
 
 
