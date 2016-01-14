@@ -1,4 +1,4 @@
-@extends('layouts.layout_admon')
+@extends('layouts.layout_adis')
 
 @section('titulo')
 Adis-Upload
@@ -12,7 +12,7 @@ Adis-Upload
 	<script type="text/javascript" src="{{URL::to('/')}}/js/fileinput.js"></script>
 @stop
 
-@section('content_admon')
+@section('content_adis')
 	 
 	@if(Session::has('mensaje'))
 		<div class="alert-box success">
@@ -22,7 +22,7 @@ Adis-Upload
 	
 	{{ Form::open(array('url' => '/adis/uploads','method'=>'post','class'=>'', 'name'=>'formnoticias','id'=>'msform', 'files' => true)) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/admin/noticias' class="btn btn-danger"> X </a>
+			<a href='{{URL::to('/')}}/adis/noticias' class="btn btn-danger"> X </a>
 		</div>
 		
 		<input type="hidden" name="id" value="{{$id_noticia}}">

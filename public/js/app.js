@@ -92,8 +92,8 @@ $(document).ready( function() {
             $("#tag_simsiv").addClass("active");
     }
 
-    if ((urlActual.indexOf('noticias') != -1) || (urlActual.indexOf('addnoticia') != -1) || (urlActual.indexOf('editnoticia/') != -1)) {
-        if ($('#perf').val() === 'adis' && (urlActual.indexOf('addnoticia') != -1)) 
+    if ((urlActual.indexOf('noticias') != -1) || (urlActual.indexOf('addnoticia') != -1) || (urlActual.indexOf('editnoticia/') != -1) || (urlActual.indexOf('upload/') != -1)) {
+        if ($('#perf').val() === 'adis' && (urlActual.indexOf('addnoticia') != -1) ) 
             $(".menu-addnoticia").addClass("active");        
         else
             $(".menu-noticia").addClass("active");
