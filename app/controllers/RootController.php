@@ -131,48 +131,6 @@ class RootController extends BaseController {
 		}
 	}
 	
-	/*public function getLogin()
-	{
-		return $this->layout->content = View::make('login.index');
-	}
-	public function postLogin()
-	{
-		$valores = Input::All();
-		$usernamepost = $valores["username"];
-		$passwordpost = $valores["password"];
-				
-		if($usernamepost != "alvin" || $passwordpost != "paychi")
-		{
-			if($usernamepost != "alvin")
-			{
-				$validaciones = array
-				(
-					'username' => 'Usuario no existe',
-					'password' => ''
-				);		
-			}
-			if($passwordpost != "paychi")
-			{
-				$validaciones = array
-				(
-					'username' => '',
-					'password' => 'Contraseña no valida'
-				);	
-			}
-			if($usernamepost != "alvin" && $passwordpost != "paychi")
-			{
-				$validaciones = array
-				(
-					'username' => 'Usuario no existe',
-					'password' => 'Contraseña no valida'
-				);	
-			}
-			return Redirect::back() -> withErrors($validaciones);
-		}else
-		{			
-			return Redirect::to('admon');
-		}
-	}*/
 	public function getCreditos()
 	{
 		try
@@ -206,11 +164,13 @@ class RootController extends BaseController {
 			$perfil = $this->perfilUser();
 			
 			$datos=Noticias::where('titulo','=',$dato)->firstOrFail();
+
+			$multimedia = Multimedias::where('id_noticia', '=', $datos->id_noticia)->orderBy('tipo')->get();
 			
 			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
 			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
 			
-			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil","defn","defnhidden"));
+			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil","defn","defnhidden","multimedia"));
 		}
 		catch(Exception $e )
 		{

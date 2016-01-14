@@ -43,9 +43,9 @@ Adis-Noticias
 				<th>Fecha de la Noticia</th>
 				<th>Fecha Registro</th>
 				@if($isadmin != 0)
-					<th colspan="2"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+					<th colspan="3"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 				@else
-					<th><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+					<th colspan="2"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 				@endif
 			</thead>
 			<tbody>
@@ -77,6 +77,7 @@ Adis-Noticias
 									<td><a onclick="confirm_unpublish('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-remove invalid'></span></a></td>
 								@endif
 							@endif
+							<td><a onclick="upload('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-open'></span></a></td>
 						</tr>
 					@endforeach
 				@endif
@@ -125,6 +126,11 @@ Adis-Noticias
 		function editar(id_new)
 		{
 			window.location.href='{{URL::to('/')}}/adis/editnoticia/'+id_new;
+		}
+
+		function upload(id_new)
+		{
+			window.location.href='{{URL::to('/')}}/adis/upload/'+id_new;
 		}
 
 		function confirm_publish(id_new)

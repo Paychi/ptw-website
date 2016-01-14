@@ -42,6 +42,25 @@
 				</div>
 			</center/>
 		</section>
+		<section class="col-lg-12 multimedia">
+			@foreach($multimedia as $dato)
+				<div class='col-lg-4'>
+				@if($dato->tipo == 'imagen')
+					<img class='col-sm-12 img-thumbnail' id="" src="{{ asset('/uploads/noticias/imagenes/') }}/{{$dato->archivo}}" />			
+					<p class="col-sm-12 text-center">
+						{{$dato->descripcion}}
+					<p>	
+				@else
+					 <video class='col-sm-12 img-thumbnail' controls>
+						  <source src="{{ asset('/uploads/noticias/videos/') }}/{{$dato->archivo}}" >
+					</video> 		
+					<p class="col-sm-12 text-center">
+						{{$dato->descripcion}}
+					<p>	
+				@endif
+				</div>
+			@endforeach
+		</section>
 	</div>
 @stop
 

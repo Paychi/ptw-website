@@ -35,7 +35,7 @@ Ad-Noticias
 				<th>Estracto</th>
 				<th>Fecha de la Noticia</th>
 				<th>Fecha Registro</th>
-				<th colspan="3"><center><a href="{{URL::to('/')}}/admin/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+				<th colspan="4"><center><a href="{{URL::to('/')}}/admin/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -65,6 +65,7 @@ Ad-Noticias
 							@else
 								<td><a onclick="confirm_unpublish('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-remove invalid'></span></a></td>
 							@endif
+							<td><a onclick="upload('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-open'></span></a></td>
 						</tr>
 					@endforeach
 				@endif
@@ -114,6 +115,12 @@ Ad-Noticias
 		{
 			window.location.href='{{URL::to('/')}}/admin/editnoticia/'+id_new;
 		}
+
+		function upload(id_new)
+		{
+			window.location.href='{{URL::to('/')}}/admin/upload/'+id_new;
+		}
+
 		function eliminar(id_new)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))

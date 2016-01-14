@@ -10,4 +10,9 @@ class Noticias extends Eloquent
 	{
 		return $this->belongsTo('Usuario', 'id_usuario');
 	}
+
+	public function multimedia()
+	{
+		return $this->hasMany('Multimedia', 'id_multimedia');
+	}
 }

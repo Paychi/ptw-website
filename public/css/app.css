@@ -29,6 +29,10 @@ img, video {
     height: auto;
 }
 
+textarea{
+	resize:vertical;
+}
+
 .contenedor_post{
 	position: relative;
 	margin-bottom: 20px; 
@@ -91,6 +95,24 @@ img, video {
     padding: 2.9%;
     margin: 5px;
 	height: auto;
+}
+
+.multimedia {
+	margin-top: 20px;
+	padding: 10px;
+}
+
+.multimedia > div{
+	float: left;
+}
+
+
+.multimedia > div > p{
+	background: #dde8de;
+	border: 1px solid #cccccc;
+	border-top: none;
+	border-bottom-right-radius:5px; 
+	border-bottom-left-radius:5px; 
 }
 
 .entry-header{
@@ -501,4 +523,18 @@ input[readonly] {
 	left: 0px;
 	right: 0px;
 	bottom: 20px;
+}
+
+.box-multimedia{
+	border: 1px solid #cccccc;
+	margin-top: 20px;
+	border-radius: 5px;
+}
+
+.box-multimedia > div{
+	padding: 20px;
+}
+
+.agregar{
+	margin: 0px;
 }

@@ -64,6 +64,8 @@ class AdmonController extends BaseController {
 		return Redirect::to('login')->with('mensaje','¡Has cerrado sesión correctamente!.');
 	}
 	
+	// Sección Noticias 
+
 	public function getNoticias()
 	{
 		if (!$this->accessRutesAdmon())
@@ -373,6 +375,167 @@ class AdmonController extends BaseController {
 			exit();
 		}
 	}
+
+	public function getUpload($id_noticia = null)
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		//$datos = Preguntas::find($id_noticia);
+		return $this->layout->content = View::make('admon.upload',compact("id_noticia"));
+		//return $this->layout->content = View::make('admon.upload');
+	}
+
+	public function postUploads()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		try {
+
+			$file_imagen = Request::file('imagen');
+			$file_video = Request::file('video');
+			$id_noticia = Request::input('id');
+			$d_imagen = Request::input('descriptionimagen');
+			$d_video = Request::input('descriptionvideo');
+
+			$path_imagen = 'uploads/noticias/imagenes';
+			$path_video = 'uploads/noticias/videos';
+
+			if ($file_imagen != null && $file_video != null){
+				$extencion_imagen = $file_imagen->getClientOriginalExtension();
+				$extencion_video = $file_video->getClientOriginalExtension();
+				
+				if($extencion_imagen == "png" || $extencion_imagen == "jpg" || $extencion_imagen == "PNG" || $extencion_imagen == "JPG")
+				{
+					if($extencion_video == "mp4" || $extencion_video == "avi" || $extencion_video == "MP4" || $extencion_video == "AVI")
+					{
+						
+					}else{
+						return Redirect::back()->with('mensajeError','Formato del video invalido!!');
+					}
+				}
+				else{
+					return Redirect::back()->with('mensajeError','Formato de la imagen invalido!!');
+				}
+
+				$archivo_imagen = $file_imagen->getClientOriginalName();
+				$upload = $file_imagen->move($path_imagen,$archivo_imagen);				
+				if($upload)
+				{
+					$m = new Multimedias;
+					$m->id_noticia = $id_noticia;
+					$m->tipo = "imagen";
+					$m->archivo = $archivo_imagen;
+					$m->descripcion = $d_imagen;
+					$m->save();
+					//DB::commit();
+				}else
+				{
+					DB::rollback();
+					return Redirect::back()->with('mensajeError','No se pudo subir la imagen!!');
+				}
+
+				$archivo_video = $file_video->getClientOriginalName();
+				$upload = $file_video->move($path_video,$archivo_video);				
+				if($upload)
+				{					
+					$m = new Multimedias;
+					$m->id_noticia = $id_noticia;
+					$m->tipo = "video";
+					$m->archivo = $archivo_video;
+					$m->descripcion = $d_video;
+					$m->save();
+					//DB::commit();
+				}else
+				{
+					DB::rollback();
+					return Redirect::back()->with('mensajeError','No se pudo subir el video!!');
+				}
+
+				DB::commit();
+				Session::flash('mensaje','Registros ingresados correctamente!!');
+				return Redirect::to('/admin/noticias');
+				
+			}else{
+				if ($file_imagen != null) {
+					$extencion_imagen = $file_imagen->getClientOriginalExtension();
+					
+					if($extencion_imagen == "png" || $extencion_imagen == "jpg" || $extencion_imagen == "PNG" || $extencion_imagen == "JPG")
+					{
+						
+					}else{
+						return Redirect::back()->with('mensajeError','Formato de la imagen invalido!!');
+					}
+
+					$archivo_imagen = $file_imagen->getClientOriginalName();
+					$upload = $file_imagen->move($path_imagen,$archivo_imagen);				
+					if($upload)
+					{
+						$m = new Multimedias;
+						$m->id_noticia = $id_noticia;
+						$m->tipo = "imagen";
+						$m->archivo = $archivo_imagen;
+						$m->descripcion = $d_imagen;
+						$m->save();
+						DB::commit();
+						Session::flash('mensaje','Registro ingresado correctamente!!');
+						return Redirect::to('/admin/noticias');
+					}else
+					{
+						DB::rollback();
+						return Redirect::back()->with('mensajeError','No se pudo subir la imagen!!');
+					}
+				}
+				else{
+					if($file_video != null)
+					{
+						$extencion_video = $file_video->getClientOriginalExtension();
+						
+						if($extencion_video == "mp4" || $extencion_video == "avi" || $extencion_video == "MP4" || $extencion_video == "AVI")
+						{
+							
+						}
+						else{
+							return Redirect::back()->with('mensajeError','Formato del video invalido!!');
+						}
+
+						$archivo_video = $file_video->getClientOriginalName();
+						$upload = $file_video->move($path_video,$archivo_video);				
+						if($upload)
+						{					
+							$m = new Multimedias;
+							$m->id_noticia = $id_noticia;
+							$m->tipo = "video";
+							$m->archivo = $archivo_video;
+							$m->descripcion = $d_video;
+							$m->save();
+							DB::commit();
+							Session::flash('mensaje','Registro ingresado correctamente!!');
+							return Redirect::to('/admin/noticias');
+						}else
+						{
+							DB::rollback();
+							return Redirect::back()->with('mensajeError','No se pudo subir el video!!');
+						}
+					}
+					else{
+						return Redirect::back()->with('mensajeError', 'No hay datos cargados, favor cargue una imagen o video');
+					}
+				}
+			}
+
+		} catch (Exception $e) {
+			DB::rollback();
+			return Redirect::back()->with('mensajeError', 'Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+		}
+	}
+
+	//Sección Eventos 
 	
 	public function getEventos()
 	{
@@ -384,6 +547,8 @@ class AdmonController extends BaseController {
 		return $this->layout->content = View::make('admon.eventos');
 	}
 	
+	//Sección Usuarios
+
 	public function getUsuarios()
 	{
 		if (!$this->accessRutesAdmon())
