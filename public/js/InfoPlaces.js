@@ -1,1358 +1,388 @@
 
-        $(document).ready(function(){
-            $('#SanRamonLasVallas').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
+$(document).ready(function(){
 
-                var url=$('#mapa_form').attr('action') + "/SanRamonLasVallas";
 
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
+    $.ajax({
+        type: "POST",
+        url: $('#mapa_form').attr('action') + "/ImagenesAMostrar",
+        data: {"idComunidad": 1},
+            beforeSend: function(){
+        },
+            complete: function(data){
+        },
+            success: function (data) {
+                var comunidadesEncontradas = [];
+                var comunidadesResultantes = [];
 
-                $('#myModal').modal('show');
+                comunidadesEncontradas = JSON.stringify(data[0].id_comunidad);
 
-            });
+                //alert(data)
 
-            $('#VallasElPastal').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/VallasElPastal";
+                for(var i = 0 ; i < data.length ; i++)
+                {
+                    comunidadesResultantes.push(data[i].id_comunidad);
+                }
 
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
+                for(var j = 1; j <= 77; j++)
+                {
+                    $('#celular'+ j).attr('visibility','hidden');//'visible');// 'hidden');
+                }
 
-                $('#myModal').modal('show');
+                for(var i = 0; i < comunidadesResultantes.length; i++)
+                {
+                    for(var j = 1; j <= 77; j++)
+                    {
+                        if(j == comunidadesResultantes[i] )
+                            $('#celular'+ j).attr('visibility', 'visible');
+                    }                    
 
-            });
+                    //alert(comunidadesResultantes[j]);
+                }
 
-            $('#Kaskita').click(function(){
-                kaskitaInfo();
-            });
+           // alert(comunidadesEncontradas);//(JSON.stringify(data));
+        },
+            error: function(errors){
+            alert('Error en el Servidor - Inténtelo luego, Gracias')
+        }
+    });
 
-            function kaskitaInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/Kaskita";
+    $('.Waslala').click(function(){
+        ComunidadInfo(1);
+    });
 
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
+    $('.ZinicaUno').click(function(){
+        ComunidadInfo(2);
+    });
 
-                $('#myModal').modal('show');
+    $('.Kaskita').click(function(){
+        ComunidadInfo(3);
+    });
+
+    $('.SanRamonLasVallas').click(function(){
+        ComunidadInfo(4);
+    });
+
+    $('.VallasElPastal').click(function(){
+        ComunidadInfo(5);
+    });
+
+    $('.VallasCentral').click(function(){
+        ComunidadInfo(6);
+    });
+
+    $('.SantaMariaKubali').click(function(){
+        ComunidadInfo(7);
+    });
+
+    $('.BuenosAiresKubali').click(function(){
+       ComunidadInfo(8);
+    });
+
+    $('.GuayaboKubali').click(function(){
+       ComunidadInfo(9);
+    });
+
+    $('.KubaiCentral').click(function(){
+        ComunidadInfo(10);
+    });
+
+    $('.PiedrasBlancas').click(function(){
+        ComunidadInfo(11);
+    });
+
+    $('.SectorKum').click(function(){
+       ComunidadInfo(12);
+    });
+
+    $('.LasDelicias').click(function(){
+       ComunidadInfo(13);
+    });
+
+    $('.NaranjoArriba').click(function(){
+       ComunidadInfo(14);
+    });
+
+    $('.WaslalitaElNaranjo').click(function(){
+        ComunidadInfo(15);
+    });
+
+    $('.AguasCalientes').click(function(){
+       ComunidadInfo(16);
+    });
+
+    $('.ElNaranjo').click(function(){
+       ComunidadInfo(17);
+    });
+
+    $('.LasTorrez').click(function(){
+        ComunidadInfo(18);
+    });
+
+    $('.LosMilagros').click(function(){
+        ComunidadInfo(19);
+    });
+
+    $('.LasNuevesDos').click(function(){
+        ComunidadInfo(20);
+    });
+
+    $('.LasNuevesUno').click(function(){
+        ComunidadInfo(21);
+    });
+
+    $('.ElPijibay').click(function(){
+        ComunidadInfo(22);
+    });
+
+    $('.ElPuyus').click(function(){
+        ComunidadInfo(23);
+    });
+
+    $('.ElKiawa').click(function(){
+        ComunidadInfo(24);
+    });
+
+    $('.Sofana').click(function(){
+        ComunidadInfo(25);
+     });
+
+    $('.BuenosAiresDudu').click(function(){
+        ComunidadInfo(26);
+    });
+
+    $('.Dipina').click(function(){
+        ComunidadInfo(27);
+    });
+
+    $('.CanoSucio').click(function(){
+        ComunidadInfo(28);
+    });
+
+    $('.SnAntonioYaro').click(function(){
+        ComunidadInfo(29);
+    });
+
+    $('.YaroCentral').click(function(){
+        ComunidadInfo(30);
+    });
+
+    $('.SnJuanYaro').click(function(){
+        ComunidadInfo(31);
+    });
+
+    $('.OcoteTuma').click(function(){
+        ComunidadInfo(32);
+     });
+
+    $('.ChileTres').click(function(){
+        ComunidadInfo(33);
+     });
+
+    $('.OcoteYaosca').click(function(){
+        ComunidadInfo(34);
+    });
+
+    $('.VallasAbajo').click(function(){
+        ComunidadInfo(35);
+    });
+
+    $('.SnPedroLasVallas').click(function(){
+        ComunidadInfo(36);
+     });
+
+    $('.SnRafaelKum').click(function(){
+        ComunidadInfo(37);
+    });
+
+    $('.SnFranciscoPtoViejo').click(function(){
+        ComunidadInfo(38);
+    });
+
+    $('.GuayaboAbajo').click(function(){
+        ComunidadInfo(39);
+    });
+
+    $('.LaLimonera').click(function(){
+        ComunidadInfo(40);
+    });
+
+    $('.LasJawas').click(function(){
+        ComunidadInfo(41);
+    });
+
+    $('.Kusuli').click(function(){
+        ComunidadInfo(42);
+    });
+
+    $('.SanBenito').click(function(){
+        ComunidadInfo(43);
+    });
+
+    $('.StaRosaDudu').click(function(){
+        ComunidadInfo(44);
+    });
+
+    $('.ZapoteDudu').click(function(){
+        ComunidadInfo(45);
+    });
+
+    $('.ArenasBlancas').click(function(){
+        ComunidadInfo(46);
+    });
+
+    $('.CeibaDudu').click(function(){
+        ComunidadInfo(47);
+    });
+
+    $('.OcoteDudu').click(function(){
+        ComunidadInfo(48);
+    });
+
+    $('.SnMiguelDudu').click(function(){
+        ComunidadInfo(49);
+    });
+
+    $('.ElSombrero').click(function(){
+        ComunidadInfo(50);
+    });
+
+    $('.SnPabloLasVallas').click(function(){
+        ComunidadInfo(51);
+    });
+
+    $('.LasFlores').click(function(){
+        ComunidadInfo(52);
+    });
+
+    $('.LaPosolera').click(function(){
+        ComunidadInfo(53);
+    });
+
+    $('.ElCipres').click(function(){
+        ComunidadInfo(54);
+    });
+
+    $('.HierbaBuena').click(function(){
+        ComunidadInfo(55);
+    });
+
+    $('.ChileUno').click(function(){
+        ComunidadInfo(56);
+    });
+
+    $('.ChileDos').click(function(){
+        ComunidadInfo(57);
+    });
+
+    $('.ElAchioteWaslala').click(function(){
+        ComunidadInfo(58);
+    });
+
+    $('.ElCorozal').click(function(){
+        ComunidadInfo(59);
+    });
+
+    $('.LosPotrerios').click(function(){
+        ComunidadInfo(60);
+    });
+
+    $('.CanoDeLosMartinez').click(function(){
+        ComunidadInfo(61);
+    });
+
+    $('.Waslalita').click(function(){
+        ComunidadInfo(62);
+    });
+
+    $('.CanoLaCeiba').click(function(){
+        ComunidadInfo(63);
+    });
+
+    $('.CiudadWaslala').click(function(){
+        ComunidadInfo(64);
+    });
+
+    $('.PapayoDos').click(function(){
+        ComunidadInfo(65);
+    });
+
+    $('.BarrialColorado').click(function(){
+        ComunidadInfo(66);
+    });
+
+    $('.ElGuabo').click(function(){
+        ComunidadInfo(67);
+    });
+
+    $('.GuayaboArriba').click(function(){
+        ComunidadInfo(68);
+    });
+
+    $('.ZinicaDos').click(function(){
+        ComunidadInfo(69);
+    });
+
+    $('.OcoteKubali').click(function(){
+        ComunidadInfo(70);
+    });
+
+    $('.ElBarillal').click(function(){
+        ComunidadInfo(71);
+    });
+
+    $('.LosMangos').click(function(){
+        ComunidadInfo(72);
+    });
+
+    $('.PtoViejo').click(function(){
+        ComunidadInfo(73);
+    });
+
+    $('.SanPabloKubali').click(function(){
+        ComunidadInfo(74);
+    });
+
+    $('.EsperanzaKubali').click(function(){
+        ComunidadInfo(75);
+    });
+
+    $('.BocaDePiedra').click(function(){
+        ComunidadInfo(76);
+    });
+
+    $('.ElGarrobo').click(function(){
+        ComunidadInfo(77);
+    });
+
+     ///OBTENER INFORMACIÓN DE LA COMUNIDAD POR ID
+
+    function ComunidadInfo(idComunidad)
+    {
+        $('#myModalLabel').text("");
+        $('#ContenidoModal').text("");
+        
+        var url=$('#mapa_form').attr('action') + "/GetInfoComunidad";
+
+        $.ajax({
+            type: "POST",
+            url: url,
+            data: {"idComunidad": idComunidad},
+            beforeSend: function(){
+            },
+            complete: function(data){
+            },
+            success: function (data) {
+                var nombreComunidadAMostrar= JSON.stringify(data[0].nombreComunidad);
+                var contenidoComunidadAMostrar= JSON.stringify(data[0].descripcion);
+
+                $('#myModalLabel').text(nombreComunidadAMostrar.split("\"").join(""));
+                $('#ContenidoModal').text(contenidoComunidadAMostrar.split("\"").join(""));                   
+            },
+            error: function(errors){
+                alert('Error en el Servidor - Inténtelo luego, Gracias')
             }
-
-            $('.imgKaskita').click(function(){
-                kaskitaInfo();
-            });
-
-
-            $('#VallasCentral').click(function(){
-                var url=$('#mapa_form').attr('action') + "/VallasCentral";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#ZinicaUno').click(function(){
-                zinicaUnoInfo();
-            });
-
-            function zinicaUnoInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ZinicaUno";
-
-                $.post(url, {idComunidad: "2" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgZinicaUno').click(function(){
-                zinicaUnoInfo();               
-            });
-
-            $('#Waslala').click(function(){
-                waslalaInfo();
-            });
-
-            function waslalaInfo()
-            {
-                //$('#myModalLabel').text('WASLALA');
-                //$('#ContenidoModal').text('El nombre Waslala proviene de una lengua indígena y traducida al español significa Río de Plata');
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/Waslala";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgWaslala').click(function(){
-                waslalaInfo();
-            });
-
-            
-
-            $('#SantaMariaKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SantaMariaKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#BuenosAiresKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/BuenosAiresKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#GuayaboKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/GuayaboKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#KubaiCentral').click(function(){
-                kubaiCentralInfo();
-            });
-
-            function kubaiCentralInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/KubaiCentral";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgKubaiCentral').click(function(){
-                kubaiCentralInfo();
-            });
-
-            $('#PiedrasBlancas').click(function(){
-                piedrasBlancasInfo();
-            });
-
-            function piedrasBlancasInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/PiedrasBlancas";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgPiedrasBlancas').click(function(){
-                piedrasBlancasInfo();
-            });
-
-            $('#SectorKum').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SectorKum";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#LasDelicias').click(function(){
-                lasDeliciasInfo();
-            });
-
-            function lasDeliciasInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasDelicias";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgLasDelicias').click(function(){
-                lasDeliciasInfo();
-            });
-
-            $('#NaranjoArriba').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/NaranjoArriba";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#WaslalitaElNaranjo').click(function(){
-                waslalitaInfo();
-            });
-
-            function waslalitaInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/WaslalitaNaranjo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgWaslalitaElNaranjo').click(function(){
-                waslalitaInfo();
-            });
-
-            $('#AguasCalientes').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/AguasCalientes";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#ElNaranjo').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElNaranjo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#LasTorrez').click(function(){
-                lasTorrezInfo();
-            });
-
-            function lasTorrezInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasTorrez";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgLasTorrez').click(function(){
-                lasTorrezInfo();
-            });
-
-            $('#LosMilagros').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LosMilagros";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#LasNuevesDos').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasNuevesDos";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#LasNuevesUno').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasNuevesUno";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-            $('#ElPijibay').click(function(){
-                elPijibayInfo();
-            });
-
-            function elPijibayInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElPijibay";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgElPijibay').click(function(){
-                elPijibayInfo();
-            });
-
-            $('#ElPuyus').click(function(){
-                elPuyusInfo();
-            });
-
-            function elPuyusInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElPuyus";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgElPuyus').click(function(){
-                elPuyusInfo();
-            });
-
-            $('#ElKiawa').click(function(){
-                elKiawaInfo();
-            });
-
-            function elKiawaInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElKiawa";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-            $('.imgElKiawa').click(function(){
-                elKiawaInfo();                
-            });
-
-             $('#Sofana').click(function(){
-                sofanaInfo();
-             });
-
-             function sofanaInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/Sofana";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSofana').click(function(){
-                sofanaInfo();
-             });             
-
-             $('#BuenosAiresDudu').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/BuenosAiresDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#Dipina').click(function(){
-                dipinaInfo();
-            });
-
-            function dipinaInfo()
-            {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-               var url=$('#mapa_form').attr('action') + "/Dipina";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-            }
-
-             $('.imgDipina').click(function(){
-                dipinaInfo();
-             });
-
-             $('#CanoSucio').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/CanoSucio";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#SnAntonioYaro').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnAntonioYaro";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#YaroCentral').click(function(){
-                yaroCentralInfo();
-            });
-
-             function yaroCentralInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/YaroCentral";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgYaroCentral').click(function(){
-                yaroCentralInfo();
-            });
-
-             $('#SnJuanYaro').click(function(){
-                snJuanYaroInfo();
-            });
-
-             function snJuanYaroInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnJuanYaro";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSnJuanYaro').click(function(){
-                snJuanYaroInfo();
-             });
-
-             $('#OcoteTuma').click(function(){
-                ocoteTumaInfo();
-             });
-
-             function ocoteTumaInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/OcoteTuma";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgOcoteTuma').click(function(){
-                ocoteTumaInfo();
-             });
-
-             $('#ChileTres').click(function(){
-                chileTresInfo();
-             });
-
-             function chileTresInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ChileTres";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgChileTres').click(function(){
-                chileTresInfo();
-             });
-
-             $('#OcoteYaosca').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/OcoteYaosca";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#VallasAbajo').click(function(){
-                vallasAbajoInfo();
-            });
-
-             function vallasAbajoInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/VallasAbajo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgVallasAbajo').click(function(){
-                vallasAbajoInfo();
-            });
-
-             $('#SnPedroLasVallas').click(function(){
-                snPedroVallasInfo();
-             });
-
-             function snPedroVallasInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnPedroLasVallas";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSnPedroLasVallas').click(function(){
-                snPedroVallasInfo();
-            });
-
-             $('#SnRafaelKum').click(function(){
-                snRafaKumInfo();
-            });
-
-             function snRafaKumInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnRafaelKum";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSnRafaelKum').click(function(){
-                snRafaKumInfo();
-            });
-
-             $('#SnFranciscoPtoViejo').click(function(){
-                snFranciscoPtoInfo();
-            });
-
-             function snFranciscoPtoInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnFranciscoPtoViejo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSnFranViejo').click(function(){
-                snFranciscoPtoInfo();
-            });
-
-
-             $('#GuayaboAbajo').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/GuayaboAbajo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#LaLimonera').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LaLimonera";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#LasJawas').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasJawas";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#Kusuli').click(function(){
-                kusuliInfo();
-            });
-
-             function kusuliInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/Kusuli";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgKusuli').click(function(){
-                kusuliInfo();
-            });
-
-             $('#SanBenito').click(function(){
-                sanBenitoInfo();
-            });
-
-             function sanBenitoInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SanBenito";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSanBenito').click(function(){
-                sanBenitoInfo();
-            });
-
-             $('#StaRosaDudu').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/StaRosaDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ZapoteDudu').click(function(){
-                zapoteDuduInfo();
-            });
-
-             function zapoteDuduInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ZapoteDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgZapoteDudu').click(function(){
-                zapoteDuduInfo();                
-            });
-
-             $('#ArenasBlancas').click(function(){
-                arenasBlancasInfo();
-            });
-
-             function arenasBlancasInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ArenasBlancas";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgArenasBlancas').click(function(){
-                arenasBlancasInfo();
-            });
-
-             $('#CeibaDudu').click(function(){
-                ceibaDuduInfo();
-            });
-
-             function ceibaDuduInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/CeibaDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgCeibaDudu').click(function(){
-                ceibaDuduInfo();
-            });
-
-             $('#OcoteDudu').click(function(){
-                ocoteDuduInfo();
-            });
-
-             function ocoteDuduInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/OcoteDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgOcoteDudu').click(function(){               
-                ocoteDuduInfo();
-            });
-
-             $('#SnMiguelDudu').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnMiguelDudu";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElSombrero').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElSombrero";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#SnPabloLasVallas').click(function(){
-                snPabloVallasInfo();
-            });
-
-             function snPabloVallasInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SnPabloLasVallas";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgSnPabloVallas').click(function(){
-                snPabloVallasInfo();
-            });
-
-             $('#LasFlores').click(function(){
-                lasFloresInfo();
-            });
-
-             function lasFloresInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LasFlores";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgLasFlores').click(function(){
-                lasFloresInfo();
-            });
-
-             $('#LaPosolera').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LaPosolera";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElCipres').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElCipres";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#HierbaBuena').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/HierbaBuena";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ChileUno').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ChileUno";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ChileDos').click(function(){
-                chileDosInfo();
-            });
-
-             function chileDosInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ChileDos";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgChileDos').click(function(){
-                chileDosInfo();
-            });
-
-             $('#ElAchioteWaslala').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElAchioteWaslala";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElCorozal').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElCorozal";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#LosPotrerios').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LosPotrerios";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#CanoDeLosMartinez').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/CanoDeLosMartinez";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#Waslalita').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/Waslalita";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#CanoLaCeiba').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/CanoLaCeiba";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#CiudadWaslala').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/CiudadWaslala";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#PapayoDos').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/PapayoDos";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#BarrialColorado').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/BarrialColorado";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElGuabo').click(function(){
-                elGuaboInfo();
-            });
-
-             function elGuaboInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElGuabo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgElGuabo').click(function(){
-                elGuaboInfo();
-            });
-
-             $('#GuayaboArriba').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/GuayaboArriba";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ZinicaDos').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ZinicaDos";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#OcoteKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/OcoteKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElBarillal').click(function(){
-                elBarrillalInfo();
-            });
-
-             function elBarrillalInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElBarillal";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgElBarillal').click(function(){
-                elBarrillalInfo();
-            });
-
-             $('#LosMangos').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/LosMangos";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#PtoViejo').click(function(){
-                ptoViejoInfo();
-            });
-
-             function ptoViejoInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/PtoViejo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgPtoViejo').click(function(){
-                ptoViejoInfo();
-            });
-
-             $('#SanPabloKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/SanPabloKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#EsperanzaKubali').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/EsperanzaKubali";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#BocaDePiedra').click(function(){
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/BocaDePiedra";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-
-            });
-
-             $('#ElGarrobo').click(function(){
-                elGarroboInfo();
-            });
-
-             function elGarroboInfo()
-             {
-                $('#myModalLabel').text("");
-                $('#ContenidoModal').text("");
-                var url=$('#mapa_form').attr('action') + "/ElGarrobo";
-
-                $.post(url, {idComunidad: "1" }, function(data){                    
-                    $('#myModalLabel').text(JSON.stringify(data[0].nombreComunidad));
-                    $('#ContenidoModal').text(JSON.stringify(data[0].descripcion));
-                });
-
-                $('#myModal').modal('show');
-             }
-
-             $('.imgElGarrobo').click(function(){
-                elGarroboInfo();
-            });
-
         });
+        $('#myModal').modal('show');
+    }
+
+});
