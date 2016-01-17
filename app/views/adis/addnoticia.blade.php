@@ -51,7 +51,12 @@ Adis-Noticias
 	
 	{{ Form::open(array('url' => '/adis/addnoticia','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform', 'files' => true)) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/adis/noticias' class="btn btn-danger"> X </a>
+			<div style="float:left; margin-left:2%;">
+				<label style="color:#337AB7; font-size:2em;" class="control-label">Nueva Noticia</label>			
+			</div>
+			<div>
+				<a href='{{URL::to('/')}}/adis/noticias' class="btn btn-danger"> X </a>
+			</div>
 		</div>
 		
 		<div class="row">				
