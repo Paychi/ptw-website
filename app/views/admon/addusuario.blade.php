@@ -7,7 +7,12 @@ Ad-Usuarios
 @section('content_admon')
 	{{ Form::open(array('url' => '/admin/addusuarios','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/admin/usuarios' class="btn btn-danger"> X </a>
+			<div style="float:left; margin-left:2%;">
+				<label style="color:#337AB7; font-size:2em;" class="control-label">Nuevo Usuario</label>			
+			</div>
+			<div>
+				<a href='{{URL::to('/')}}/admin/usuarios' class="btn btn-danger"> X </a>
+			</div>
 		</div>
 
 		@if(Session::has('mensajeError'))
