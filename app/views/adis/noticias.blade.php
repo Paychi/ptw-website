@@ -43,9 +43,9 @@ Adis-Noticias
 				<th>Fecha de la Noticia</th>
 				<th>Fecha Registro</th>
 				@if($isadmin != 0)
-					<th colspan="3"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+					<th data-toggle="tooltip" title="Agregar Noticia" colspan="3"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 				@else
-					<th colspan="2"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+					<th data-toggle="tooltip" title="Agregar Noticia" colspan="2"><center><a href="{{URL::to('/')}}/adis/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 				@endif
 			</thead>
 			<tbody>
@@ -69,7 +69,7 @@ Adis-Noticias
 							<td>{{$item->estracto}}</td>
 							<td>{{$newfecha}}</td>
 							<td>{{$newfecha2}}</td>
-							<td><a onclick="editar('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-edit'></a></td>
+							<td><a data-toggle="tooltip" title="Editar Noticia" onclick="editar('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-edit'></a></td>
 							@if($isadmin != 0)
 								@if($item->publicado == 0)
 									<td><a onclick="confirm_publish('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-ok valid'></span></a></td>
@@ -77,7 +77,7 @@ Adis-Noticias
 									<td><a onclick="confirm_unpublish('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-remove invalid'></span></a></td>
 								@endif
 							@endif
-							<td><a onclick="upload('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-open'></span></a></td>
+							<td><a data-toggle="tooltip" title="Subir Imágenes" onclick="upload('{{$item->id_noticia}}')" class="hid"><span class='glyphicon glyphicon-open'></span></a></td>
 						</tr>
 					@endforeach
 				@endif
