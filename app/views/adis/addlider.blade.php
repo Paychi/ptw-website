@@ -7,7 +7,12 @@ Ad-Lideres
 @section('content_adis')
 	{{ Form::open(array('url' => '/adis/addlideres','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/adis/lideres' class="btn btn-danger"> X </a>
+			<div style="float:left; margin-left:2%;">
+				<label style="color:#337AB7; font-size:2em;" class="control-label">Nuevo Líder</label>			
+			</div>
+			<div>
+				<a href='{{URL::to('/')}}/adis/lideres' class="btn btn-danger"> X </a>
+			</div>
 		</div>
 
 		@if(Session::has('mensajeError'))
