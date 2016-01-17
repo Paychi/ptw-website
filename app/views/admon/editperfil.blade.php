@@ -16,7 +16,12 @@ Ad-Perfil
 
 	{{ Form::open(array('url' => '/admin/editperfil','method'=>'post','class'=>'', 'name'=>'form_perfil','id'=>'msform')) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/admin/perfiles' class="btn btn-danger"> X </a>
+			<div style="float:left; margin-left:2%;">
+				<label style="color:#337AB7; font-size:2em;" class="control-label">Editar Perfil</label>			
+			</div>
+			<div>
+				<a href='{{URL::to('/')}}/admin/perfiles' class="btn btn-danger"> X </a>
+			</div>
 		</div>
 		
 		<input type="hidden" name="id" value="{{$datos->id_perfil}}">
