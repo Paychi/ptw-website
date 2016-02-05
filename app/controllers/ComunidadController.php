@@ -6,12 +6,32 @@ class ComunidadController extends BaseController {
 	{
 		$idComunidadActual = Request::input('idComunidad');
 
-		$comunity = \DB::table('comunidad')
-					->select(['nombreComunidad','descripcion'])
+		$liderFound = \DB::table('lider')
+					->join('comunidad','lider.id_comunidad','=','comunidad.id_comunidad')
+					->select(['lider.nombre'])
 					->where('comunidad.id_Comunidad','=',$idComunidadActual)
-					->get();		
+					->get();
 
-		return  $comunity;
+		if($liderFound != null)
+		{
+			$comunity = \DB::table('comunidad')
+					->join('lider','lider.id_comunidad','=','comunidad.id_comunidad')
+					->select(['comunidad.nombreComunidad','comunidad.descripcion', 'lider.nombre'])
+					->where('comunidad.id_Comunidad','=',$idComunidadActual)
+					->get();							
+
+				return  $comunity;
+		}
+		else{
+			$comunity = \DB::table('comunidad')
+					->select(['comunidad.nombreComunidad','comunidad.descripcion'])
+					->where('comunidad.id_Comunidad','=',$idComunidadActual)
+					->get();							
+
+				return  $comunity;
+		}
+		return null;
+
 	}
 
 	public function ImagenesAMostrar()
