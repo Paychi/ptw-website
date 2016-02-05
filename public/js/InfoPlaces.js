@@ -360,6 +360,7 @@ $(document).ready(function(){
     {
         $('#myModalLabel').text("");
         $('#ContenidoModal').text("");
+        $('#ContenidoModalLider').text("");
         
         var url=$('#mapa_form').attr('action') + "/GetInfoComunidad";
 
@@ -372,11 +373,20 @@ $(document).ready(function(){
             complete: function(data){
             },
             success: function (data) {
+                //alert(data)
                 var nombreComunidadAMostrar= JSON.stringify(data[0].nombreComunidad);
                 var contenidoComunidadAMostrar= JSON.stringify(data[0].descripcion);
+                var contenidoLiderDeComunidad = [];
 
                 $('#myModalLabel').text(nombreComunidadAMostrar.split("\"").join(""));
-                $('#ContenidoModal').text(contenidoComunidadAMostrar.split("\"").join(""));                   
+                $('#ContenidoModal').text(contenidoComunidadAMostrar.split("\"").join(""));   
+
+                if(data[0].nombre != undefined)
+                {
+                    contenidoLiderDeComunidad = JSON.stringify(data[0].nombre)
+                    $('#ContenidoModalLider').text("Líder: " + contenidoLiderDeComunidad.split("\"").join(""));
+                }
+           
             },
             error: function(errors){
                 alert('Error en el Servidor - Inténtelo luego, Gracias')
