@@ -184,6 +184,88 @@ class RootController extends BaseController {
 		return Redirect::to('/');
 	}
 
+	public function getContactus()
+	{
+		$perfil = $this->perfilUser();
+		$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
+		$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+		$datos = Contactos::all();
+
+		return $this->layout->content = View::make('site.contactus', compact("perfil", "defn","defnhidden","datos"));
+	}
+
+	public function postContactus()
+	{
+		$inputs = Input::All();
+		$validaciones = array
+		(
+			'fname' => 'required',
+			'lname' => 'required',
+			'email' => 'required|email',
+			'message' => 'required'
+		);		
+		$mensajes = array
+		(
+			"required" => "Este campo no puede quedar vacio.",
+			"min" => "Debe tener como minimo 5 caracteres",
+			"email" => "Dirección de correo electrónico no valida"
+		);			
+
+		$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+		if($validar->fails())
+		{
+			return Redirect::back() -> withErrors($validar);			
+		}else
+		{	
+			$cont = Contactos::all();
+
+			if($cont != null)
+			{
+				$to="";
+				$count = count($cont);
+				$i = 0;
+
+				foreach ($cont as $item) {
+					$i++;
+					if ($i == $count)
+						$to .= $item->correo;
+					else
+						$to .= $item->correo.',';
+				}
+
+				$data = array(
+			        'firstname' => $inputs['fname'],
+			        'lastname' => $inputs['lname'],
+			        'email' => $inputs['email'],
+			        'bodyMessage' => $inputs['message']
+			    );
+
+				Mail::send('emails.contactusproject', $data, function ($message) use ($to) {
+
+			        $message->from('infowaslala@gmail.com', 'Info Waslala');
+
+			        $message->to(explode(',', $to))->subject('Información Proyecto Telemedicina');
+
+			    });
+
+			    $to = $inputs['email'];
+
+			    Mail::send('emails.contactusclient', $data, function ($message) use ($to) {
+
+			        $message->from('infowaslala@gmail.com', 'Info Waslala');
+
+			        $message->to($to)->subject('Solicitud Información Proyecto Telemedicina');
+
+			    });
+
+				return Redirect::to("/es/contactus")->with('mensajeContactus','Correo enviado satisfactoreamente!!');		
+			}else{
+				return Redirect::to("/es/contactus")->with('mensajeError','No se pudo enviar el correo!!');
+			}
+		}
+	}
+
 	public function getSimsiv()
 	{
 		$perfil = $this->perfilUser();

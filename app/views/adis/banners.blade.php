@@ -54,14 +54,19 @@ Adis-Banners
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(4)" class="hid btnAct"><span class="glyphicon glyphicon-refresh"></span></a></center></td>
 				</tr>
 				<tr>
+					<td>Cont&aacute;ctanos</td>
+					<td>{{HTML::Image('uploads/header_site/banner_contactus.png','contactus_banner',array("class"=>"img-header"))}}</td>
+					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(5)" class="hid btnAct"><span class='glyphicon glyphicon-refresh'></span></a></center></td>
+				</tr>
+				<tr>
 					<td>Detalle Noticia</td>
 					<td>{{HTML::Image('uploads/header_site/banner_detalle.png','detalle_banner',array("class"=>"img-header"))}}</td>
-					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(5)" class="hid btnAct" ><span class="glyphicon glyphicon-refresh"></span></a></center></td>
+					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(6)" class="hid btnAct" ><span class='glyphicon glyphicon-refresh'></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Resultado Busqueda Noticia</td>
 					<td>{{HTML::Image('uploads/header_site/banner_search.png','search_banner',array("class"=>"img-header"))}}</td>
-					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(6)" class="hid btnAct" ><span class="glyphicon glyphicon-refresh"></span></a></center></td>
+					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(7)" class="hid btnAct" ><span class='glyphicon glyphicon-refresh'></span></a></center></td>
 				</tr>
 			</tbody>
 		</table>
@@ -96,7 +101,7 @@ Adis-Banners
 						</div>					
 					</div>
 					
-					Formato: png y jpg <br /> Dimenciones: 4500 x 600 maximo y 1300 x 250 minimo <br /> Tama&ntilde;o: maximo 2 MB 
+					Formato: png <br /> Dimenciones: 4500 x 600 maximo y 1300 x 250 minimo <br /> Tama&ntilde;o: maximo 2 MB 
 					
 				</div>			
 				
@@ -139,11 +144,16 @@ Adis-Banners
 					$("#id_nombre_banner").val("banner_colaboradores.png");
 				break;
 				case 5: 
+					$("#cabecera").text("Contáctanos");
+					document.getElementById("img_banner").src = "{{URL::to('/')}}/uploads/header_site/banner_contactus.png";
+					$("#id_nombre_banner").val("banner_contactus.png");
+				break;
+				case 6: 
 					$("#cabecera").text("Detalle Noticia");
 					document.getElementById("img_banner").src = "{{URL::to('/')}}/uploads/header_site/banner_detalle.png";
 					$("#id_nombre_banner").val("banner_detalle.png");
 				break;
-				case 6: 
+				case 7: 
 					$("#cabecera").text("Resultado Busqueda Noticia");
 					document.getElementById("img_banner").src = "{{URL::to('/')}}/uploads/header_site/banner_search.png";
 					$("#id_nombre_banner").val("banner_search.png");

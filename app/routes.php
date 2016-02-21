@@ -17,6 +17,11 @@ Route::controller('/admin','AdmonController');
 Route::controller('/adis','AdisController');
 Route::controller('/colaborador','ColaboradorController');
 
+Route::get('/mail', function()
+{
+	return View::make('emails.contactusproject');
+});
+
 Route::get('/', function()
 {
 	return Redirect::to('/es');

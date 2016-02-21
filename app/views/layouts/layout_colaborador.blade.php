@@ -61,7 +61,7 @@
 				</div>				
 			</nav>
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("http://www.timeanddate.com/worldclock/nicaragua","Nicaragua (CTS-6)",array('target'=>'_black'))}} |
 			</div> 
 		</header>		
 	

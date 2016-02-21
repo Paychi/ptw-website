@@ -51,7 +51,6 @@
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
 								<li class="menu-addnoticia"><a href="{{URL::to('/')}}/adis/addnoticia"><span>Agregar Noticia</span></a></li>
 								<li class="menu-noticia"><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
-								<li class="menu-evento"><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 								<li class="menu-confbanner"><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
 								<li class="menu-lider"><a href='{{URL::to('/')}}/adis/lideres'><span>Líderes</span></a></li>
 								<li class="menu-comunidad"><a href='{{URL::to('/')}}/adis/comunidades'><span>Comunidades</span></a></li>
@@ -71,7 +70,7 @@
 				</div>				
 			</nav>
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("http://www.timeanddate.com/worldclock/nicaragua","Nicaragua (CTS-6)",array('target'=>'_black'))}} |
 			</div> 
 		</header>
 	
@@ -83,7 +82,6 @@
 					<ul class="nav nav-pills nav-stacked">						
 						<li class="menu-addnoticia"><a href="{{URL::to('/')}}/adis/addnoticia"><span>Agregar Noticia</span></a></li>
 						<li class="menu-noticia"><a href="{{URL::to('/')}}/adis/noticias"><span>Editar Noticia</span></a></li>
-						<li class="menu-evento"><a href='{{URL::to('/')}}/adis/eventos'><span>Eventos</span></a></li>
 						<li class="menu-confbanner"><a href='{{URL::to('/')}}/adis/confbanners'><span>Configarici&oacute;n Banners</span></a></li>
 						<li class="menu-lider"><a href='{{URL::to('/')}}/adis/lideres'><span>Líderes</span></a></li>
 						<li class="menu-comunidad"><a href='{{URL::to('/')}}/adis/comunidades'><span>Comunidades</span></a></li>

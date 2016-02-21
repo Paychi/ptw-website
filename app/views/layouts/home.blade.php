@@ -61,7 +61,7 @@
 
 		<header>
 			<section class="banner">
-				<div>					
+				<div style='background: #dde8de;' class='text-center'>					
 					@yield('imagenes')					
 				</div>
 			</section>
@@ -79,7 +79,8 @@
 					<ul class="nav navbar-nav">									
 						<li id="tag_waslala"><a href='{{URL::to('/')}}/es/waslala'><span> Waslala</span></a></li>
 						<li id="tag_about"><a href='{{URL::to('/')}}/es/about'><span>Lo que somos</span></a></li>
-						<li id="tag_colaboradores"><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>	
+						<li id="tag_colaboradores"><a href='{{URL::to('/')}}/es/colaboradores'><span>Colaboradores</span></a> </li>
+						<li id="tag_contactus"><a href='{{URL::to('/')}}/es/contactus'><span>Cont&aacute;ctanos</span></a> </li>	
 						<li id="tag_simsiv"><a href='{{URL::to('/')}}/es/simsiv'><span>SIMSIV</span></a> </li>
 						<!--<li><a href='{{URL::to('/')}}/es/creditos'><span>Creditos</span></a> </li>-->
 					</ul>
@@ -120,7 +121,7 @@
 				</div>				
 			</nav>	
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("http://www.timeanddate.com/worldclock/nicaragua","Nicaragua (CTS-6)",array('target'=>'_black'))}} |
 			</div> 
 		</header>
 

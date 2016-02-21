@@ -88,6 +88,10 @@ $(document).ready( function() {
             $("#tag_colaboradores").addClass("active");
     }
 
+    if ((urlActual.indexOf('contactus') != -1)) {
+            $("#tag_contactus").addClass("active");
+    }
+
     if ((urlActual.indexOf('simsiv') != -1)) {
             $("#tag_simsiv").addClass("active");
     }
@@ -107,8 +111,8 @@ $(document).ready( function() {
             $(".menu-usuario").addClass("active");
     }
 
-    if ((urlActual.indexOf('eventos') != -1)) {
-            $(".menu-evento").addClass("active");
+    if ((urlActual.indexOf('contactos') != -1) || (urlActual.indexOf('addcontacto') != -1) || (urlActual.indexOf('editcontacto/') != -1)) {
+            $(".menu-contacto").addClass("active");
     }
 
     if ((urlActual.indexOf('perfiles') != -1) || (urlActual.indexOf('editperfil/') != -1)) {

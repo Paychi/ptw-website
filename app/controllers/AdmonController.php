@@ -1011,7 +1011,7 @@ class AdmonController extends BaseController {
 				$imagen_banner = $file->getClientOriginalName();
 				
 				//$imp= 'nada';
-				if($extencion == "png" || $extencion == "jpg" || $extencion == "PNG" || $extencion == "JPG")
+				if($extencion == "png" || $extencion == "PNG")
 				{
 					$upload = $file->move($path,$nombre_file);
 					if($upload)
@@ -1532,5 +1532,168 @@ class AdmonController extends BaseController {
 		$du -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
 		return Redirect::to('/admin/comunidades');	
+	}
+
+	/*** Coctactos ***/
+
+	public function getContactos(){
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		if (isset($_GET["filtro"])) {
+			$buscar = htmlspecialchars(Input::get('filtro'));
+			$tipo = htmlspecialchars(Input::get('tipo'));
+
+			switch ($tipo) {
+				case 0: //Nombres ó Apellidos
+					$datos = Contactos::where('nombre', 'LIKE', '%'.$buscar.'%')->orwhere('apellido', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+
+				case 1: //Correo
+					$datos = Contactos::where('correo', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+				
+				case 2: //Telefono
+					$datos = Contactos::where('telefono', 'LIKE', '%'.$buscar.'%')->paginate(5);
+					break;
+
+				default:
+					
+					break;
+			}
+		} else {
+			$datos = Contactos::paginate(10);
+		}
+		return $this->layout->content = View::make('admon.contactos',compact("datos"));
+	}
+
+	public function getAddcontacto()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		return $this->layout->content = View::make('admon.addcontacto');
+	}
+
+	public function postAddcontacto()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		try {
+			$inputs = Input::All();		
+			$validaciones = array
+			(
+				'nombre' => 'required|min:5',
+				'apellido' => 'required|min:5',
+				'correo' => 'required|email',
+				'telefono' => 'required|numeric'
+			);		
+			$mensajes = array
+			(
+				"required" => "Este campo no puede quedar vacio.",
+				"min" => "Debe tener como minimo 5 caracteres",
+				"email" => "Debe ser un correo",
+				"numeric" => "Debe ser un numero"
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+			}else
+			{			
+				$c = new Contactos;
+				$c->nombre = $inputs["nombre"];
+				$c->apellido = $inputs["apellido"];
+				$c->correo = $inputs["correo"];
+				$c->telefono = $inputs["telefono"];
+				$c->save();
+				DB::commit();
+				return Redirect::to('/admin/contactos')->with('mensaje','Registro ingresado correctamente!!');
+			}			
+		} catch (Exception $e) {
+			DB::rollback();
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/contactos');
+		}
+	}
+
+	public function getEditcontacto($id_contacto = null)
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$datos = Contactos::find($id_contacto);
+
+		return $this->layout->content = View::make('admon.editcontacto',compact("datos"));
+	}
+
+	public function postEditcontacto()
+	{
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+
+		try {
+			$inputs = Input::All();		
+			$validaciones = array
+			(
+				'nombre' => 'required|min:5',
+				'apellido' => 'required|min:5',
+				'correo' => 'required|email',
+				'telefono' => 'required|numeric'
+			);		
+			$mensajes = array
+			(
+				"required" => "Este campo no puede quedar vacio.",
+				"min" => "Debe tener como minimo 5 caracteres",
+				"email" => "Debe ser un correo",
+				"numeric" => "Debe ser un numero"
+			);
+			
+			$validar=Validator::make($inputs,$validaciones,$mensajes);
+			
+			if($validar->fails())
+			{
+				return Redirect::back() -> withErrors($validar);
+			}else
+			{
+				$ec = Contactos::find($inputs["id"]);
+				$ec->nombre = $inputs["nombre"];
+				$ec->apellido = $inputs["apellido"];
+				$ec->correo = $inputs["correo"];
+				$ec->telefono = $inputs["telefono"];
+				$ec->save();
+				DB::commit();
+				return Redirect::to('/admin/contactos')->with('mensaje','Registro editado correctamente!!');
+			}			
+		} catch (Exception $e) {
+			DB::rollback();
+			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/admin/contactos');
+		}
+	}
+
+	public function getDeletecontacto($id_contacto = null)
+	{		
+		if (!$this->accessRutesAdmon())
+		{
+			return Redirect::to('/login')->with('mensaje',$this->mensaje);
+		}
+		
+		$dc = Contactos::find($id_contacto);
+		$dc -> delete();
+		return Redirect::to('/admin/contactos')->with('mensaje','Registro eliminado correctamente!!');
 	}
 }

@@ -48,12 +48,12 @@
 		<span class="spline bColor"></span>
 		<p>Comunidades del municipio de Waslala.</p>
 	</div>
-	<!--<div class="col-lg-3 text-center">
-		<a href="{{URL::to('/')}}/admin/confbanners"> <img src="{{ asset('/img/icono_banners.png') }}" alt="banners" class=""> </a>
-		<a href="{{URL::to('/')}}/admin/confbanners" class="entry-title"><h2 class="title-admon">Configuraci&oacute;n Banners</h2></a>
+	<div class="col-lg-3 text-center">
+		<a href="{{URL::to('/')}}/admin/contactos"> <img src="{{ asset('/img/icon/contactos.svg') }}" alt="contactos" class="icon-item"> </a>
+		<a href="{{URL::to('/')}}/admin/contactos" class="entry-title"><h2 class="title-admon">Contactos</h2></a>
 		<span class="spline bColor"></span>
-		<p>Actualizaci&oacute;n de las im&aacute;genes de cabecera de las p&aacute;ginas.</p>
-	</div>-->
+		<p>Informaci&oacute;n para contactarnos con los principales responsables del proyecto.</p>
+	</div>
 </div>
 @endsection
 	

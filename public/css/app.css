@@ -168,7 +168,7 @@ textarea{
 .img-header{
 	max-height:250px;
 	height: auto;
-	width:100%;
+	/*width:100%;*/
 }
 .container-img_header
 {
@@ -462,7 +462,7 @@ input[readonly] {
 }
 
 .hid{
-    visibility: hidden;    
+    /*visibility: hidden;    */
     cursor: pointer;
 }
 

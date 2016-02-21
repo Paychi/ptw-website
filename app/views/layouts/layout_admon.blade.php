@@ -50,7 +50,7 @@
 								<li class = "menu-noticia"><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
 								<li class = "menu-colaborador"><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
 								<li class = "menu-usuario"><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-								<li class = "menu-evento"><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
+								<li class = "menu-contacto"><a href='{{URL::to('/')}}/admin/contactos'><span>Contactos</span></a></li>
 								<li class = "menu-perfil"><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
 								<li class = "menu-confbanner"><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
 								<li class = "menu-lider"><a href='{{URL::to('/')}}/admin/lideres'><span>Líderes</span></a></li>
@@ -71,7 +71,7 @@
 				</div>				
 			</nav>
 			<div class="texto_header">
-			  {{date("d-m-Y")}} | {{HTML::link("#","EN")}} |
+			  {{date("d-m-Y")}} | {{HTML::link("http://www.timeanddate.com/worldclock/nicaragua","Nicaragua (CTS-6)",array('target'=>'_black'))}} |
 			</div> 
 		</header>		
 	
@@ -84,7 +84,7 @@
 						<li class = "menu-noticia"><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
 						<li class = "menu-colaborador"><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
 						<li class = "menu-usuario"><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-						<li class = "menu-evento"><a href='{{URL::to('/')}}/admin/eventos'><span>Eventos</span></a></li>
+						<li class = "menu-contacto"><a href='{{URL::to('/')}}/admin/contactos'><span>Contactos</span></a></li>
 						<li class = "menu-perfil"><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
 						<li class = "menu-confbanner"><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
 						<li class = "menu-lider"><a href='{{URL::to('/')}}/admin/lideres'><span>Líderes</span></a></li>

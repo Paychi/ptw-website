@@ -553,7 +553,7 @@ class AdisController extends BaseController {
 				$imagen_banner = $file->getClientOriginalName();
 				
 				//$imp= 'nada';
-				if($extencion == "png" || $extencion == "jpg" || $extencion == "PNG" || $extencion == "JPG")
+				if($extencion == "png" || $extencion == "PNG")
 				{
 					$upload = $file->move($path,$nombre_file);
 					if($upload)
