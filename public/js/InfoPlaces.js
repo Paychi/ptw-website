@@ -381,10 +381,12 @@ $(document).ready(function(){
                 $('#myModalLabel').text(nombreComunidadAMostrar.split("\"").join(""));
                 $('#ContenidoModal').text(contenidoComunidadAMostrar.split("\"").join(""));   
 
+                $('#tituloLideres').text("");
+
                 if(data[0].nombre != undefined)
                 {
                     //contenidoLiderDeComunidad = JSON.stringify(data[0].nombre)
-                    $('#ContenidoModalLider').text("Líderes encargados: ");
+                    $('#tituloLideres').text("Líderes encargados: ");
 
                     for(var i = 0; i < data.length ; i++)
                     {
