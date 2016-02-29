@@ -724,6 +724,12 @@ Waslala
 
                 </p>
 
+                <br />
+
+                <p id="ContenidoModalLider">
+
+                </p>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                
