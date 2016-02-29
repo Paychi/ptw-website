@@ -726,7 +726,11 @@ Waslala
 
                 <br />
 
-                <p id="ContenidoModalLider">
+                <p>
+                  Líderes encargados:
+                </p>
+
+                <p id="ContenidoModalLider" style="margin-left: 20px;">
 
                 </p>
 
