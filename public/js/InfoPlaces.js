@@ -383,8 +383,16 @@ $(document).ready(function(){
 
                 if(data[0].nombre != undefined)
                 {
-                    contenidoLiderDeComunidad = JSON.stringify(data[0].nombre)
-                    $('#ContenidoModalLider').text("Líder: " + contenidoLiderDeComunidad.split("\"").join(""));
+                    //contenidoLiderDeComunidad = JSON.stringify(data[0].nombre)
+                    $('#ContenidoModalLider').text("Líderes encargados: ");
+
+                    for(var i = 0; i < data.length ; i++)
+                    {
+                        contenidoLiderDeComunidad.push(JSON.stringify(data[i].nombre))
+                    }
+                    // + contenidoLiderDeComunidad.split("\"").join(""));
+
+                    $('#ContenidoModalLider').text(contenidoLiderDeComunidad.toString().split("\"").join(""));
                 }
            
             },
