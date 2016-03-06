@@ -724,6 +724,16 @@ Waslala
 
                 </p>
 
+                <br />
+
+                <p id="tituloLideres">
+                
+                </p>
+
+                <p id="ContenidoModalLider" style="margin-left: 20px;">
+
+                </p>
+
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>                
