@@ -170,6 +170,13 @@ textarea{
 	height: auto;
 	/*width:100%;*/
 }
+
+.img-header2{
+	max-height:250px;
+	height: auto;
+	width:100%;
+	text-align: center;
+}
 .container-img_header
 {
 	min-width:300px;

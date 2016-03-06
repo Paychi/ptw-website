@@ -35,37 +35,37 @@ Adis-Banners
 			<tbody>
 				<tr>
 					<td>Inicio</td>
-					<td>{{HTML::Image('uploads/header_site/banner_inicio.png','inicio_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_inicio.png','inicio_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(1)" class="hid btnAct"><span class="glyphicon glyphicon-refresh"></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Waslala</td>
-					<td>{{HTML::Image('uploads/header_site/banner_waslala.png','waslala_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_waslala.png','waslala_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(2)" class="hid btnAct"><span class="glyphicon glyphicon-refresh"></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Lo que somos</td>
-					<td>{{HTML::Image('uploads/header_site/banner_about.png','about_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_about.png','about_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(3)" class="hid btnAct" ><span class="glyphicon glyphicon-refresh"></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Colaboradores</td>
-					<td>{{HTML::Image('uploads/header_site/banner_colaboradores.png','colaboradores_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_colaboradores.png','colaboradores_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(4)" class="hid btnAct"><span class="glyphicon glyphicon-refresh"></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Cont&aacute;ctanos</td>
-					<td>{{HTML::Image('uploads/header_site/banner_contactus.png','contactus_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_contactus.png','contactus_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(5)" class="hid btnAct"><span class='glyphicon glyphicon-refresh'></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Detalle Noticia</td>
-					<td>{{HTML::Image('uploads/header_site/banner_detalle.png','detalle_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_detalle.png','detalle_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(6)" class="hid btnAct" ><span class='glyphicon glyphicon-refresh'></span></a></center></td>
 				</tr>
 				<tr>
 					<td>Resultado Busqueda Noticia</td>
-					<td>{{HTML::Image('uploads/header_site/banner_search.png','search_banner',array("class"=>"img-header"))}}</td>
+					<td>{{HTML::Image('uploads/header_site/banner_search.png','search_banner',array("class"=>"img-header2"))}}</td>
 					<td><center><a data-toggle="tooltip" title="Actualizar Imagen" onclick="actualizar(7)" class="hid btnAct" ><span class='glyphicon glyphicon-refresh'></span></a></center></td>
 				</tr>
 			</tbody>
@@ -85,7 +85,7 @@ Adis-Banners
 				
 				<div class="modal-body">
 					<div class="modal-header">
-						{{HTML::Image('','banner',array("class"=>"img-header", "id"=>"img_banner"))}}
+						{{HTML::Image('','banner',array("class"=>"img-header2", "id"=>"img_banner"))}}
 					</div>
 					Aqui subir archivo...
 					<div class="row">						
