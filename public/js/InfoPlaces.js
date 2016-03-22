@@ -375,7 +375,6 @@ $(document).ready(function(){
             },
             success: function (data) {
                 //alert(data)
-                console.log(data);
                 var nombreComunidadAMostrar= JSON.stringify(data[0].nombreComunidad);
                 var contenidoComunidadAMostrar= JSON.stringify(data[0].descripcion);
                 var contenidoLiderDeComunidad = [];
