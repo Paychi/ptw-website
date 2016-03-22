@@ -11,13 +11,13 @@ Ad-Contacto
 		</div>
 	@endif
 
-	{{ Form::open(array('url' => '/admin/addcontacto','method'=>'post','class'=>'', 'name'=>'form_contacto','id'=>'msform')) }}
+	{{ Form::open(array('url' => '/sisadm/addcontacto','method'=>'post','class'=>'', 'name'=>'form_contacto','id'=>'msform')) }}
 		<div class="row text-right">
 			<div style="float:left; margin-left:2%;">
 				<label style="color:#337AB7; font-size:2em;" class="control-label">Nuevo Contacto</label>			
 			</div>
 			<div>	
-				<a href='{{URL::to('/')}}/admin/contactos' class="btn btn-danger"> X </a>
+				<a href='{{URL::to('/')}}/sisadm/contactos' class="btn btn-danger"> X </a>
 			</div>
 		</div>
 		

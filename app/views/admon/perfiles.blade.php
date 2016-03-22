@@ -9,7 +9,7 @@ Ad-Perfil
 
 @section('content_admon')
 
-	{{Form::open(array('url'=>'admin/perfiles', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/perfiles', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
@@ -66,13 +66,13 @@ Ad-Perfil
 	<script>
 		function editar(id_perfil)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editperfil/'+id_perfil;
+			window.location.href='{{URL::to('/')}}/sisadm/editperfil/'+id_perfil;
 		}
 		function deshabilitar(id_perfil)
 		{
 			if(confirm("Realmente usted quiere deshabilitar este perfil?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/deshabilitarperfil/'+id_perfil;
+				window.location.href='{{URL::to('/')}}/sisadm/deshabilitarperfil/'+id_perfil;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -80,11 +80,11 @@ Ad-Perfil
 		}
 		function habilitar(id_perfil)
 		{
-			window.location.href='{{URL::to('/')}}/admin/habilitarperfil/'+id_perfil;
+			window.location.href='{{URL::to('/')}}/sisadm/habilitarperfil/'+id_perfil;
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/perfiles';
+			window.location.href='{{URL::to('/')}}/sisadm/perfiles';
 		}
 	</script>
 

@@ -11,7 +11,7 @@ Ad-Usuarios
 		$selected = array();
 	?>
 
-	{{Form::open(array('url'=>'admin/usuarios', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/usuarios', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
@@ -41,7 +41,7 @@ Ad-Usuarios
 				<th>Nombre de Usuario</th>
 				<th>Perfil de Usuario</th>
 				<th>Fecha Registro</th>
-				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Usuario" href="{{URL::to('/')}}/admin/addusuario" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
+				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Usuario" href="{{URL::to('/')}}/sisadm/addusuario" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -74,13 +74,13 @@ Ad-Usuarios
 	<script>
 		function editar(id_user)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editusuario/'+id_user;
+			window.location.href='{{URL::to('/')}}/sisadm/editusuario/'+id_user;
 		}
 		function eliminar(id_user)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/delateusuario/'+id_user;
+				window.location.href='{{URL::to('/')}}/sisadm/delateusuario/'+id_user;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -88,7 +88,7 @@ Ad-Usuarios
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/usuarios';
+			window.location.href='{{URL::to('/')}}/sisadm/usuarios';
 		}
 	</script>
  	

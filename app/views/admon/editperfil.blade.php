@@ -14,13 +14,13 @@ Ad-Perfil
 		</div>
 	@endif
 
-	{{ Form::open(array('url' => '/admin/editperfil','method'=>'post','class'=>'', 'name'=>'form_perfil','id'=>'msform')) }}
+	{{ Form::open(array('url' => '/sisadm/editperfil','method'=>'post','class'=>'', 'name'=>'form_perfil','id'=>'msform')) }}
 		<div class="row text-right">
 			<div style="float:left; margin-left:2%;">
 				<label style="color:#337AB7; font-size:2em;" class="control-label">Editar Perfil</label>			
 			</div>
 			<div>
-				<a href='{{URL::to('/')}}/admin/perfiles' class="btn btn-danger"> X </a>
+				<a href='{{URL::to('/')}}/sisadm/perfiles' class="btn btn-danger"> X </a>
 			</div>
 		</div>
 		

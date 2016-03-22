@@ -44,17 +44,17 @@
 				<div class="collapse navbar-collapse navbar-ex1-collapse">
 					<ul class="nav navbar-nav">									
 						<!--<li><a href='{{URL::to('/')}}/es/creditos' target="_blank"><span>Creditos</span></a> </li>-->
-						<li id="tag_admin"><a href='{{URL::to('/')}}/admin' ><span>Administraci&oacute;n</span></a> </li>
+						<li id="tag_admin"><a href='{{URL::to('/')}}/sisadm' ><span>Administraci&oacute;n</span></a> </li>
 						<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>Men&uacute;<b class="caret"></b></span></a>
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
-								<li class = "menu-noticia"><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
-								<li class = "menu-colaborador"><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
-								<li class = "menu-usuario"><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-								<li class = "menu-contacto"><a href='{{URL::to('/')}}/admin/contactos'><span>Contactos</span></a></li>
-								<li class = "menu-perfil"><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
-								<li class = "menu-confbanner"><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
-								<li class = "menu-lider"><a href='{{URL::to('/')}}/admin/lideres'><span>Líderes</span></a></li>
-								<li class = "menu-comunidad"><a href='{{URL::to('/')}}/admin/comunidades'><span>Comunidades</span></a></li>
+								<li class = "menu-noticia"><a href='{{URL::to('/')}}/sisadm/noticias'><span>Noticias</span></a></li>
+								<li class = "menu-colaborador"><a href='{{URL::to('/')}}/sisadm/colaboradores'><span>Colaboradores</span></a></li>						
+								<li class = "menu-usuario"><a href='{{URL::to('/')}}/sisadm/usuarios'><span>Usuarios</span></a></li>
+								<li class = "menu-contacto"><a href='{{URL::to('/')}}/sisadm/contactos'><span>Contactos</span></a></li>
+								<li class = "menu-perfil"><a href='{{URL::to('/')}}/sisadm/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
+								<li class = "menu-confbanner"><a href='{{URL::to('/')}}/sisadm/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
+								<li class = "menu-lider"><a href='{{URL::to('/')}}/sisadm/lideres'><span>Líderes</span></a></li>
+								<li class = "menu-comunidad"><a href='{{URL::to('/')}}/sisadm/comunidades'><span>Comunidades</span></a></li>
 							</ul>
 						</li>
 					</ul>
@@ -64,7 +64,7 @@
 							<ul class="dropdown-menu nav nav-pills nav-stacked">
 								<li><a href='{{URL::to('/')}}/login/usuario'><span>Cambiar Usuario</span></a></li>
 								<li><a href='{{URL::to('/')}}/login/clave'><span>Cambiar Contrase&ntilde;a</span></a></li>
-								<li><a href='{{URL::to('/')}}/admin/logout'><span>Cerrar Sesion</span></a></li>
+								<li><a href='{{URL::to('/')}}/sisadm/logout'><span>Cerrar Sesion</span></a></li>
 							</ul>
 						</li>
 					</ul>				
@@ -81,14 +81,14 @@
 					<img src="{{ asset('/img/logo/logo_conf.svg') }}" alt="telemedicina">
 					<span class="splinemenu bColor2"></span>
 					<ul class="nav nav-pills nav-stacked">			
-						<li class = "menu-noticia"><a href='{{URL::to('/')}}/admin/noticias'><span>Noticias</span></a></li>
-						<li class = "menu-colaborador"><a href='{{URL::to('/')}}/admin/colaboradores'><span>Colaboradores</span></a></li>						
-						<li class = "menu-usuario"><a href='{{URL::to('/')}}/admin/usuarios'><span>Usuarios</span></a></li>
-						<li class = "menu-contacto"><a href='{{URL::to('/')}}/admin/contactos'><span>Contactos</span></a></li>
-						<li class = "menu-perfil"><a href='{{URL::to('/')}}/admin/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
-						<li class = "menu-confbanner"><a href='{{URL::to('/')}}/admin/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
-						<li class = "menu-lider"><a href='{{URL::to('/')}}/admin/lideres'><span>Líderes</span></a></li>
-						<li class = "menu-comunidad"><a href='{{URL::to('/')}}/admin/comunidades'><span>Comunidades</span></a></li>
+						<li class = "menu-noticia"><a href='{{URL::to('/')}}/sisadm/noticias'><span>Noticias</span></a></li>
+						<li class = "menu-colaborador"><a href='{{URL::to('/')}}/sisadm/colaboradores'><span>Colaboradores</span></a></li>						
+						<li class = "menu-usuario"><a href='{{URL::to('/')}}/sisadm/usuarios'><span>Usuarios</span></a></li>
+						<li class = "menu-contacto"><a href='{{URL::to('/')}}/sisadm/contactos'><span>Contactos</span></a></li>
+						<li class = "menu-perfil"><a href='{{URL::to('/')}}/sisadm/perfiles'><span>Configuraci&oacute;n Perfiles</span></a></li>
+						<li class = "menu-confbanner"><a href='{{URL::to('/')}}/sisadm/confbanners'><span>Configuraci&oacute;n Banners</span></a></li>
+						<li class = "menu-lider"><a href='{{URL::to('/')}}/sisadm/lideres'><span>Líderes</span></a></li>
+						<li class = "menu-comunidad"><a href='{{URL::to('/')}}/sisadm/comunidades'><span>Comunidades</span></a></li>
 					</ul>
 				</aside>
 			</div>

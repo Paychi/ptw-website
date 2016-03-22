@@ -13,7 +13,7 @@ Cont&aacute;ctanos
 @section('content-izq')
 <label>Cont&aacute;ctanos a:</label>
 <hr/>
-<div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+<div class="panel-group" id="" role="tablist" aria-multiselectable="true">
     @foreach($datos as $dato)
       <div class="panel panel-default">
         <div class="panel-heading" role="tab" id="headingOne">

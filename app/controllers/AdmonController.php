@@ -158,11 +158,11 @@ class AdmonController extends BaseController {
 					$n->save();
 					Session::flash('mensaje','Registro ingresado correctamente!!');
 					DB::commit();
-					return Redirect::to('/admin/noticias');
+					return Redirect::to('/sisadm/noticias');
 				}else
 				{
 					Session::flash('mensajeError','No se pudo subir el archivo!!');
-					return Redirect::to('/admin/noticias');
+					return Redirect::to('/sisadm/noticias');
 				}
 			}
 		}
@@ -171,7 +171,7 @@ class AdmonController extends BaseController {
 			DB::rollback();
 			
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/noticias');
+			return Redirect::to('/sisadm/noticias');
 		}
 	}
 	
@@ -233,7 +233,7 @@ class AdmonController extends BaseController {
 				$eu->save();
 				Session::flash('mensaje','Registro editado correctamente!!');
 				DB::commit();
-				return Redirect::to('/admin/noticias');
+				return Redirect::to('/sisadm/noticias');
 			}
 		}
 		catch(Exception $e)
@@ -241,7 +241,7 @@ class AdmonController extends BaseController {
 			DB::rollback();
 			
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/noticias');
+			return Redirect::to('/sisadm/noticias');
 		}
 		
 	}
@@ -259,7 +259,7 @@ class AdmonController extends BaseController {
 		$nombre_imagen = $dn->imagen;
 		$dn -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/noticias');	
+		return Redirect::to('/sisadm/noticias');	
 	}
 
 	public function postPublishnoticia()
@@ -297,7 +297,7 @@ class AdmonController extends BaseController {
 				$eu = Noticias::find($inputs["paramidnew"]);
 				$eu->publicado = 1;
 				$eu->save();				
-				echo "/admin/noticias";
+				echo "/sisadm/noticias";
 				echo "*";
 				echo "La noticia ha sido publicada correctamente!!";
 				echo "*";
@@ -310,7 +310,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			echo "/admin/noticias";
+			echo "/sisadm/noticias";
 			echo "*";
 			echo "Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.";
 			echo "*";
@@ -354,7 +354,7 @@ class AdmonController extends BaseController {
 				$eu = Noticias::find($inputs["paramidnew"]);
 				$eu->publicado = 0;
 				$eu->save();				
-				echo "/admin/noticias";
+				echo "/sisadm/noticias";
 				echo "*";
 				echo "La noticia ha sido ocultada correctamente!!";
 				echo "*";
@@ -367,7 +367,7 @@ class AdmonController extends BaseController {
 		{
 			DB::rollback();
 			
-			echo "/admin/noticias";
+			echo "/sisadm/noticias";
 			echo "*";
 			echo "Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.";
 			echo "*";
@@ -459,7 +459,7 @@ class AdmonController extends BaseController {
 
 				DB::commit();
 				Session::flash('mensaje','Registros ingresados correctamente!!');
-				return Redirect::to('/admin/noticias');
+				return Redirect::to('/sisadm/noticias');
 				
 			}else{
 				if ($file_imagen != null) {
@@ -484,7 +484,7 @@ class AdmonController extends BaseController {
 						$m->save();
 						DB::commit();
 						Session::flash('mensaje','Registro ingresado correctamente!!');
-						return Redirect::to('/admin/noticias');
+						return Redirect::to('/sisadm/noticias');
 					}else
 					{
 						DB::rollback();
@@ -516,7 +516,7 @@ class AdmonController extends BaseController {
 							$m->save();
 							DB::commit();
 							Session::flash('mensaje','Registro ingresado correctamente!!');
-							return Redirect::to('/admin/noticias');
+							return Redirect::to('/sisadm/noticias');
 						}else
 						{
 							DB::rollback();
@@ -695,7 +695,7 @@ class AdmonController extends BaseController {
 				else
 				{
 					Session::flash('mensaje','Registro editado correctamente!!');
-					return Redirect::to('/admin/usuarios');
+					return Redirect::to('/sisadm/usuarios');
 				}
 				//Session::put('usuario',$inputs["nombre_usuario"]);
 				/*$p = $eu->id_perfil;
@@ -706,7 +706,7 @@ class AdmonController extends BaseController {
 			}
 			else
 			{
-				return Redirect::to('/admin/editusuario/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+				return Redirect::to('/sisadm/editusuario/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
 			}			
 		}
 	}
@@ -767,12 +767,12 @@ class AdmonController extends BaseController {
 				$nu->estado = 1;
 				$nu->save();
 				Session::flash('mensaje','Registro ingresado correctamente!!');
-				return Redirect::to('/admin/usuarios');	
+				return Redirect::to('/sisadm/usuarios');	
 				//}					
 			}
 			else
 			{
-				return Redirect::to('/admin/addusuario')->with('mensajeError','Seleccione un Perfil!!');	
+				return Redirect::to('/sisadm/addusuario')->with('mensajeError','Seleccione un Perfil!!');	
 			}
 		}
 	}
@@ -787,7 +787,7 @@ class AdmonController extends BaseController {
 		$du = Usuarios::find($id_usuario);
 		$du -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/usuarios');	
+		return Redirect::to('/sisadm/usuarios');	
 	}
 	
 /***   Vista Colaboradores de Administracion   ***/	
@@ -879,11 +879,11 @@ class AdmonController extends BaseController {
 					$c->save();
 					Session::flash('mensaje','Registro ingresado correctamente!!');
 					DB::commit();
-					return Redirect::to('/admin/colaboradores');
+					return Redirect::to('/sisadm/colaboradores');
 				}else
 				{
 					Session::flash('mensajeError','No se pudo subir el archivo!!');
-					return Redirect::to('/admin/colaboradores');
+					return Redirect::to('/sisadm/colaboradores');
 				}
 			}
 		}
@@ -892,7 +892,7 @@ class AdmonController extends BaseController {
 			DB::rollback();
 			
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/colaboradores');
+			return Redirect::to('/sisadm/colaboradores');
 		}
 	}
 	
@@ -954,7 +954,7 @@ class AdmonController extends BaseController {
 				$ec->save();
 				Session::flash('mensaje','Registro editado correctamente!!');
 				DB::commit();
-				return Redirect::to('/admin/colaboradores');
+				return Redirect::to('/sisadm/colaboradores');
 			}
 		}
 		catch(Exception $e)
@@ -962,7 +962,7 @@ class AdmonController extends BaseController {
 			DB::rollback();
 			
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/colaboradores');
+			return Redirect::to('/sisadm/colaboradores');
 		}		
 	}
 	
@@ -976,7 +976,7 @@ class AdmonController extends BaseController {
 		$dc = Colaboradores::find($id_colaborador);
 		$dc -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/colaboradores');	
+		return Redirect::to('/sisadm/colaboradores');	
 	}
 	
 	/***   Vista Configuracion para los banners   ***/	
@@ -1018,27 +1018,27 @@ class AdmonController extends BaseController {
 					{
 						//$imp= '<br /> nombre: '.$imagen_banner.'<br /> tamano: '.$tamano.'<br /> extencion: '.$extencion;
 						Session::flash('mensaje','Registro actualizado correctamente!!<br /> sino se muestra la nueva imagen recarge la pagina. Gracias!');
-						return Redirect::to('/admin/confbanners');
+						return Redirect::to('/sisadm/confbanners');
 					}
 					else
 					{
 						Session::flash('mensajeError','Error al subir el archivo');
-						return Redirect::to('/admin/confbanners');
+						return Redirect::to('/sisadm/confbanners');
 					}				
 				}
 				else
 				{
 					Session::flash('mensajeError','Formato Invalido');
-					return Redirect::to('/admin/confbanners');
+					return Redirect::to('/sisadm/confbanners');
 				}
 			} else {
-				return Redirect::to('/admin/confbanners')->with('mensajeError', 'El Archivo es Requerido');
+				return Redirect::to('/sisadm/confbanners')->with('mensajeError', 'El Archivo es Requerido');
 			}	
 		}
 		catch(Exception $e)
 		{			
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/confbanners');
+			return Redirect::to('/sisadm/confbanners');
 		}
 	}
 	
@@ -1115,12 +1115,12 @@ class AdmonController extends BaseController {
 				$p->nombre = $inputs["nombre"];
 				$p->descripcion = $inputs["descripcion"];
 				$p->save();
-				return Redirect::to('/admin/perfiles')->with('mensaje', 'Registro editado correctamente!!');
+				return Redirect::to('/sisadm/perfiles')->with('mensaje', 'Registro editado correctamente!!');
 			}
 			
 		} catch (Exception $e) {
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
+			return Redirect::to('/sisadm/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
 		}
 	}
 
@@ -1136,12 +1136,12 @@ class AdmonController extends BaseController {
 			$dp = Perfiles::find($id_perfil);
 			$dp->estado = 0;
 			$dp->save();
-			return Redirect::to('/admin/perfiles')->with('mensaje','Registro deshabilitado correctamente!!');
+			return Redirect::to('/sisadm/perfiles')->with('mensaje','Registro deshabilitado correctamente!!');
 		} 
 		catch (Exception $e) 
 		{
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+			return Redirect::to('/sisadm/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
 		}			
 	}
 
@@ -1157,12 +1157,12 @@ class AdmonController extends BaseController {
 			$dp = Perfiles::find($id_perfil);
 			$dp->estado = 1;
 			$dp->save();
-			return Redirect::to('/admin/perfiles')->with('mensaje','Registro habilitado correctamente!!');
+			return Redirect::to('/sisadm/perfiles')->with('mensaje','Registro habilitado correctamente!!');
 		} 
 		catch (Exception $e) 
 		{
 			DB::rollback();
-			return Redirect::to('/admin/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
+			return Redirect::to('/sisadm/perfiles')->with('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');			
 		}			
 	}
 
@@ -1288,12 +1288,12 @@ class AdmonController extends BaseController {
 				$eu->save();
 				
 				Session::flash('mensaje','Registro editado correctamente!!');
-				return Redirect::to('/admin/lideres');
+				return Redirect::to('/sisadm/lideres');
 				
 			}
 			else
 			{
-				return Redirect::to('/admin/editlider/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+				return Redirect::to('/sisadm/editlider/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
 			}			
 		}
 	}
@@ -1337,12 +1337,12 @@ class AdmonController extends BaseController {
 
 				$nu->save();
 				Session::flash('mensaje','Registro ingresado correctamente!!');
-				return Redirect::to('/admin/lideres');	
+				return Redirect::to('/sisadm/lideres');	
 				//}					
 			}
 			else
 			{
-				return Redirect::to('/admin/addlider')->with('mensajeError','Seleccione un Perfil!!');	
+				return Redirect::to('/sisadm/addlider')->with('mensajeError','Seleccione un Perfil!!');	
 			}
 		}
 	}
@@ -1357,7 +1357,7 @@ class AdmonController extends BaseController {
 		$du = Lideres::find($id_lider);
 		$du -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/lideres');	
+		return Redirect::to('/sisadm/lideres');	
 	}
 
 
@@ -1462,12 +1462,12 @@ class AdmonController extends BaseController {
 				$eu->save();
 				
 				Session::flash('mensaje','Registro editado correctamente!!');
-				return Redirect::to('/admin/comunidades');
+				return Redirect::to('/sisadm/comunidades');
 				
 			}
 			else
 			{
-				return Redirect::to('/admin/editcomunidad/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
+				return Redirect::to('/sisadm/editcomunidad/'.$inputs["id"] )->with('mensajeError','Perfil no Valido!!');	
 			}			
 		}
 	}
@@ -1511,12 +1511,12 @@ class AdmonController extends BaseController {
 
 				$nu->save();
 				Session::flash('mensaje','Registro ingresado correctamente!!');
-				return Redirect::to('/admin/comunidades');	
+				return Redirect::to('/sisadm/comunidades');	
 				//}					
 			}
 			else
 			{
-				return Redirect::to('/admin/addcomunidad')->with('mensajeError','Seleccione un Perfil!!');	
+				return Redirect::to('/sisadm/addcomunidad')->with('mensajeError','Seleccione un Perfil!!');	
 			}
 		}
 	}
@@ -1531,7 +1531,7 @@ class AdmonController extends BaseController {
 		$du = Comunidades::find($id_comunidad);
 		$du -> delete();
 		Session::flash('mensaje','Registro eliminado correctamente!!');
-		return Redirect::to('/admin/comunidades');	
+		return Redirect::to('/sisadm/comunidades');	
 	}
 
 	/*** Coctactos ***/
@@ -1617,12 +1617,12 @@ class AdmonController extends BaseController {
 				$c->telefono = $inputs["telefono"];
 				$c->save();
 				DB::commit();
-				return Redirect::to('/admin/contactos')->with('mensaje','Registro ingresado correctamente!!');
+				return Redirect::to('/sisadm/contactos')->with('mensaje','Registro ingresado correctamente!!');
 			}			
 		} catch (Exception $e) {
 			DB::rollback();
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/contactos');
+			return Redirect::to('/sisadm/contactos');
 		}
 	}
 
@@ -1676,12 +1676,12 @@ class AdmonController extends BaseController {
 				$ec->telefono = $inputs["telefono"];
 				$ec->save();
 				DB::commit();
-				return Redirect::to('/admin/contactos')->with('mensaje','Registro editado correctamente!!');
+				return Redirect::to('/sisadm/contactos')->with('mensaje','Registro editado correctamente!!');
 			}			
 		} catch (Exception $e) {
 			DB::rollback();
 			Session::flash('mensajeError','Ocurrio un error inesperado :(<br/> Por favor contacte con el administrador del sistema.');
-			return Redirect::to('/admin/contactos');
+			return Redirect::to('/sisadm/contactos');
 		}
 	}
 
@@ -1694,6 +1694,6 @@ class AdmonController extends BaseController {
 		
 		$dc = Contactos::find($id_contacto);
 		$dc -> delete();
-		return Redirect::to('/admin/contactos')->with('mensaje','Registro eliminado correctamente!!');
+		return Redirect::to('/sisadm/contactos')->with('mensaje','Registro eliminado correctamente!!');
 	}
 }

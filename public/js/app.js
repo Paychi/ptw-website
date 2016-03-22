@@ -135,7 +135,7 @@ $(document).ready( function() {
             $(".menu-perfilcolaborador").addClass("active");
     }
 
-    if ((urlActual.indexOf('admin') != -1)) {
+    if ((urlActual.indexOf('sisadm') != -1)) {
             $("#tag_admin").addClass("active");
     }
 

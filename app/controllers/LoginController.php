@@ -24,7 +24,7 @@ class LoginController extends BaseController
 		{
 			$session_user = Usuarios::whereRaw('nombre_usuario=?',[Session::get('usuario')])->get();
 			if($session_user[0]->perfil->id_perfil == 1)
-				return Redirect::to('/admin');
+				return Redirect::to('/sisadm');
 			if($session_user[0]->perfil->id_perfil == 2)
 				return Redirect::to('/adis');
 			if($session_user[0]->perfil->id_perfil == 3)
@@ -61,7 +61,7 @@ class LoginController extends BaseController
 						Session::put('usuario',$us[0]->nombre_usuario);
 						switch ($us[0]->perfil->id_perfil) {
 							case 1:
-								return Redirect::to('admin');
+								return Redirect::to('sisadm');
 								break;
 
 							case 2:
@@ -459,7 +459,7 @@ class LoginController extends BaseController
 						Session::put('usuario',$id_user[0]->nombre_usuario);
 						switch ($id_user[0]->perfil->id_perfil) {
 							case 1:
-								return Redirect::to('admin');
+								return Redirect::to('sisadm');
 								break;
 
 							case 2:

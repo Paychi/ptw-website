@@ -11,7 +11,7 @@ Ad-Contactos
 		$selected = array();
 	?>
 
-	{{Form::open(array('url'=>'admin/contactos', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/contactos', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::select('tipo', $lista_filtro, $selected, array('class' => 'form-control'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
@@ -41,7 +41,7 @@ Ad-Contactos
 				<th>Apellidos</th>
 				<th>Correo</th>
 				<th>Telefono</th>
-				<th data-toggle="tooltip" title="Agregar Contacto" colspan="2"><center><a href="{{URL::to('/')}}/admin/addcontacto" class="text-center"><span class="glyphicon glyphicon-plus"></span></a></center></th>
+				<th data-toggle="tooltip" title="Agregar Contacto" colspan="2"><center><a href="{{URL::to('/')}}/sisadm/addcontacto" class="text-center"><span class="glyphicon glyphicon-plus"></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -68,13 +68,13 @@ Ad-Contactos
 	<script>
 		function editar(id_user)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editcontacto/'+id_user;
+			window.location.href='{{URL::to('/')}}/sisadm/editcontacto/'+id_user;
 		}
 		function eliminar(id_user)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/delatecontacto/'+id_user;
+				window.location.href='{{URL::to('/')}}/sisadm/delatecontacto/'+id_user;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -82,7 +82,7 @@ Ad-Contactos
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/contactos';
+			window.location.href='{{URL::to('/')}}/sisadm/contactos';
 		}
 	</script>
 

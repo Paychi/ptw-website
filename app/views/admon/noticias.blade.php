@@ -6,7 +6,7 @@ Ad-Noticias
 
 @section('content_admon')
 
-	{{Form::open(array('url'=>'admin/noticias', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/noticias', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro Titulo &oacute; Estracto'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
@@ -35,7 +35,7 @@ Ad-Noticias
 				<th>Estracto</th>
 				<th>Fecha de la Noticia</th>
 				<th>Fecha Registro</th>
-				<th data-toggle="tooltip" title="Agregar Noticia" colspan="4"><center><a href="{{URL::to('/')}}/admin/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+				<th data-toggle="tooltip" title="Agregar Noticia" colspan="4"><center><a href="{{URL::to('/')}}/sisadm/addnoticia" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -113,19 +113,19 @@ Ad-Noticias
  	<script>
 		function editar(id_new)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editnoticia/'+id_new;
+			window.location.href='{{URL::to('/')}}/sisadm/editnoticia/'+id_new;
 		}
 
 		function upload(id_new)
 		{
-			window.location.href='{{URL::to('/')}}/admin/upload/'+id_new;
+			window.location.href='{{URL::to('/')}}/sisadm/upload/'+id_new;
 		}
 
 		function eliminar(id_new)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/delatenoticia/'+id_new;
+				window.location.href='{{URL::to('/')}}/sisadm/delatenoticia/'+id_new;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -192,7 +192,7 @@ Ad-Noticias
 
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/noticias';
+			window.location.href='{{URL::to('/')}}/sisadm/noticias';
 		}
 	</script>
 @endsection

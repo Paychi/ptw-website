@@ -11,7 +11,7 @@ Ad-Lideres
 		$selected = array();
 	?>
 
-	{{Form::open(array('url'=>'admin/lideres', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/lideres', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
@@ -40,7 +40,7 @@ Ad-Lideres
 				<th>Nombre Completo</th>
 				<th>Comunidad que Labora</th>
 				<th>Fecha Registro</th>
-				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Líder" href="{{URL::to('/')}}/admin/addlider" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
+				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Líder" href="{{URL::to('/')}}/sisadm/addlider" class=""><span class='glyphicon glyphicon-plus'></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -72,13 +72,13 @@ Ad-Lideres
 	<script>
 		function editar(id_lider)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editlider/'+id_lider;
+			window.location.href='{{URL::to('/')}}/sisadm/editlider/'+id_lider;
 		}
 		function eliminar(id_lider)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/deletelider/'+ id_lider;
+				window.location.href='{{URL::to('/')}}/sisadm/deletelider/'+ id_lider;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -86,7 +86,7 @@ Ad-Lideres
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/lideres';
+			window.location.href='{{URL::to('/')}}/sisadm/lideres';
 		}
 	</script>
  	

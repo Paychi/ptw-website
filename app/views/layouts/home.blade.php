@@ -100,7 +100,7 @@
 							<li class="dropdown"><a href='#' class="dropdown-toggle" data-toggle="dropdown"><span>{{Session::get('usuario')}} <b class="caret"></b></span></a>
 								<ul class="dropdown-menu nav nav-pills nav-stacked">									
 									@if($perfil == 1)
-										<li><a href='{{URL::to('/')}}/admin'><span>Administraci&oacute;n</span></a></li>
+										<li><a href='{{URL::to('/')}}/sisadm'><span>Administraci&oacute;n</span></a></li>
 									@endif
 									@if($perfil == 2)
 										<li><a href='{{URL::to('/')}}/adis'><span>Adis</span></a></li>

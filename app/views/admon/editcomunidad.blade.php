@@ -5,13 +5,13 @@ Ad-Comunidades
 @stop
 
 @section('content_admon')
-	{{ Form::open(array('url' => '/admin/editcomunidad','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
+	{{ Form::open(array('url' => '/sisadm/editcomunidad','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
 		<div class="row text-right">
 			<div style="float:left; margin-left:2%;">
 				<label style="color:#337AB7; font-size:2em;" class="control-label">Editar Comunidad</label>			
 			</div>
 			<div>
-				<a href='{{URL::to('/')}}/admin/comunidades' class="btn btn-danger"> X </a>
+				<a href='{{URL::to('/')}}/sisadm/comunidades' class="btn btn-danger"> X </a>
 			</div>	
 		</div>
 

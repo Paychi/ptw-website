@@ -80,7 +80,7 @@ Ad-Banners
 	
 	<div style="display:none;width:100%;height:100%;" class="modal container" id="div_loadfile">
 		<div class="container modal-content" style="margin-top:20px;">
-			{{ Form::open(array('url' => '/admin/confbanners','method'=>'post','class'=>'', 'name'=>'formbanners','id'=>'', 'files' => true)) }}
+			{{ Form::open(array('url' => '/sisadm/confbanners','method'=>'post','class'=>'', 'name'=>'formbanners','id'=>'', 'files' => true)) }}
 				<input type="hidden" name="nombre_banner" id="id_nombre_banner" />
 				<div class="modal-title" style="margin-top:10px;">
 					<label>Actualizar Banner</label> <label> | </label> <label id="cabecera"></label>

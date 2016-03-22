@@ -35,13 +35,13 @@ Ad-Noticias
 		</div>
 	@endif
 	
-	{{ Form::open(array('url' => '/admin/editnoticia','method'=>'post','class'=>'', 'name'=>'formnoticias','id'=>'msform', 'files' => true)) }}
+	{{ Form::open(array('url' => '/sisadm/editnoticia','method'=>'post','class'=>'', 'name'=>'formnoticias','id'=>'msform', 'files' => true)) }}
 		<div class="row text-right">
 			<div style="float:left; margin-left:2%;">
 				<label style="color:#337AB7; font-size:2em;" class="control-label">Editar Noticia</label>			
 			</div>
 			<div>	
-				<a href='{{URL::to('/')}}/admin/noticias' class="btn btn-danger"> X </a>
+				<a href='{{URL::to('/')}}/sisadm/noticias' class="btn btn-danger"> X </a>
 			</div>
 		</div>
 		

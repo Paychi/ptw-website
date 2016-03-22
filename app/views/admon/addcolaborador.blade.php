@@ -37,13 +37,13 @@ Ad-Noticias
 		</div>
 	@endif
 	
-	{{ Form::open(array('url' => '/admin/addcolaborador','method'=>'post','class'=>'', 'name'=>'form_colaborador','id'=>'msform', 'files' => true)) }}
+	{{ Form::open(array('url' => '/sisadm/addcolaborador','method'=>'post','class'=>'', 'name'=>'form_colaborador','id'=>'msform', 'files' => true)) }}
 		<div class="row text-right">
 			<div style="float:left; margin-left:2%;">
 				<label style="color:#337AB7; font-size:2em;" class="control-label">Nuevo Colaborador</label>			
 			</div>
 			<div>	
-				<a href='{{URL::to('/')}}/admin/colaboradores' class="btn btn-danger"> X </a>
+				<a href='{{URL::to('/')}}/sisadm/colaboradores' class="btn btn-danger"> X </a>
 			</div>
 		</div>
 		

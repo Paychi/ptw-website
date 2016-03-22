@@ -5,9 +5,9 @@ Ad-Comunidades
 @stop
 
 @section('content_admon')
-	{{ Form::open(array('url' => '/admin/addcomunidad','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
+	{{ Form::open(array('url' => '/sisadm/addcomunidad','method'=>'post','class'=>'', 'name'=>'form_noticias','id'=>'msform')) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/admin/comunidades' class="btn btn-danger"> X </a>
+			<a href='{{URL::to('/')}}/sisadm/comunidades' class="btn btn-danger"> X </a>
 		</div>
 
 		@if(Session::has('mensajeError'))

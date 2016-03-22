@@ -6,7 +6,7 @@ Ad-Colaboradores
 
 @section('content_admon')
 
-	{{Form::open(array('url'=>'admin/colaboradores', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/colaboradores', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Filtro Nombre &oacute; Descripci&oacute;n'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
 		{{Form::input('button', null, 'Mostrar Todos', array('class'=>'btn btn-default', 'onclick'=>'MT()'))}}
@@ -36,7 +36,7 @@ Ad-Colaboradores
 				<th>Descripci&oacute;n</th>
 				<th>Sitio Web</th>
 				<th>Fecha de Afiliaci&oacute;n</th>
-				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Colaborador" href="{{URL::to('/')}}/admin/addcolaborador" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
+				<th colspan="2"><center><a data-toggle="tooltip" title="Agregar Colaborador" href="{{URL::to('/')}}/sisadm/addcolaborador" class=""><span class="glyphicon glyphicon-plus"></span></a></center></th>
 			</thead>
 			<tbody>
 				@if($datos->count() == 0)
@@ -70,13 +70,13 @@ Ad-Colaboradores
  	<script>
 		function editar(id_new)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editcolaborador/'+id_new;
+			window.location.href='{{URL::to('/')}}/sisadm/editcolaborador/'+id_new;
 		}
 		function eliminar(id_new)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/delatecolaborador/'+id_new;
+				window.location.href='{{URL::to('/')}}/sisadm/delatecolaborador/'+id_new;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -84,7 +84,7 @@ Ad-Colaboradores
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/colaboradores';
+			window.location.href='{{URL::to('/')}}/sisadm/colaboradores';
 		}
 	</script>
 @endsection

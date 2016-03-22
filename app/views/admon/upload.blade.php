@@ -20,9 +20,9 @@ Ad-Upload
 		</div>
 	@endif
 	
-	{{ Form::open(array('url' => '/admin/uploads','method'=>'post','class'=>'', 'name'=>'formnoticias','id'=>'msform', 'files' => true)) }}
+	{{ Form::open(array('url' => '/sisadm/uploads','method'=>'post','class'=>'', 'name'=>'formnoticias','id'=>'msform', 'files' => true)) }}
 		<div class="row text-right">
-			<a href='{{URL::to('/')}}/admin/noticias' class="btn btn-danger"> X </a>
+			<a href='{{URL::to('/')}}/sisadm/noticias' class="btn btn-danger"> X </a>
 		</div>
 		
 		<input type="hidden" name="id" value="{{$id_noticia}}">

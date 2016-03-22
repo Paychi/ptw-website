@@ -11,7 +11,7 @@ Ad-Lideres
 		$selected = array();
 	?>
 
-	{{Form::open(array('url'=>'admin/comunidades', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
+	{{Form::open(array('url'=>'sisadm/comunidades', 'method'=>'GET', 'role'=>'form', 'class'=>'form-inline text-center'))}}
 		
 		{{Form::input('text', 'filtro', Input::get('filtro'), array('class'=>'form-control', 'placeholder'=>'Nombre'))}}
 		{{Form::input('submit', null, 'Filtrar', array('class'=>'btn btn-default'))}}
@@ -70,13 +70,13 @@ Ad-Lideres
 	<script>
 		function editar(id_comunidad)
 		{
-			window.location.href='{{URL::to('/')}}/admin/editcomunidad/'+id_comunidad;
+			window.location.href='{{URL::to('/')}}/sisadm/editcomunidad/'+id_comunidad;
 		}
 		function eliminar(id_comunidad)
 		{
 			if(confirm("Realmente usted quiere eliminar este registro?"))
 			{
-				window.location.href='{{URL::to('/')}}/admin/deletecomunidad/'+ id_comunidad;
+				window.location.href='{{URL::to('/')}}/sisadm/deletecomunidad/'+ id_comunidad;
 			}else
 			{
 				alert("La operación fue cancelada!");
@@ -84,7 +84,7 @@ Ad-Lideres
 		}
 		function MT()
 		{
-			window.location.href='{{URL::to('/')}}/admin/comunidades';
+			window.location.href='{{URL::to('/')}}/sisadm/comunidades';
 		}
 	</script>
  	
