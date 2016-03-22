@@ -11,7 +11,7 @@
                     <table style="border: 5px solid #ffffff; width: 100%; height: 100%;">
                         <tbody>
                             <tr>
-                                <td style="border-bottom: 2px solid #ecf0f1;"><img src='{{ URL::to("/img/logo/logo.svg") }}' alt='ptw' width = '64' height = '64'/></td>
+                                <td style="border-bottom: 2px solid #ecf0f1;"><img src='{{ URL::to("/img/logo/logo.png") }}' alt='ptw' width = '64' height = '64'/></td>
                                 <td style="text-align: right; font-size: 21px; border-bottom: 2px solid #ecf0f1;">   Cont&aacute;ctanos Telemedicina Waslala - Nicaragua</td>
                             </tr>
                             <tr>

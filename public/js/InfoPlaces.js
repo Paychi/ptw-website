@@ -361,6 +361,7 @@ $(document).ready(function(){
         $('#myModalLabel').text("");
         $('#ContenidoModal').text("");
         $('#ContenidoModalLider').text("");
+        $('#tituloLideres').empty();
         
         var url=$('#mapa_form').attr('action') + "/GetInfoComunidad";
 
@@ -374,6 +375,7 @@ $(document).ready(function(){
             },
             success: function (data) {
                 //alert(data)
+                console.log(data);
                 var nombreComunidadAMostrar= JSON.stringify(data[0].nombreComunidad);
                 var contenidoComunidadAMostrar= JSON.stringify(data[0].descripcion);
                 var contenidoLiderDeComunidad = [];
@@ -388,13 +390,18 @@ $(document).ready(function(){
                     //contenidoLiderDeComunidad = JSON.stringify(data[0].nombre)
                     $('#tituloLideres').text("Líderes encargados: ");
 
+                    var lista_lideres_html="<ul class='nav nav-pills nav-stacked'>";
+
                     for(var i = 0; i < data.length ; i++)
                     {
-                        contenidoLiderDeComunidad.push(JSON.stringify(data[i].nombre))
+                        lista_lideres_html+="<li><label>- "+ JSON.stringify(data[i].nombre).replace(/\"/g,"") +"</label></li>";
+                        //contenidoLiderDeComunidad.push(JSON.stringify(data[i].nombre))
                     }
                     // + contenidoLiderDeComunidad.split("\"").join(""));
+                    lista_lideres_html+="</ul>";
 
-                    $('#ContenidoModalLider').text(contenidoLiderDeComunidad.toString().split("\"").join(""));
+                    //$('#ContenidoModalLider').text(contenidoLiderDeComunidad.toString().split("\"").join(""));
+                    $('#ContenidoModalLider').html(lista_lideres_html);
                 }
            
             },
