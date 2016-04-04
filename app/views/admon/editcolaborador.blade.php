@@ -79,6 +79,8 @@ Ad-Colaboradores
 				<label class="control-label col-md-12">Sitio Web</label>					
 				<div class="col-md-12"> 
 					{{Form::text('website',$datos->sitio_web, array('class' => 'form-control'))}}
+					<p class="help-block">Escriba el sitio sin www y sin http:// o https:// </p>
+					<p class="help-block">Ejemplo: ejemplo.com</p>
 					<label class="error">{{$errors->first("website")}}</label>
 				</div>
 			</div>

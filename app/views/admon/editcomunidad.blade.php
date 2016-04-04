@@ -45,7 +45,7 @@ Ad-Comunidades
 			<div class="col-md-6">			
 				<label class="control-label col-md-12">Descripción</label>					
 				<div class="col-md-12"> 
-					{{ Form::text('descripcion',$datos->descripcion, array('class' => 'form-control', 'required', 'autofocus') ) }}
+					{{Form::textarea('descripcion',$datos->descripcion, array('class' => 'form-control', 'rows' => '3', 'required'))}}
 					<label class="error">{{$errors->first("descripcion")}}</label>
 				</div>
 			</div>

@@ -49,8 +49,8 @@ class RootController extends BaseController {
 
 
 			$perfil = $this->perfilUser();
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.inicio',compact("datos","perfil","defn","defnhidden"));
 		}
@@ -65,8 +65,8 @@ class RootController extends BaseController {
 		try
 		{
 			$perfil = $this->perfilUser();			
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.waslala',compact("perfil","defn","defnhidden"));
 		}
@@ -81,8 +81,8 @@ class RootController extends BaseController {
 		try
 		{
 			$perfil = $this->perfilUser();
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.about',compact("perfil","defn","defnhidden"));
 		}
@@ -99,8 +99,8 @@ class RootController extends BaseController {
 			$datos = Colaboradores::all();
 
 			$perfil = $this->perfilUser();			
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.colaboradores',compact("perfil", "datos","defn","defnhidden"));
 		}
@@ -120,8 +120,8 @@ class RootController extends BaseController {
 			
 			$datos=Noticias::where('titulo','LIKE','%'.$noticiapost.'%')->get();		
 			
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.search',compact("noticiapost","datos","perfil","defn","defnhidden"));
 		}
@@ -167,8 +167,8 @@ class RootController extends BaseController {
 
 			$multimedia = Multimedias::where('id_noticia', '=', $datos->id_noticia)->orderBy('tipo')->get();
 			
-			$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-			$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+			$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+			$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 			
 			return $this->layout->content = View::make('site.detallenoticia',compact("datos","perfil","defn","defnhidden","multimedia"));
 		}
@@ -187,8 +187,8 @@ class RootController extends BaseController {
 	public function getContactus()
 	{
 		$perfil = $this->perfilUser();
-		$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-		$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+		$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+		$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 		$datos = Contactos::all();
 
 		return $this->layout->content = View::make('site.contactus', compact("perfil", "defn","defnhidden","datos"));
@@ -269,8 +269,8 @@ class RootController extends BaseController {
 	public function getSimsiv()
 	{
 		$perfil = $this->perfilUser();
-		$defn = "Waslala\nTotal de mensajes enviados: 999\nComunidad: San Antonio";
-		$defnhidden = "<b>Total de mensajes enviados:</b> 999<br/><b>Comunidad:</b> San Antonio";
+		$defn = "Waslala\nTotal de mensajes enviados: 394\nComunidad: San Juan Yaro";
+		$defnhidden = "<b>Total de mensajes enviados:</b> 394<br/><b>Comunidad:</b> San Juan Yaro";
 
 		return $this->layout->content = View::make('site.simsiv', compact("perfil", "defn","defnhidden"));
 	}

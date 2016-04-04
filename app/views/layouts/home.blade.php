@@ -136,7 +136,7 @@
 				<div id="div_promotor" class="text-center">
 					<label class="promotor_mes">Promotor del Mes: 
 						<b>
-							Nombre Apellido
+							Cleotilde López
 						</b>
 					</label>
 					<div id="contDefPromotorHidden" class="text-center"> 
@@ -154,7 +154,7 @@
 					<a href="http://www76.homepage.villanova.edu/kelly.modrick/index.html">{{HTML::image('img/nova.png','nova',array("class"=>"","style"=>""))}}</a>
 					<label class="promotor_mes">Promotor del Mes: 
 						<b>
-							Nombre Apellido
+							Cleotilde López
 						</b>
 					</label>
 					<div id="contDefPromotor" class="text-center"> 
